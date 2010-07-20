@@ -1,0 +1,9 @@
+<contanier>
+	<!-- Service layer -->
+	<object id="serviceXyz" class="AServiceImpl" lazy="false"/>
+	
+	<!-- Presentation layer -->
+	<object id="viewName" class="AViewController">
+		<property name="service" ref="serviceXyz"/>
+	</object>
+</contanier>
