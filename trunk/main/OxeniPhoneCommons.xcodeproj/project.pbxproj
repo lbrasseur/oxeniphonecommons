@@ -1,0 +1,348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA747D9F0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA9985A611F3F08A00A75DF1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9985A511F3F08A00A75DF1 /* libxml2.dylib */; };
+		DA99863811F3F67100A75DF1 /* OxICSimpleClassWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99863411F3F67100A75DF1 /* OxICSimpleClassWrapper.h */; };
+		DA99863911F3F67100A75DF1 /* OxICSimpleClassWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99863511F3F67100A75DF1 /* OxICSimpleClassWrapper.m */; };
+		DA99863A11F3F67100A75DF1 /* OxICSimpleObjectWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99863611F3F67100A75DF1 /* OxICSimpleObjectWrapper.h */; };
+		DA99863B11F3F67100A75DF1 /* OxICSimpleObjectWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99863711F3F67100A75DF1 /* OxICSimpleObjectWrapper.m */; };
+		DA99863F11F3F6D500A75DF1 /* OxICClassWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99863E11F3F6D500A75DF1 /* OxICClassWrapper.h */; };
+		DA99864111F3F6E600A75DF1 /* OxICObjectWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864011F3F6E600A75DF1 /* OxICObjectWrapper.h */; };
+		DA99864311F3F6F600A75DF1 /* OxICWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */; };
+		DA99864611F3F7FC00A75DF1 /* OxICPropertyDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */; };
+		DA99864711F3F7FC00A75DF1 /* OxICPropertyDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */; };
+		DACB367211F516E900FE67D4 /* OxICSimpleWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */; };
+		DACB367311F516E900FE67D4 /* OxICSimpleWrapperFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */; };
+		DACB36EE11F5370800FE67D4 /* OxICContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36E511F5370800FE67D4 /* OxICContainer.h */; };
+		DACB36EF11F5370800FE67D4 /* OxICContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36E611F5370800FE67D4 /* OxICContainer.m */; };
+		DACB36F011F5370800FE67D4 /* OxICContainerBuilderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36E711F5370800FE67D4 /* OxICContainerBuilderDelegate.h */; };
+		DACB36F111F5370800FE67D4 /* OxICLazyProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36E811F5370800FE67D4 /* OxICLazyProxy.h */; };
+		DACB36F211F5370800FE67D4 /* OxICLazyProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36E911F5370800FE67D4 /* OxICLazyProxy.m */; };
+		DACB36F311F5370800FE67D4 /* OxICObjectDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36EA11F5370800FE67D4 /* OxICObjectDefinition.h */; };
+		DACB36F411F5370800FE67D4 /* OxICObjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */; };
+		DACB36F511F5370800FE67D4 /* OxICXmlContainerBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */; };
+		DACB36F611F5370800FE67D4 /* OxICXmlContainerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxeniPhoneCommons_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOxeniPhoneCommons.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA9985A511F3F08A00A75DF1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		DA99863411F3F67100A75DF1 /* OxICSimpleClassWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICSimpleClassWrapper.h; path = Classes/Wrapper/Impl/Simple/OxICSimpleClassWrapper.h; sourceTree = SOURCE_ROOT; };
+		DA99863511F3F67100A75DF1 /* OxICSimpleClassWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICSimpleClassWrapper.m; path = Classes/Wrapper/Impl/Simple/OxICSimpleClassWrapper.m; sourceTree = SOURCE_ROOT; };
+		DA99863611F3F67100A75DF1 /* OxICSimpleObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICSimpleObjectWrapper.h; path = Classes/Wrapper/Impl/Simple/OxICSimpleObjectWrapper.h; sourceTree = SOURCE_ROOT; };
+		DA99863711F3F67100A75DF1 /* OxICSimpleObjectWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICSimpleObjectWrapper.m; path = Classes/Wrapper/Impl/Simple/OxICSimpleObjectWrapper.m; sourceTree = SOURCE_ROOT; };
+		DA99863E11F3F6D500A75DF1 /* OxICClassWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICClassWrapper.h; sourceTree = "<group>"; };
+		DA99864011F3F6E600A75DF1 /* OxICObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICObjectWrapper.h; sourceTree = "<group>"; };
+		DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICWrapperFactory.h; sourceTree = "<group>"; };
+		DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICPropertyDescriptor.h; sourceTree = "<group>"; };
+		DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICPropertyDescriptor.m; sourceTree = "<group>"; };
+		DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICSimpleWrapperFactory.h; sourceTree = "<group>"; };
+		DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICSimpleWrapperFactory.m; sourceTree = "<group>"; };
+		DACB36E511F5370800FE67D4 /* OxICContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICContainer.h; path = Classes/Container/OxICContainer.h; sourceTree = SOURCE_ROOT; };
+		DACB36E611F5370800FE67D4 /* OxICContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICContainer.m; path = Classes/Container/OxICContainer.m; sourceTree = SOURCE_ROOT; };
+		DACB36E711F5370800FE67D4 /* OxICContainerBuilderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICContainerBuilderDelegate.h; path = Classes/Container/OxICContainerBuilderDelegate.h; sourceTree = SOURCE_ROOT; };
+		DACB36E811F5370800FE67D4 /* OxICLazyProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICLazyProxy.h; path = Classes/Container/OxICLazyProxy.h; sourceTree = SOURCE_ROOT; };
+		DACB36E911F5370800FE67D4 /* OxICLazyProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICLazyProxy.m; path = Classes/Container/OxICLazyProxy.m; sourceTree = SOURCE_ROOT; };
+		DACB36EA11F5370800FE67D4 /* OxICObjectDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICObjectDefinition.h; path = Classes/Container/OxICObjectDefinition.h; sourceTree = SOURCE_ROOT; };
+		DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICObjectDefinition.m; path = Classes/Container/OxICObjectDefinition.m; sourceTree = SOURCE_ROOT; };
+		DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICXmlContainerBuilder.h; path = Classes/Container/OxICXmlContainerBuilder.h; sourceTree = SOURCE_ROOT; };
+		DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICXmlContainerBuilder.m; path = Classes/Container/OxICXmlContainerBuilder.m; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				DA9985A611F3F08A00A75DF1 /* libxml2.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* OxeniPhoneCommons */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = OxeniPhoneCommons;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				DA9985A511F3F08A00A75DF1 /* libxml2.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DACB36E411F5370800FE67D4 /* Container */,
+				DA99863011F3F67100A75DF1 /* Wrapper */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		DA99863011F3F67100A75DF1 /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				DA99863111F3F67100A75DF1 /* API */,
+				DA99863211F3F67100A75DF1 /* Impl */,
+			);
+			name = Wrapper;
+			path = Classes/Wrapper;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA99863111F3F67100A75DF1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DA99863E11F3F6D500A75DF1 /* OxICClassWrapper.h */,
+				DA99864011F3F6E600A75DF1 /* OxICObjectWrapper.h */,
+				DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */,
+				DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */,
+				DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */,
+			);
+			name = API;
+			path = Classes/Wrapper/API;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA99863211F3F67100A75DF1 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				DA99863311F3F67100A75DF1 /* Simple */,
+			);
+			name = Impl;
+			path = Classes/Wrapper/Impl;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA99863311F3F67100A75DF1 /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				DA99863411F3F67100A75DF1 /* OxICSimpleClassWrapper.h */,
+				DA99863511F3F67100A75DF1 /* OxICSimpleClassWrapper.m */,
+				DA99863611F3F67100A75DF1 /* OxICSimpleObjectWrapper.h */,
+				DA99863711F3F67100A75DF1 /* OxICSimpleObjectWrapper.m */,
+				DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */,
+				DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */,
+			);
+			name = Simple;
+			path = Classes/Wrapper/Impl/Simple;
+			sourceTree = SOURCE_ROOT;
+		};
+		DACB36E411F5370800FE67D4 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				DACB36E511F5370800FE67D4 /* OxICContainer.h */,
+				DACB36E611F5370800FE67D4 /* OxICContainer.m */,
+				DACB36E811F5370800FE67D4 /* OxICLazyProxy.h */,
+				DACB36E911F5370800FE67D4 /* OxICLazyProxy.m */,
+				DACB36EA11F5370800FE67D4 /* OxICObjectDefinition.h */,
+				DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */,
+				DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */,
+				DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */,
+				DACB36E711F5370800FE67D4 /* OxICContainerBuilderDelegate.h */,
+			);
+			name = Container;
+			path = Classes/Container;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch in Headers */,
+				DA99863811F3F67100A75DF1 /* OxICSimpleClassWrapper.h in Headers */,
+				DA99863A11F3F67100A75DF1 /* OxICSimpleObjectWrapper.h in Headers */,
+				DA99863F11F3F6D500A75DF1 /* OxICClassWrapper.h in Headers */,
+				DA99864111F3F6E600A75DF1 /* OxICObjectWrapper.h in Headers */,
+				DA99864311F3F6F600A75DF1 /* OxICWrapperFactory.h in Headers */,
+				DA99864611F3F7FC00A75DF1 /* OxICPropertyDescriptor.h in Headers */,
+				DACB367211F516E900FE67D4 /* OxICSimpleWrapperFactory.h in Headers */,
+				DACB36EE11F5370800FE67D4 /* OxICContainer.h in Headers */,
+				DACB36F011F5370800FE67D4 /* OxICContainerBuilderDelegate.h in Headers */,
+				DACB36F111F5370800FE67D4 /* OxICLazyProxy.h in Headers */,
+				DACB36F311F5370800FE67D4 /* OxICObjectDefinition.h in Headers */,
+				DACB36F511F5370800FE67D4 /* OxICXmlContainerBuilder.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* OxeniPhoneCommons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "OxeniPhoneCommons" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OxeniPhoneCommons;
+			productName = OxeniPhoneCommons;
+			productReference = D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OxeniPhoneCommons" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* OxeniPhoneCommons */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* OxeniPhoneCommons */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA99863911F3F67100A75DF1 /* OxICSimpleClassWrapper.m in Sources */,
+				DA99863B11F3F67100A75DF1 /* OxICSimpleObjectWrapper.m in Sources */,
+				DA99864711F3F7FC00A75DF1 /* OxICPropertyDescriptor.m in Sources */,
+				DACB367311F516E900FE67D4 /* OxICSimpleWrapperFactory.m in Sources */,
+				DACB36EF11F5370800FE67D4 /* OxICContainer.m in Sources */,
+				DACB36F211F5370800FE67D4 /* OxICLazyProxy.m in Sources */,
+				DACB36F411F5370800FE67D4 /* OxICObjectDefinition.m in Sources */,
+				DACB36F611F5370800FE67D4 /* OxICXmlContainerBuilder.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/OxeniPhoneCommons.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OxeniPhoneCommons_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = OxeniPhoneCommons;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/OxeniPhoneCommons.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OxeniPhoneCommons_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = OxeniPhoneCommons;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphonesimulator3.0;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				SDKROOT = iphonesimulator3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "OxeniPhoneCommons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OxeniPhoneCommons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
