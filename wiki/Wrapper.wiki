@@ -1,5 +1,5 @@
 #summary Wrapper documentation
-#labels Wrapper
+#labels Wrapper,Cocoa,iPhone
 
 = Introduction =
 Documentation for Wrapper component.
