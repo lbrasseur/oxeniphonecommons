@@ -1,0 +1,12 @@
+#summary Documentation about the container
+
+= Introduction =
+
+This page is a brief documentation for the container.
+
+= Ideas =
+ * Take a look at Guice. What can be used as a replacement of anotations?
+
+= Pending issues =
+  * Build a more complete object definition. For example, nested definitions.
+  * *OxICLazyProxy* should have a reference to container in order to perform wiring of lazy created object.
