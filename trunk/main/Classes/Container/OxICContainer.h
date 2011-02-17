@@ -10,6 +10,12 @@
 #import "OxICObjectDefinition.h"
 #import "OxICWrapperFactory.h"
 
+#define IoCName(name) -(void) iocName_##name{}
+#define IoCLazy -(void) iocLazy{}
+#define IoCSingleton -(void) iocSingleton{}
+#define IoCInject(property,objectName) -(void) iocMap_##property##__##objectName{}
+
+
 @interface OxICContainer : NSObject {
 	NSMutableDictionary *definitions;
 	NSMutableDictionary *objects;
@@ -19,6 +25,7 @@
 - (id) initWithWrapperFactory: (id<OxICWrapperFactory>) aWrapperFactory;
 
 - (void) addDefinition: (OxICObjectDefinition*) definition;
+- (void) addDefinitionFromClassName: (NSString*) className;
 - (id) getObject: (NSString*) name;
 
 @end

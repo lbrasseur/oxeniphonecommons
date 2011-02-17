@@ -10,12 +10,15 @@
 #import "OxICObjectWrapper.h"
 #import "OxICLazyProxy.h"
 #import "OxICPropertyDescriptor.h"
+#import <objc/runtime.h>
 
 @interface OxICContainer()
 @property (nonatomic, retain) id<OxICWrapperFactory> wrapperFactory;
 
 - (id) getObjectForDefinition: (OxICObjectDefinition*) definition;
 - (id) buildObject: (OxICObjectDefinition*) definition;
+- (OxICObjectDefinition*) getObjectDefinitionFromClassName:(NSString*) className;
+- (void) addPropertyReferencesInClass:(NSObject*) anObject andDefinition:(OxICObjectDefinition *) definition;
 @end
 
 @implementation OxICContainer
@@ -38,10 +41,15 @@
 	[super dealloc];
 }
 
-
 #pragma mark public methods
 - (void) addDefinition: (OxICObjectDefinition*) definition {
 	[definitions setObject:definition forKey:definition.name];
+}
+
+- (void) addDefinitionFromClassName: (NSString*) className {
+	OxICObjectDefinition *definition = [self getObjectDefinitionFromClassName:className];
+	[self addDefinition:definition];
+	
 }
 
 - (id) getObject: (NSString*) name {
@@ -78,9 +86,13 @@
 	if (!definition.lazy) {
 		wrapper = [self.wrapperFactory createAndWrapObject:definition.className];
 	} else {
-		id lazyProxy = [[OxICLazyProxy alloc] initWithClassName:definition.className];
+		id lazyProxy = [[OxICLazyProxy alloc] initWithClassName:definition.className andObjectDefinition: definition andContainer:self];
 		wrapper = [self.wrapperFactory wrapObject:lazyProxy];
 		[lazyProxy release];
+
+		//add propertyReference definitions from lazy	
+		id object = [objc_getClass([definition.className UTF8String]) new];
+		[self addPropertyReferencesInClass:object andDefinition:definition];
 	}
 
 	
@@ -96,5 +108,59 @@
 	return [object autorelease];
 }
 
+-(void) addPropertyReferencesInClass:(NSObject*) anObject andDefinition:(OxICObjectDefinition *) definition {
+	// TODO: Ver si esto no se podría resolver mejor con el class wrapper
+	int i=0;
+	unsigned int mc = 0;
+	Method * mlist = class_copyMethodList(object_getClass(anObject), &mc);
+	NSString *methodName;
+	NSString *propertyName;
+	NSString *objectDefName;
+	for(i=0;i<mc;i++){
+		methodName = [NSString stringWithUTF8String:sel_getName(method_getName(mlist[i]))];
+		NSRange iocMapRange = [methodName rangeOfString:@"iocMap_"];
+		if (iocMapRange.location == 0) {
+			NSRange $$location = [methodName rangeOfString:@"__"];
+			propertyName = [methodName substringWithRange: NSMakeRange (iocMapRange.length, $$location.location - iocMapRange.length)];
+			objectDefName = [methodName substringWithRange:NSMakeRange($$location.location + $$location.length, [methodName length] - $$location.location - $$location.length)];
+			[definition addPropertyReference:propertyName toObjectName:objectDefName];
+		}
+	}
+	free(mlist);
+}
+- (OxICObjectDefinition*) getObjectDefinitionFromClassName:(NSString*) className {
+	// TODO: Ver si esto no se podría resolver mejor con el class wrapper
+	id anObject = [objc_getClass([className UTF8String]) new];
+	unsigned int mc = 0;
+	Method * mlist = class_copyMethodList(object_getClass(anObject), &mc);
+	NSString *methodName;
+	NSString *defName;
+	BOOL defLazy = NO;
+	BOOL defSingleton = NO;
+	int i;
+	for(i=0;i<mc;i++){
+		methodName = [NSString stringWithUTF8String:sel_getName(method_getName(mlist[i]))];
+		NSRange iocNameRange = [methodName rangeOfString:@"iocName_"];
+		if (iocNameRange.location == 0) {
+			defName = [methodName substringWithRange: NSMakeRange (iocNameRange.length, [methodName length] - iocNameRange.length)];
+		} else if ([methodName isEqualToString:@"iocLazy"]) {
+			defLazy = YES;
+		} else if ([methodName isEqualToString:@"iocSingleton"]) {
+			defSingleton = YES;
+		}
+	}
+	free(mlist);
+	
+	OxICObjectDefinition *objectDefinition = [[OxICObjectDefinition alloc] init];
+	if (!defName) {
+		defName = className;
+	}
+	objectDefinition.name = defName;
+	objectDefinition.className = className;
+	objectDefinition.lazy = defLazy;
+	objectDefinition.singleton = defSingleton;
+	return [objectDefinition autorelease];
+	
+}
 
 @end
