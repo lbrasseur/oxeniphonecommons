@@ -12,16 +12,21 @@
 @interface OxICLazyProxy()
 @property (retain, nonatomic) id realObject;
 @property (retain, nonatomic) NSString *className;
+@property (retain, nonatomic) OxICObjectDefinition* objectDefinition;
+@property (retain, nonatomic) OxICContainer* container;
+
 - (void) buildRealObjectIfNull;
 @end
 
 @implementation OxICLazyProxy
-@synthesize realObject, className;
+@synthesize realObject, className, objectDefinition, container;
 
 #pragma mark Init and dealloc methods
-- (id) initWithClassName: (id) aClassName {
+- (id) initWithClassName: (id) aClassName andObjectDefinition: (OxICObjectDefinition*) aDefinition andContainer:(OxICContainer*) aContainer {
 	self.realObject = nil;
 	self.className = aClassName;
+	self.objectDefinition = aDefinition;
+	self.container = aContainer;
 	return self;
 }
 
@@ -48,6 +53,16 @@
 - (void) buildRealObjectIfNull {
 	if (self.realObject == nil) {
 		self.realObject = [objc_getClass([self.className UTF8String]) new];
+
+		id object;
+		NSString *reference;
+		
+		//create properties
+		for (NSString *propName in [self.objectDefinition.propertyReferences allKeys]) {
+			reference = [self.objectDefinition.propertyReferences objectForKey:propName];
+			object = [self.container getObject:reference];
+			[self.realObject setValue:object forKey:propName];
+		}
 	}
 }
 

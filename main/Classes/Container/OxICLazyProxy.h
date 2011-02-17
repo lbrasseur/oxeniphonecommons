@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "OxICObjectDefinition.h"
+#import "OxICContainer.h"
 
 @interface OxICLazyProxy : NSProxy {
 	id realObject;
 	NSString *className;
+	OxICObjectDefinition* objectDefinition;
+	OxICContainer* container;
 }
 
-- (id) initWithClassName: (id) aClassName;
+- (id) initWithClassName: (id) aClassName andObjectDefinition: (OxICObjectDefinition*) aDefinition andContainer:(OxICContainer*) aContainer;
 
 @end
