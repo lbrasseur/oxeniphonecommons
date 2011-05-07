@@ -85,6 +85,8 @@
 	
 	if (!definition.lazy) {
 		wrapper = [self.wrapperFactory createAndWrapObject:definition.className];
+		//add propertyReference definitions	
+		[self addPropertyReferencesInClass:[wrapper getObject] andDefinition:definition];
 	} else {
 		id lazyProxy = [[OxICLazyProxy alloc] initWithClassName:definition.className andObjectDefinition: definition andContainer:self];
 		wrapper = [self.wrapperFactory wrapObject:lazyProxy];

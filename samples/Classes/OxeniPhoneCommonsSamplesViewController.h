@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OxICContainerBuilderDelegate.h"
 
-@interface OxeniPhoneCommonsSamplesViewController : UIViewController {
+@interface OxeniPhoneCommonsSamplesViewController : UIViewController<OxICContainerBuilderDelegate> {
 	UIViewController* containerSampleViewController;
 }
 
