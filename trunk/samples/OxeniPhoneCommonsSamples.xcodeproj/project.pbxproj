@@ -17,8 +17,6 @@
 		28D7ACF80DDB3853001CB0EB /* OxeniPhoneCommonsSamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* OxeniPhoneCommonsSamplesViewController.m */; };
 		DA26DAD4130CA05A00758DB5 /* ExampleServiceImpl1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26DAC6130CA05A00758DB5 /* ExampleServiceImpl1.m */; };
 		DA26DAD5130CA05A00758DB5 /* ExampleServiceImpl2.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26DAC8130CA05A00758DB5 /* ExampleServiceImpl2.m */; };
-		DA26DAD6130CA05A00758DB5 /* OxenIocAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26DACA130CA05A00758DB5 /* OxenIocAppDelegate.m */; };
-		DA26DAD7130CA05A00758DB5 /* OxenIocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26DACC130CA05A00758DB5 /* OxenIocViewController.m */; };
 		DA26DAD8130CA05A00758DB5 /* ServiceExecutorImpl1.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26DACF130CA05A00758DB5 /* ServiceExecutorImpl1.m */; };
 		DA26DAD9130CA05A00758DB5 /* ServiceExecutorImpl2.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26DAD1130CA05A00758DB5 /* ServiceExecutorImpl2.m */; };
 		DA26DADA130CA05A00758DB5 /* ServiceExecutorImpl3.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26DAD3130CA05A00758DB5 /* ServiceExecutorImpl3.m */; };
@@ -64,10 +62,6 @@
 		DA26DAC6130CA05A00758DB5 /* ExampleServiceImpl1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleServiceImpl1.m; path = Classes/Container/ExampleServiceImpl1.m; sourceTree = SOURCE_ROOT; };
 		DA26DAC7130CA05A00758DB5 /* ExampleServiceImpl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleServiceImpl2.h; path = Classes/Container/ExampleServiceImpl2.h; sourceTree = SOURCE_ROOT; };
 		DA26DAC8130CA05A00758DB5 /* ExampleServiceImpl2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleServiceImpl2.m; path = Classes/Container/ExampleServiceImpl2.m; sourceTree = SOURCE_ROOT; };
-		DA26DAC9130CA05A00758DB5 /* OxenIocAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxenIocAppDelegate.h; path = Classes/Container/OxenIocAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		DA26DACA130CA05A00758DB5 /* OxenIocAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxenIocAppDelegate.m; path = Classes/Container/OxenIocAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		DA26DACB130CA05A00758DB5 /* OxenIocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxenIocViewController.h; path = Classes/Container/OxenIocViewController.h; sourceTree = SOURCE_ROOT; };
-		DA26DACC130CA05A00758DB5 /* OxenIocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxenIocViewController.m; path = Classes/Container/OxenIocViewController.m; sourceTree = SOURCE_ROOT; };
 		DA26DACD130CA05A00758DB5 /* ServiceExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceExecutor.h; path = Classes/Container/ServiceExecutor.h; sourceTree = SOURCE_ROOT; };
 		DA26DACE130CA05A00758DB5 /* ServiceExecutorImpl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceExecutorImpl1.h; path = Classes/Container/ServiceExecutorImpl1.h; sourceTree = SOURCE_ROOT; };
 		DA26DACF130CA05A00758DB5 /* ServiceExecutorImpl1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceExecutorImpl1.m; path = Classes/Container/ServiceExecutorImpl1.m; sourceTree = SOURCE_ROOT; };
@@ -176,10 +170,6 @@
 				DA26DAC6130CA05A00758DB5 /* ExampleServiceImpl1.m */,
 				DA26DAC7130CA05A00758DB5 /* ExampleServiceImpl2.h */,
 				DA26DAC8130CA05A00758DB5 /* ExampleServiceImpl2.m */,
-				DA26DAC9130CA05A00758DB5 /* OxenIocAppDelegate.h */,
-				DA26DACA130CA05A00758DB5 /* OxenIocAppDelegate.m */,
-				DA26DACB130CA05A00758DB5 /* OxenIocViewController.h */,
-				DA26DACC130CA05A00758DB5 /* OxenIocViewController.m */,
 				DA26DADD130CA18900758DB5 /* OxenIocViewController.xib */,
 				DA26DACD130CA05A00758DB5 /* ServiceExecutor.h */,
 				DA26DACE130CA05A00758DB5 /* ServiceExecutorImpl1.h */,
@@ -272,8 +262,6 @@
 				28D7ACF80DDB3853001CB0EB /* OxeniPhoneCommonsSamplesViewController.m in Sources */,
 				DA26DAD4130CA05A00758DB5 /* ExampleServiceImpl1.m in Sources */,
 				DA26DAD5130CA05A00758DB5 /* ExampleServiceImpl2.m in Sources */,
-				DA26DAD6130CA05A00758DB5 /* OxenIocAppDelegate.m in Sources */,
-				DA26DAD7130CA05A00758DB5 /* OxenIocViewController.m in Sources */,
 				DA26DAD8130CA05A00758DB5 /* ServiceExecutorImpl1.m in Sources */,
 				DA26DAD9130CA05A00758DB5 /* ServiceExecutorImpl2.m in Sources */,
 				DA26DADA130CA05A00758DB5 /* ServiceExecutorImpl3.m in Sources */,
@@ -331,7 +319,7 @@
 					"../main/Classes/**",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Debug;
 		};
@@ -349,7 +337,7 @@
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos3.2;
 			};
 			name = Release;
 		};
