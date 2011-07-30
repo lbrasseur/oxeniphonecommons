@@ -10,6 +10,7 @@
 #import "OxICPropertyDescriptor.h"
 
 @protocol OxICClassWrapper
+
 /**
  * Gets the property descriptors.
  * 
