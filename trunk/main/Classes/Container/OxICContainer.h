@@ -15,7 +15,6 @@
 #define IoCSingleton -(void) iocSingleton{}
 #define IoCInject(property,objectName) -(void) iocMap_##property##__##objectName{}
 
-
 @interface OxICContainer : NSObject {
 	NSMutableDictionary *definitions;
 	NSMutableDictionary *objects;
