@@ -16,7 +16,7 @@
 	BOOL singleton;
 	BOOL lazy;
 	NSMutableDictionary *propertyReferences;
-	// TODO: propiedades con valores.... propiedades anidadas... etc. Pensar una clase generica
+	NSMutableDictionary *propertyValues;
 }
 
 @property (retain,nonatomic) NSString *name;
@@ -24,8 +24,10 @@
 @property (assign,nonatomic) BOOL autowire;
 @property (assign,nonatomic) BOOL singleton;
 @property (assign,nonatomic) BOOL lazy;
-@property (assign,nonatomic,readonly) NSDictionary *propertyReferences;;
+@property (assign,nonatomic,readonly) NSDictionary *propertyReferences;
+@property (assign,nonatomic,readonly) NSDictionary *propertyValues;
 
 - (void) addPropertyReference:(NSString*) propertyName toObjectName:(NSString*) objectName;
+- (void) addPropertyValue:(NSString*) propertyName toValue:(id) value;
 
 @end

@@ -11,28 +11,24 @@
 
 @interface OxICLazyProxy()
 @property (retain, nonatomic) id realObject;
-@property (retain, nonatomic) NSString *className;
-@property (retain, nonatomic) OxICObjectDefinition* objectDefinition;
-@property (retain, nonatomic) OxICContainer* container;
+@property (retain, nonatomic) id<OxICFactoryObject> factoryObject;
 
 - (void) buildRealObjectIfNull;
 @end
 
 @implementation OxICLazyProxy
-@synthesize realObject, className, objectDefinition, container;
+@synthesize realObject, factoryObject;
 
 #pragma mark Init and dealloc methods
-- (id) initWithClassName: (id) aClassName andObjectDefinition: (OxICObjectDefinition*) aDefinition andContainer:(OxICContainer*) aContainer {
+- (id) initWithFactoryObject: (id<OxICFactoryObject>) aFactoryObject {
 	self.realObject = nil;
-	self.className = aClassName;
-	self.objectDefinition = aDefinition;
-	self.container = aContainer;
+	self.factoryObject = aFactoryObject;
 	return self;
 }
 
 - (void) dealloc {
 	self.realObject = nil;
-	self.className = nil;
+	self.factoryObject = nil;
 	[super dealloc];
 }
 
@@ -52,14 +48,7 @@
 #pragma mark Private methods
 - (void) buildRealObjectIfNull {
 	if (self.realObject == nil) {
-		self.realObject = [objc_getClass([self.className UTF8String]) new];
-
-		//create properties
-		for (NSString *propName in [self.objectDefinition.propertyReferences allKeys]) {
-			NSString *reference = [self.objectDefinition.propertyReferences objectForKey:propName];
-			id object = [self.container getObject:reference];
-			[self.realObject setValue:object forKey:propName];
-		}
+		self.realObject = [self.factoryObject getObject];
 	}
 }
 

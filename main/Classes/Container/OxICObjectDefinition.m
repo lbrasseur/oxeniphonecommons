@@ -10,11 +10,15 @@
 
 
 @implementation OxICObjectDefinition
-@synthesize name, className, singleton, autowire, lazy, propertyReferences;
+@synthesize name, className, singleton, autowire, lazy, propertyReferences, propertyValues;
 
 #pragma mark public methods
 - (void) addPropertyReference:(NSString*) propertyName toObjectName:(NSString*) objectName {
 	[propertyReferences setObject:objectName forKey:propertyName];
+}
+
+- (void) addPropertyValue:(NSString*) propertyName toValue:(id) value {
+	[propertyValues setObject:value forKey:propertyName];
 }
 
 #pragma mark init and dealloc
@@ -23,6 +27,7 @@
 	self = [super init];
 	if (self != nil) {
 		propertyReferences = [[NSMutableDictionary alloc] init];
+		propertyValues = [[NSMutableDictionary alloc] init];
 		self.singleton = YES;
 		self.autowire = NO;
 		self.lazy = NO;
@@ -35,6 +40,7 @@
 	self.name = nil;
 	self.className = nil;
 	[propertyReferences release];
+	[propertyValues release];
 	[super dealloc];
 }
 
