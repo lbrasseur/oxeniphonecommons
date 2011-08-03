@@ -26,5 +26,6 @@
 - (void) addDefinition: (OxICObjectDefinition*) definition;
 - (void) addDefinitionFromClassName: (NSString*) className;
 - (id) getObject: (NSString*) name;
+- (void) injectObject: (id) object withDefinition:(OxICObjectDefinition*) definition;
 
 @end

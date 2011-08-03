@@ -10,6 +10,8 @@
 #import "OxICObjectWrapper.h"
 #import "OxICLazyProxy.h"
 #import "OxICPropertyDescriptor.h"
+#import "OxICFactoryObject.h"
+#import "OxICDefaultFactoryObject.h"
 #import <objc/runtime.h>
 
 @interface OxICContainer()
@@ -19,6 +21,7 @@
 - (id) buildObject: (OxICObjectDefinition*) definition;
 - (OxICObjectDefinition*) getObjectDefinitionFromClassName:(NSString*) className;
 - (void) addPropertyReferencesInDefinition:(OxICObjectDefinition *) definition;
+- (id<OxICFactoryObject>) getFactoryForDefinition:(OxICObjectDefinition *) definition;
 @end
 
 @implementation OxICContainer
@@ -62,6 +65,21 @@
 	}
 }
 
+- (void) injectObject: (id) object withDefinition:(OxICObjectDefinition*) definition {
+	id<OxICObjectWrapper> wrapper = [self.wrapperFactory wrapObject:object];
+	
+	for (NSString *propName in [definition.propertyReferences allKeys]) {
+		NSString *reference = [definition.propertyReferences objectForKey:propName];
+		id object = [self getObject:reference];
+		[wrapper setProperty:propName withValue:object];
+	}
+	for (NSString *propName in [definition.propertyValues allKeys]) {
+		id object = [definition.propertyValues objectForKey:propName];
+		[wrapper setProperty:propName withValue:object];
+	}
+}
+
+
 #pragma mark private methods
 - (id) getObjectForDefinition: (OxICObjectDefinition*) definition {
 	id object;
@@ -85,24 +103,15 @@
 - (id) buildObject: (OxICObjectDefinition*) definition {
 	[self addPropertyReferencesInDefinition:definition];
 	
-	id<OxICObjectWrapper> wrapper;
+	id<OxICFactoryObject> factoryObject = [self getFactoryForDefinition:definition];
 	
 	if (!definition.lazy) {
-		wrapper = [self.wrapperFactory createAndWrapObject:definition.className];
-		
-		for (NSString *propName in [definition.propertyReferences allKeys]) {
-			NSString *reference = [definition.propertyReferences objectForKey:propName];
-			id object = [self getObject:reference];
-			[wrapper setProperty:propName withValue:object];
-		}
+		return [factoryObject getObject];
 	} else {
-		id lazyProxy = [[OxICLazyProxy alloc] initWithClassName:definition.className andObjectDefinition: definition andContainer:self];
-		wrapper = [self.wrapperFactory wrapObject:lazyProxy];
-		[lazyProxy release];
+		id lazyProxy = [[OxICLazyProxy alloc] initWithFactoryObject:factoryObject];
+		return [lazyProxy autorelease];
 	}
 	
-	id object = [[wrapper getObject] retain];
-	return [object autorelease];
 }
 
 -(void) addPropertyReferencesInDefinition:(OxICObjectDefinition *) definition {
@@ -157,6 +166,22 @@
 	[self addPropertyReferencesInDefinition:objectDefinition];
 	
 	return [objectDefinition autorelease];
+}
+
+- (id<OxICFactoryObject>) getFactoryForDefinition:(OxICObjectDefinition *) definition {
+	id<OxICClassWrapper> classWrapper = [self.wrapperFactory wrapClass:definition.className];
+	
+	if ([classWrapper conformsToProtocol:@protocol(OxICFactoryObject)]) {
+		id<OxICFactoryObject> customFactory = [[classWrapper newObject] autorelease];
+		
+		[self injectObject:customFactory withDefinition:definition];
+		
+		return customFactory;
+	} else {
+		return [[[OxICDefaultFactoryObject alloc] initWithClassWrapper: classWrapper
+														 andDefinition:definition
+														  andContainer:self] autorelease];
+	}
 }
 
 @end

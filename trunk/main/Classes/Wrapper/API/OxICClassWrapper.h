@@ -42,4 +42,10 @@
  */
 - (id) newObject;
 
+/**
+ * Indicates if the wrapepd class conforms to a given protocol..
+ * @return True if the class conforms
+ */
+- (BOOL) conformsToProtocol: (Protocol*) protocol;
+
 @end

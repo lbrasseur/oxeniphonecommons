@@ -72,6 +72,10 @@
 	return [self.type new];
 }
 
+- (BOOL) conformsToProtocol: (Protocol*) protocol {
+	return class_conformsToProtocol(self.type, protocol);
+}
+
 #pragma mark Private methods
 - (OxICPropertyDescriptor*) buildPropertyDescriptor: (objc_property_t) theProperty withName:(NSString*) propertyName {
 	NSString *typeInfo = [NSString stringWithCString:property_getAttributes(theProperty) encoding:NSUTF8StringEncoding];
