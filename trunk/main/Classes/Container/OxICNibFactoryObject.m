@@ -12,10 +12,30 @@
 @implementation OxICNibFactoryObject
 @synthesize name, owner;
 
+- (BOOL) iPad {
+	BOOL iPad = FALSE;
+	
+#ifdef UI_USER_INTERFACE_IDIOM
+	iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+#endif
+	
+	return iPad;
+}
+
 - (id) getObject {
-	NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:self.name
-													  owner:self.owner
-													options:nil];
+	NSArray* nibViews = nil;
+	
+	if ([self iPad]) {
+		nibViews = [[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"%@-iPad", self.name]
+												 owner:self.owner
+											   options:nil];
+	}
+	
+	if (nibViews == nil || [nibViews count] == 0) {
+		nibViews = [[NSBundle mainBundle] loadNibNamed:self.name
+												 owner:self.owner
+											   options:nil];
+	}
 	
 	return [nibViews objectAtIndex: 0];	
 }
