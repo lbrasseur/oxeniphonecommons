@@ -18,7 +18,7 @@
 - (id) getObjectForDefinition: (OxICObjectDefinition*) definition;
 - (id) buildObject: (OxICObjectDefinition*) definition;
 - (OxICObjectDefinition*) getObjectDefinitionFromClassName:(NSString*) className;
-- (void) addPropertyReferencesInClass:(NSObject*) anObject andDefinition:(OxICObjectDefinition *) definition;
+- (void) addPropertyReferencesInDefinition:(OxICObjectDefinition *) definition;
 @end
 
 @implementation OxICContainer
@@ -68,6 +68,8 @@
 	
 	if (definition.singleton) {
 		object = [objects objectForKey:definition.name];
+	} else {
+		object = nil;
 	}
 	
 	if (object == nil) {
@@ -81,40 +83,32 @@
 }
 
 - (id) buildObject: (OxICObjectDefinition*) definition {
+	[self addPropertyReferencesInDefinition:definition];
+	
 	id<OxICObjectWrapper> wrapper;
 	
 	if (!definition.lazy) {
 		wrapper = [self.wrapperFactory createAndWrapObject:definition.className];
-		//add propertyReference definitions	
-		[self addPropertyReferencesInClass:[wrapper getObject] andDefinition:definition];
+		
+		for (NSString *propName in [definition.propertyReferences allKeys]) {
+			NSString *reference = [definition.propertyReferences objectForKey:propName];
+			id object = [self getObject:reference];
+			[wrapper setProperty:propName withValue:object];
+		}
 	} else {
 		id lazyProxy = [[OxICLazyProxy alloc] initWithClassName:definition.className andObjectDefinition: definition andContainer:self];
 		wrapper = [self.wrapperFactory wrapObject:lazyProxy];
 		[lazyProxy release];
-
-		//add propertyReference definitions from lazy	
-		id object = [objc_getClass([definition.className UTF8String]) new];
-		[self addPropertyReferencesInClass:object andDefinition:definition];
-	}
-
-	
-	for (OxICPropertyDescriptor *propDescr in [wrapper getPropertyDescriptors]) {
-		/* Process references */
-		NSString *reference = [definition.propertyReferences objectForKey:propDescr.name];
-		if (reference != nil) {
-			[wrapper setProperty:propDescr.name withValue:[self getObject:reference]];
-		}
 	}
 	
 	id object = [[wrapper getObject] retain];
 	return [object autorelease];
 }
 
--(void) addPropertyReferencesInClass:(NSObject*) anObject andDefinition:(OxICObjectDefinition *) definition {
-	// TODO: Ver si esto no se podría resolver mejor con el class wrapper
+-(void) addPropertyReferencesInDefinition:(OxICObjectDefinition *) definition {
 	int i=0;
 	unsigned int mc = 0;
-	Method * mlist = class_copyMethodList(object_getClass(anObject), &mc);
+	Method * mlist = class_copyMethodList(objc_getClass([definition.className UTF8String]), &mc);
 	NSString *methodName;
 	NSString *propertyName;
 	NSString *objectDefName;
@@ -131,10 +125,8 @@
 	free(mlist);
 }
 - (OxICObjectDefinition*) getObjectDefinitionFromClassName:(NSString*) className {
-	// TODO: Ver si esto no se podría resolver mejor con el class wrapper
-	id anObject = [objc_getClass([className UTF8String]) new];
 	unsigned int mc = 0;
-	Method * mlist = class_copyMethodList(object_getClass(anObject), &mc);
+	Method * mlist = class_copyMethodList(objc_getClass([className UTF8String]), &mc);
 	NSString *methodName;
 	NSString *defName;
 	BOOL defLazy = NO;
@@ -161,8 +153,10 @@
 	objectDefinition.className = className;
 	objectDefinition.lazy = defLazy;
 	objectDefinition.singleton = defSingleton;
-	return [objectDefinition autorelease];
 	
+	[self addPropertyReferencesInDefinition:objectDefinition];
+	
+	return [objectDefinition autorelease];
 }
 
 @end

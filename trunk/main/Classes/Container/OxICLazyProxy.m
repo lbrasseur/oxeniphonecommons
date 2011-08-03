@@ -54,13 +54,10 @@
 	if (self.realObject == nil) {
 		self.realObject = [objc_getClass([self.className UTF8String]) new];
 
-		id object;
-		NSString *reference;
-		
 		//create properties
 		for (NSString *propName in [self.objectDefinition.propertyReferences allKeys]) {
-			reference = [self.objectDefinition.propertyReferences objectForKey:propName];
-			object = [self.container getObject:reference];
+			NSString *reference = [self.objectDefinition.propertyReferences objectForKey:propName];
+			id object = [self.container getObject:reference];
 			[self.realObject setValue:object forKey:propName];
 		}
 	}
