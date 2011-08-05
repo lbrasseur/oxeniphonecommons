@@ -93,3 +93,71 @@ Besides, the container provides some common use factories:
 
 ==Lazy objects==
 When you request an object for whose the definitions is marked as lazy, an instance of [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICLazyProxy.m OxICLazyProxy] is returned. This is a subclass of [http://developer.apple.com/library/mac/#documentation/cocoa/reference/foundation/Classes/NSProxy_Class/Reference/Reference.html NSProxy] which holds a reference to the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICFactoryObject.h OxICFactoryObject] that instantiates the object upon the first method call.
+
+=Advanced examples=
+==NIB view==
+{{{
+id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
+OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+	
+[newContainer addDefinition: [OxICObjectDefinition withName: @"mainView"
+                                                   andClass: @"OxICNibFactoryObject"
+                                               andSingleton: FALSE
+                                                    andLazy: FALSE
+                                              andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                              @"mainViewController", @"owner",
+                                                              nil]
+                                                  andValues: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                              @"MyViewController", @"name",
+                                                              nil]]
+ ];
+	
+[newContainer addDefinitionFromClassName:@"MyViewController"];
+
+}}}
+==Core Data==
+{{{
+- (OxICContainer *) buildContainer {
+  id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
+  OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+	
+  [newContainer addDefinition: [OxICObjectDefinition withName: @"managedObjectModel"
+                                                     andClass: @"OxICManagedObjectModelFactoryObject"
+                                                 andSingleton: TRUE
+                                                      andLazy: FALSE
+                                                andReferences: nil
+                                                    andValues: nil]
+  ];
+	
+  NSURL* storeUrl = [NSURL fileURLWithPath:[[self applicationDocumentsDirectory]
+                                              stringByAppendingPathComponent: @"myDb.sqlite"]];
+	
+  [newContainer addDefinition: [OxICObjectDefinition withName: @"persistentStoreCoordinator"
+                                                     andClass: @"OxICPersistentStoreCoordinatorFactoryObject"
+                                                 andSingleton: TRUE
+                                                      andLazy: FALSE
+                                                andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                @"managedObjectModel", @"managedObjectModel",
+                                                                nil]
+                                                    andValues: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                storeUrl, @"storeUrl",
+                                                                nil]]
+   ];
+
+  [newContainer addDefinition: [OxICObjectDefinition withName: @"managedObjectContext"
+                                                     andClass: @"NSManagedObjectContext"
+                                                 andSingleton: TRUE
+                                                      andLazy: FALSE
+                                                andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                @"persistentStoreCoordinator", @"persistentStoreCoordinator",
+                                                                nil]
+                                                    andValues: nil]
+   ];
+	
+  return [newContainer autorelease];
+}
+
+- (NSString *)applicationDocumentsDirectory {
+   return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+}}}
