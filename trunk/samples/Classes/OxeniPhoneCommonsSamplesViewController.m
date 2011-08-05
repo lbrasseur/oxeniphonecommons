@@ -7,8 +7,6 @@
 //
 
 #import "OxeniPhoneCommonsSamplesViewController.h"
-#import "OxenIocAppDelegate.h"
-#import "OxenIocViewController.h"
 #import "OxICXmlContainerBuilder.h"
 #import "ServiceExecutor.h"
 #import "OxICSimpleWrapperFactory.h"
