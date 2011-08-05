@@ -1,13 +1,30 @@
 #summary Documentation about the container
 #labels IoC,Container,Cocoa,iPhone
 
-= Introduction =
+=IoC Container description=
 
-This page is a brief documentation for the container.
+The IoC container provides dependency injection to Cocoa applications. It was created with iPhone development in mind.
 
-= Ideas =
- * Take a look at Guice. What can be used as a replacement of anotations?
+It aims to provide some functionalities from Spring and from Guice (in fact, we're somehow inspired by RoboGuice). But due to the complexity inherent to implementing a full IoC container (as the ones mentioned before), we restricted it to very basic features.
 
-= Pending issues =
-  * Build a more complete object definition. For example, nested definitions.
-  * *OxICLazyProxy* should have a reference to container in order to perform wiring of lazy created object.
+==The basics==
+The container has the following characteristics:
+ * The container holds definitions about objects. No object is created until somebody request it.
+ * Every definition must have a name that must be unique inside the container in order to identify the object.
+ * The definition can indicate that the object must be singleton (it is created and stored in a pool when the object is requested the first time). If singleton is specified as FALSE, the object will be created each time (but it can be released when no longer required). This is similar to prototype scope in Spring, an as we learned from using RoboGuice, this behavior would be preferible in many mobile development scenarios. 
+ * The definition can indicate that the object must lazy. That is, when the object is requested, a proxy to such object is returned. Upon the first method call on such reference, the object is created. This is useful for avoiding creating big object graphs unnecessarily.
+ * The object can be injected (this is the main goal of the framework!). It must have properties or at least setters for performing the injection. The definition allows performing the following injections:
+   * References to other definitions (by name). 
+   * Values
+ * New factories can be implemented for object creation customization.
+ * Container instantiation can be done by code (like Guice/Spring) or by XML (like Spring).
+
+==Simple example==
+The main class is OxICContainer, which represents (I feel you guessed it) the container. It depends on OxICWrapperFactory in order to handle classes and objects dynamically. So, instantiating it is pretty simple:
+{{{
+	id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
+	OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+}}}
+
+The definitions are represented by OxICObjectDefinition class. A static method allows
+
