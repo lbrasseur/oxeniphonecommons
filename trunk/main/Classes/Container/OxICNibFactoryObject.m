@@ -12,6 +12,13 @@
 @implementation OxICNibFactoryObject
 @synthesize name, owner;
 
+- (void) dealloc {
+	self.name = nil;
+	self.owner = nil;
+	[super dealloc];
+}
+
+
 - (BOOL) iPad {
 	BOOL iPad = FALSE;
 	

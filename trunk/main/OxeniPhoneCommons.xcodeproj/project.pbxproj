@@ -15,6 +15,11 @@
 		DA35B00813E9FF75004E17EC /* OxICNibFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35B00613E9FF75004E17EC /* OxICNibFactoryObject.h */; };
 		DA35B00913E9FF75004E17EC /* OxICNibFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35B00713E9FF75004E17EC /* OxICNibFactoryObject.m */; };
 		DA35B00F13EA0266004E17EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA35B00E13EA0266004E17EC /* UIKit.framework */; };
+		DA6856ED13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6856EB13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h */; };
+		DA6856EE13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6856EC13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m */; };
+		DA68570113EB4C5B00465EDB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA68570013EB4C5B00465EDB /* CoreData.framework */; };
+		DA68576C13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA68576A13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.h */; };
+		DA68576D13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA68576B13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.m */; };
 		DA9985A611F3F08A00A75DF1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9985A511F3F08A00A75DF1 /* libxml2.dylib */; };
 		DA99863811F3F67100A75DF1 /* OxICSimpleClassWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99863411F3F67100A75DF1 /* OxICSimpleClassWrapper.h */; };
 		DA99863911F3F67100A75DF1 /* OxICSimpleClassWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99863511F3F67100A75DF1 /* OxICSimpleClassWrapper.m */; };
@@ -48,6 +53,11 @@
 		DA35B00613E9FF75004E17EC /* OxICNibFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICNibFactoryObject.h; sourceTree = "<group>"; };
 		DA35B00713E9FF75004E17EC /* OxICNibFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICNibFactoryObject.m; sourceTree = "<group>"; };
 		DA35B00E13EA0266004E17EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DA6856EB13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICManagedObjectModelFactoryObject.h; sourceTree = "<group>"; };
+		DA6856EC13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICManagedObjectModelFactoryObject.m; sourceTree = "<group>"; };
+		DA68570013EB4C5B00465EDB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DA68576A13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPersistentStoreCoordinatorFactoryObject.h; path = ../OxeniPhoneCommons/Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.h; sourceTree = SOURCE_ROOT; };
+		DA68576B13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPersistentStoreCoordinatorFactoryObject.m; path = ../OxeniPhoneCommons/Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.m; sourceTree = SOURCE_ROOT; };
 		DA9985A511F3F08A00A75DF1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		DA99863411F3F67100A75DF1 /* OxICSimpleClassWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICSimpleClassWrapper.h; path = Classes/Wrapper/Impl/Simple/OxICSimpleClassWrapper.h; sourceTree = SOURCE_ROOT; };
 		DA99863511F3F67100A75DF1 /* OxICSimpleClassWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICSimpleClassWrapper.m; path = Classes/Wrapper/Impl/Simple/OxICSimpleClassWrapper.m; sourceTree = SOURCE_ROOT; };
@@ -79,6 +89,7 @@
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 				DA9985A611F3F08A00A75DF1 /* libxml2.dylib in Frameworks */,
 				DA35B00F13EA0266004E17EC /* UIKit.framework in Frameworks */,
+				DA68570113EB4C5B00465EDB /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +121,7 @@
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 				DA9985A511F3F08A00A75DF1 /* libxml2.dylib */,
 				DA35B00E13EA0266004E17EC /* UIKit.framework */,
+				DA68570013EB4C5B00465EDB /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,6 +206,10 @@
 				DA35AEBF13E9E6CB004E17EC /* OxICDefaultFactoryObject.m */,
 				DA35B00613E9FF75004E17EC /* OxICNibFactoryObject.h */,
 				DA35B00713E9FF75004E17EC /* OxICNibFactoryObject.m */,
+				DA68576A13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.h */,
+				DA68576B13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.m */,
+				DA6856EB13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h */,
+				DA6856EC13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m */,
 			);
 			name = Container;
 			path = Classes/Container;
@@ -222,6 +238,8 @@
 				DA35AE9E13E9E068004E17EC /* OxICFactoryObject.h in Headers */,
 				DA35AEC013E9E6CB004E17EC /* OxICDefaultFactoryObject.h in Headers */,
 				DA35B00813E9FF75004E17EC /* OxICNibFactoryObject.h in Headers */,
+				DA6856ED13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h in Headers */,
+				DA68576C13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +268,7 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OXENIPHONECOMMONS" */;
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OxeniPhoneCommons" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			mainGroup = 0867D691FE84028FC02AAC07 /* OxeniPhoneCommons */;
@@ -278,6 +296,8 @@
 				DACB36F611F5370800FE67D4 /* OxICXmlContainerBuilder.m in Sources */,
 				DA35AEC113E9E6CB004E17EC /* OxICDefaultFactoryObject.m in Sources */,
 				DA35B00913E9FF75004E17EC /* OxICNibFactoryObject.m in Sources */,
+				DA6856EE13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m in Sources */,
+				DA68576D13EB591800465EDB /* OxICPersistentStoreCoordinatorFactoryObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +377,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OXENIPHONECOMMONS" */ = {
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OxeniPhoneCommons" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB922308733DC00010E9CD /* Debug */,

@@ -12,7 +12,6 @@
 @interface OxICObjectDefinition : NSObject {
 	NSString *name;
 	NSString *className;
-	BOOL autowire;
 	BOOL singleton;
 	BOOL lazy;
 	NSMutableDictionary *propertyReferences;
@@ -21,11 +20,17 @@
 
 @property (retain,nonatomic) NSString *name;
 @property (retain,nonatomic) NSString *className;
-@property (assign,nonatomic) BOOL autowire;
 @property (assign,nonatomic) BOOL singleton;
 @property (assign,nonatomic) BOOL lazy;
 @property (assign,nonatomic,readonly) NSDictionary *propertyReferences;
 @property (assign,nonatomic,readonly) NSDictionary *propertyValues;
+
++ (OxICObjectDefinition*) withName: (NSString*) name
+						  andClass: (NSString*) className
+					  andSingleton: (BOOL) singleton
+						   andLazy: (BOOL) lazy
+					 andReferences: (NSDictionary*) propertyReferences
+						 andValues: (NSDictionary*) propertyValues;
 
 - (void) addPropertyReference:(NSString*) propertyName toObjectName:(NSString*) objectName;
 - (void) addPropertyValue:(NSString*) propertyName toValue:(id) value;

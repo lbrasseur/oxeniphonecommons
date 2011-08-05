@@ -10,9 +10,36 @@
 
 
 @implementation OxICObjectDefinition
-@synthesize name, className, singleton, autowire, lazy, propertyReferences, propertyValues;
+@synthesize name, className, singleton, lazy, propertyReferences, propertyValues;
 
 #pragma mark public methods
++ (OxICObjectDefinition*) withName: (NSString*) name
+						  andClass: (NSString*) className
+					  andSingleton: (BOOL) singleton
+						   andLazy: (BOOL) lazy
+					 andReferences: (NSDictionary*) propertyReferences
+						 andValues: (NSDictionary*) propertyValues {
+
+	OxICObjectDefinition *definition = [[OxICObjectDefinition alloc] init];
+	definition.name = name;
+	definition.className = className;
+	definition.singleton = singleton;
+	definition.lazy = lazy;
+	
+	if (propertyReferences != nil) {
+		NSMutableDictionary *propRef = (NSMutableDictionary*)definition.propertyReferences;
+		[propRef addEntriesFromDictionary:propertyReferences];
+	}
+	
+	if (propertyValues != nil) {
+		NSMutableDictionary *propVal = (NSMutableDictionary*)definition.propertyValues;
+		[propVal addEntriesFromDictionary:propertyValues];
+	}
+	
+	return [definition autorelease];
+}
+
+
 - (void) addPropertyReference:(NSString*) propertyName toObjectName:(NSString*) objectName {
 	[propertyReferences setObject:objectName forKey:propertyName];
 }
@@ -29,7 +56,6 @@
 		propertyReferences = [[NSMutableDictionary alloc] init];
 		propertyValues = [[NSMutableDictionary alloc] init];
 		self.singleton = YES;
-		self.autowire = NO;
 		self.lazy = NO;
 	}
 	return self;
