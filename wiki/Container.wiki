@@ -19,7 +19,7 @@ The container has the following characteristics:
  * New factories can be implemented for object creation customization.
  * Container instantiation can be done by code and "annotations" (like [http://code.google.com/p/google-guice/ Guice]/[http://www.springsource.org/ Spring]) or by XML (like [http://www.springsource.org/ Spring]).
 
-==Simple example==
+=A simple example=
 The main class is [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICContainer.m OxICContainer], which represents (I feel you guessed it) the container. It depends on [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/API/OxICWrapperFactory.h OxICWrapperFactory] in order to handle classes and objects dynamically. So, instantiating it is pretty simple:
 {{{
 id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
