@@ -11,7 +11,6 @@
 
 @interface OxICSimpleClassWrapper()
 @property (retain, nonatomic) id object;
-- (void) checkProperty: (NSString*)name;
 @end
 
 @implementation OxICSimpleObjectWrapper
@@ -41,13 +40,11 @@
 
 #pragma mark OxICObjectWrapper methods
 - (id) getProperty: (NSString*) name {
-	[self checkProperty:name];
 	SEL propertySelector = NSSelectorFromString(name);
 	return [object performSelector:propertySelector];
 }
 
 - (void) setProperty: (NSString*)name withValue: (id)value {
-	[self checkProperty:name];
 	[object setValue:value forKey:name];
 }
 
@@ -56,10 +53,5 @@
 }
 
 #pragma mark Private methods
-- (void) checkProperty: (NSString*)name {
-	if (![self hasProperty:name]) {
-		[NSException raise:@"NoSuchPropertyException" format:@"Property %@ not found", name];
-	}
-}
 
 @end
