@@ -11,13 +11,13 @@ It aims to provide some functionalities from [http://www.springsource.org/ Sprin
 The container has the following characteristics:
  * The container holds definitions about objects. No object is created until somebody request it.
  * Every definition must have a name that must be unique inside the container in order to identify the object.
- * The definition can indicate that the object must be singleton (it is created and stored in a pool when the object is requested the first time). If singleton is specified as FALSE, the object will be created each time (but it can be released when no longer required). This is similar to prototype scope in Spring, an as we learned from using RoboGuice, this behavior would be preferible in many mobile development scenarios. 
+ * The definition can indicate that the object must be singleton (it is created and stored in a pool when the object is requested the first time). If singleton is specified as FALSE, the object will be created each time (but it can be released when no longer required). This is similar to prototype scope in [http://www.springsource.org/ Spring] , an as we learned from using [http://code.google.com/p/roboguice/ RoboGuice], this behavior would be preferible in many mobile development scenarios. 
  * The definition can indicate that the object must lazy. That is, when the object is requested, a proxy to such object is returned. Upon the first method call on such reference, the object is created. This is useful for avoiding creating big object graphs unnecessarily.
  * The object can be injected (this is the main goal of the framework!). It must have properties or at least setters for performing the injection. The definition allows performing the following injections:
    * References to other definitions (by name). 
    * Values
  * New factories can be implemented for object creation customization.
- * Container instantiation can be done by code and "annotations" (like Guice/Spring) or by XML (like Spring).
+ * Container instantiation can be done by code and "annotations" (like [http://code.google.com/p/google-guice/ Guice]/[http://www.springsource.org/ Spring]) or by XML (like [http://www.springsource.org/ Spring]).
 
 ==Simple example==
 The main class is OxICContainer, which represents (I feel you guessed it) the container. It depends on OxICWrapperFactory in order to handle classes and objects dynamically. So, instantiating it is pretty simple:
@@ -48,3 +48,37 @@ Also, classes can be "annotated" with definition metadata. In this scenario, def
 }}}
 
 Since Objective C doesn't provide an annotation facility (like C# or Java), we used compiler directives in order to simulate them:
+
+{{{
+@implementation MyViewController
+@synthesize myServiceProperty;
+
+IoCName(mainViewController)
+IoCSingleton
+IoCInject(myServiceProperty,serviceNameInContainer)
+IoCLazy
+...
+}}}
+
+Note that the directives creates methods with special signatures, which are inspected by the container. Because of this, such directives must be included inside the implementation body.
+
+Finally, the container can be created using XML
+
+{{{
+<contanier>
+	<object id="theService" class="ExampleServiceImpl2" lazy="false"/>
+	<object id="theExecutor" class="ServiceExecutorImpl1">
+		<property name="service" ref="theService"/>
+	</object>
+</contanier>
+}}}
+
+but the implementation is not currently complete. The OxICXmlContainerBuilder class must be used in order to create a container by parsing an XML.
+
+For a more complete example, please download the source code and open the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/samples/ sample project]
+
+=Advanced topics=
+==Lazy objects==
+
+==Custom factories==
+
