@@ -1,5 +1,5 @@
 #summary Documentation about the container
-#labels IoC,Container,Cocoa,iPhone
+#labels IoC,Container,Cocoa,iPhone,DependencyInjection
 
 =IoC Container description=
 
@@ -20,13 +20,13 @@ The container has the following characteristics:
  * Container instantiation can be done by code and "annotations" (like [http://code.google.com/p/google-guice/ Guice]/[http://www.springsource.org/ Spring]) or by XML (like [http://www.springsource.org/ Spring]).
 
 ==Simple example==
-The main class is OxICContainer, which represents (I feel you guessed it) the container. It depends on OxICWrapperFactory in order to handle classes and objects dynamically. So, instantiating it is pretty simple:
+The main class is [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICContainer.m OxICContainer], which represents (I feel you guessed it) the container. It depends on [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/API/OxICWrapperFactory.h OxICWrapperFactory] in order to handle classes and objects dynamically. So, instantiating it is pretty simple:
 {{{
 id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
 OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
 }}}
 
-The definitions are represented by OxICObjectDefinition class. A static method allows an easy definition creation:
+The definitions are represented by [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICObjectDefinition.m OxICObjectDefinition] class. A static method allows an easy definition creation:
 {{{
 [newContainer addDefinition: [OxICObjectDefinition withName: @"mainView"
                                                    andClass: @"MyView"
@@ -70,9 +70,9 @@ On the other hand, the container can be created using XML
 </contanier>
 }}}
 
-but the implementation is not currently complete. The OxICXmlContainerBuilder class must be used in order to create a container by parsing an XML.
+but the implementation is not currently complete. The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICXmlContainerBuilder.m OxICXmlContainerBuilder] class must be used in order to create a container by parsing an XML.
 
-Finally, when you need an object from the container, just get it with the getObject method:
+Finally, when you need an object from the container, just get it with the getObject method. For example:
 {{{
 [window addSubview: [newContainer getObject:@"mainView"]];
 }}}
@@ -81,6 +81,19 @@ Finally, when you need an object from the container, just get it with the getObj
 For a more complete example, please download the source code and open the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/samples/ sample project]
 
 =Advanced topics=
-==Lazy objects==
 
 ==Custom factories==
+Object construction can be customized implementing the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICFactoryObject.h OxICFactoryObject]. You must just implement this protocol and specify the implementing class name in the definition as object class. The container will detect that it is a factory and will inject. After that, it will call the getObject method. This approach is borrowed from Spring [http://static.springsource.org/spring/docs/2.5.x/api/org/springframework/beans/factory/FactoryBean.html FactoryBean].
+
+Besides, the container provides some common use factories:
+ * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICDefaultFactoryObject.m OxICDefaultFactoryObject]:
+ * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICNibFactoryObject.m OxICNibFactoryObject]:
+ * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICManagedObjectModelFactoryObject.m OxICManagedObjectModelFactoryObject]:
+ * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.m OxICPersistentStoreCoordinatorFactoryObject]:
+
+
+
+
+
+==Lazy objects==
+When you request an object for whose the definitions is marked as lazy, an instance of [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICLazyProxy.m OxICLazyProxy] is returned. This is a subclass of NSProxy which holds a reference to the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICFactoryObject.h OxICFactoryObject] that instantiates the object upon the first method call.
