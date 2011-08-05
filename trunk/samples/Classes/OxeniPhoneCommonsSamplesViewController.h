@@ -10,10 +10,9 @@
 #import "OxICContainerBuilderDelegate.h"
 
 @interface OxeniPhoneCommonsSamplesViewController : UIViewController<OxICContainerBuilderDelegate> {
-	UIViewController* containerSampleViewController;
 }
 
-@property (nonatomic, retain) IBOutlet UIViewController* containerSampleViewController;
+- (IBAction) runContainerSample;
 
 - (IBAction) navigateToContainerSample;
 

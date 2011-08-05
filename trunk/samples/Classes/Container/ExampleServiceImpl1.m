@@ -13,4 +13,8 @@
 -(void) execute {
 	NSLog(@"Service Implementation 1");
 }
+
+- (NSString*) sayHi {
+	return @"Hi from ExampleServiceImpl1 !!!";
+}
 @end

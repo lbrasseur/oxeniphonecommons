@@ -21,14 +21,46 @@
 
 @implementation OxeniPhoneCommonsSamplesViewController
 
-@synthesize containerSampleViewController;
-
-
-- (IBAction) navigateToContainerSample {
+- (IBAction) runContainerSample {
 	//[self presentModalViewController:self.containerSampleViewController animated:YES];
 	[self buildContainerFromXml];
 
 }
+
+- (IBAction) navigateToContainerSample {
+	id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
+	OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+	
+	/* UI components */
+	[newContainer addDefinition: [OxICObjectDefinition withName: @"exampleContainerView"
+													   andClass: @"OxICNibFactoryObject"
+												   andSingleton: FALSE
+														andLazy: FALSE
+												  andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
+																  @"exampleContainerController", @"owner",
+																  nil]
+													  andValues: [NSDictionary dictionaryWithObjectsAndKeys:
+																  @"ExampleContainerController", @"name",
+																  nil]]
+	 ];
+	
+	[newContainer addDefinitionFromClassName:@"ExampleContainerController"];
+
+	[newContainer addDefinition: [OxICObjectDefinition withName: @"exampleService"
+													   andClass: @"ExampleServiceImpl1"
+												   andSingleton: TRUE
+														andLazy: FALSE
+												  andReferences: nil
+													  andValues: nil]
+	 ];
+	
+	[self presentModalViewController:[newContainer getObject:@"exampleContainerController"] animated:YES];
+	
+	[newContainer release];
+	
+}
+
+
 - (void) buildContainerFromXml {
 	
 	

@@ -24,6 +24,8 @@
 		DA99855111F3EA2F00A75DF1 /* libOxeniPhoneCommons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA99855011F3EA2C00A75DF1 /* libOxeniPhoneCommons.a */; };
 		DACB380911F5436300FE67D4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DACB380811F5436300FE67D4 /* libxml2.dylib */; };
 		DACB38C511F5493500FE67D4 /* context.xml in Resources */ = {isa = PBXBuildFile; fileRef = DACB38C411F5493500FE67D4 /* context.xml */; };
+		DADDC8C713EC66E000C27147 /* ExampleContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DADDC8C513EC66E000C27147 /* ExampleContainerController.m */; };
+		DADDC8C813EC66E000C27147 /* ExampleContainerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DADDC8C613EC66E000C27147 /* ExampleContainerController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,9 @@
 		DA99854811F3EA2C00A75DF1 /* OxeniPhoneCommons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OxeniPhoneCommons.xcodeproj; path = ../main/OxeniPhoneCommons.xcodeproj; sourceTree = SOURCE_ROOT; };
 		DACB380811F5436300FE67D4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		DACB38C411F5493500FE67D4 /* context.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = context.xml; sourceTree = "<group>"; };
+		DADDC8C413EC66E000C27147 /* ExampleContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleContainerController.h; sourceTree = "<group>"; };
+		DADDC8C513EC66E000C27147 /* ExampleContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleContainerController.m; sourceTree = "<group>"; };
+		DADDC8C613EC66E000C27147 /* ExampleContainerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleContainerController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +184,9 @@
 				DA26DAD2130CA05A00758DB5 /* ServiceExecutorImpl3.h */,
 				DA26DAD3130CA05A00758DB5 /* ServiceExecutorImpl3.m */,
 				DACB38C411F5493500FE67D4 /* context.xml */,
+				DADDC8C413EC66E000C27147 /* ExampleContainerController.h */,
+				DADDC8C513EC66E000C27147 /* ExampleContainerController.m */,
+				DADDC8C613EC66E000C27147 /* ExampleContainerController.xib */,
 			);
 			name = Container;
 			path = Classes/Container;
@@ -247,6 +255,7 @@
 				2899E5220DE3E06400AC0155 /* OxeniPhoneCommonsSamplesViewController.xib in Resources */,
 				DACB38C511F5493500FE67D4 /* context.xml in Resources */,
 				DA26DADE130CA18900758DB5 /* OxenIocViewController.xib in Resources */,
+				DADDC8C813EC66E000C27147 /* ExampleContainerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +274,7 @@
 				DA26DAD8130CA05A00758DB5 /* ServiceExecutorImpl1.m in Sources */,
 				DA26DAD9130CA05A00758DB5 /* ServiceExecutorImpl2.m in Sources */,
 				DA26DADA130CA05A00758DB5 /* ServiceExecutorImpl3.m in Sources */,
+				DADDC8C713EC66E000C27147 /* ExampleContainerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
