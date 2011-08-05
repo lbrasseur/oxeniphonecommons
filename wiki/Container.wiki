@@ -42,13 +42,11 @@ The definitions are represented by OxICObjectDefinition class. A static method a
 }}}
 
 Also, classes can be "annotated" with definition metadata. In this scenario, definitions can be added using the following method:
-
 {{{
 [newContainer addDefinitionFromClassName:@"MyViewController"];
 }}}
 
 Since Objective C doesn't provide an annotation facility (like C# or Java), we used compiler directives in order to simulate them:
-
 {{{
 @implementation MyViewController
 @synthesize myServiceProperty;
@@ -62,8 +60,7 @@ IoCLazy
 
 Note that the directives creates methods with special signatures, which are inspected by the container. Because of this, such directives must be included inside the implementation body.
 
-Finally, the container can be created using XML
-
+On the other hand, the container can be created using XML
 {{{
 <contanier>
 	<object id="theService" class="ExampleServiceImpl2" lazy="false"/>
@@ -75,10 +72,15 @@ Finally, the container can be created using XML
 
 but the implementation is not currently complete. The OxICXmlContainerBuilder class must be used in order to create a container by parsing an XML.
 
+Finally, when you need an object from the container, just get it with the getObject method:
+{{{
+[window addSubview: [newContainer getObject:@"mainView"]];
+}}}
+
+
 For a more complete example, please download the source code and open the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/samples/ sample project]
 
 =Advanced topics=
 ==Lazy objects==
 
 ==Custom factories==
-
