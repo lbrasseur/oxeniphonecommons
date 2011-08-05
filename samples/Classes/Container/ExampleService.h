@@ -13,4 +13,6 @@
 
 - (void) execute;
 
+- (NSString*) sayHi;
+
 @end
