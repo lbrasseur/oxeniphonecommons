@@ -5,7 +5,7 @@
 
 The IoC container provides dependency injection to Cocoa applications. It was created with iPhone development in mind.
 
-It aims to provide some functionalities from Spring and from Guice (in fact, we're somehow inspired by RoboGuice). But due to the complexity inherent to implementing a full IoC container (as the ones mentioned before), we restricted it to very basic features.
+It aims to provide some functionalities from [http://www.springsource.org/ Spring] and from [http://code.google.com/p/google-guice/ Guice] (in fact, we're somehow inspired by [http://code.google.com/p/roboguice/ RoboGuice]). But due to the complexity inherent to implementing a full IoC container (as the ones mentioned before), we restricted it to very basic features.
 
 ==The basics==
 The container has the following characteristics:
@@ -17,14 +17,34 @@ The container has the following characteristics:
    * References to other definitions (by name). 
    * Values
  * New factories can be implemented for object creation customization.
- * Container instantiation can be done by code (like Guice/Spring) or by XML (like Spring).
+ * Container instantiation can be done by code and "annotations" (like Guice/Spring) or by XML (like Spring).
 
 ==Simple example==
 The main class is OxICContainer, which represents (I feel you guessed it) the container. It depends on OxICWrapperFactory in order to handle classes and objects dynamically. So, instantiating it is pretty simple:
 {{{
-	id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
-	OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
+OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
 }}}
 
-The definitions are represented by OxICObjectDefinition class. A static method allows
+The definitions are represented by OxICObjectDefinition class. A static method allows an easy definition creation:
+{{{
+[newContainer addDefinition: [OxICObjectDefinition withName: @"mainView"
+                                                   andClass: @"MyView"
+                                               andSingleton: FALSE
+                                                    andLazy: FALSE
+                                              andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                              @"mainViewController", @"owner",
+                                                              nil]
+                                                  andValues: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                              @"This is my view", @"text",
+                                                              nil]]
+];
+}}}
 
+Also, classes can be "annotated" with definition metadata. In this scenario, definitions can be added using the following method:
+
+{{{
+[newContainer addDefinitionFromClassName:@"MyViewController"];
+}}}
+
+Since Objective C doesn't provide an annotation facility (like C# or Java), we used compiler directives in order to simulate them:
