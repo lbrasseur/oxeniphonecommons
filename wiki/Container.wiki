@@ -24,6 +24,7 @@ The main class is [http://code.google.com/p/oxeniphonecommons/source/browse/trun
 {{{
 id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
 OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+[wrapperFactory release];
 }}}
 
 The definitions are represented by [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICObjectDefinition.m OxICObjectDefinition] class. A static method allows an easy definition creation:
@@ -99,6 +100,7 @@ When you request an object for whose the definitions is marked as lazy, an insta
 {{{
 id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
 OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+[wrapperFactory release];
 	
 [newContainer addDefinition: [OxICObjectDefinition withName: @"mainView"
                                                    andClass: @"OxICNibFactoryObject"
@@ -120,6 +122,7 @@ OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrap
 - (OxICContainer *) buildContainer {
   id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
   OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+  [wrapperFactory release];
 	
   [newContainer addDefinition: [OxICObjectDefinition withName: @"managedObjectModel"
                                                      andClass: @"OxICManagedObjectModelFactoryObject"
