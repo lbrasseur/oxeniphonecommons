@@ -17,7 +17,7 @@
 
 @interface OxICContainer : NSObject {
 	NSMutableDictionary *definitions;
-	NSMutableDictionary *objects;
+	NSMutableDictionary *singletons;
 	id<OxICWrapperFactory> wrapperFactory;
 }
 
