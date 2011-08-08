@@ -49,6 +49,7 @@
 - (void) buildRealObjectIfNull {
 	if (self.realObject == nil) {
 		self.realObject = [self.factoryObject getObject];
+		self.factoryObject = nil;
 	}
 }
 

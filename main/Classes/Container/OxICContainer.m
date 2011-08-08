@@ -16,6 +16,8 @@
 
 @interface OxICContainer()
 @property (nonatomic, retain) id<OxICWrapperFactory> wrapperFactory;
+@property (nonatomic, retain) NSMutableDictionary *definitions;
+@property (nonatomic, retain) NSMutableDictionary *singletons;
 
 - (id) getObjectForDefinition: (OxICObjectDefinition*) definition;
 - (id) buildObject: (OxICObjectDefinition*) definition;
@@ -25,28 +27,34 @@
 @end
 
 @implementation OxICContainer
-@synthesize wrapperFactory;
+@synthesize wrapperFactory,singletons,definitions;
 
 #pragma mark Init and dealloc
 - (id) initWithWrapperFactory: (id<OxICWrapperFactory>) aWrapperFactory {
 	if (self = [super init]) {
 		self.wrapperFactory = aWrapperFactory;
-		definitions = [[NSMutableDictionary alloc] init];
-		objects = [[NSMutableDictionary alloc] init];
+		
+		NSMutableDictionary *aDefinitions = [[NSMutableDictionary alloc] init];
+		self.definitions = aDefinitions;
+		[aDefinitions release];
+		
+		NSMutableDictionary *aSingletons = [[NSMutableDictionary alloc] init];
+		self.singletons = aSingletons;
+		[aSingletons release];
 	}
 	return self;
 }
 
 - (void) dealloc {
 	self.wrapperFactory = nil;
-	[definitions release];
-	[objects release];
+	self.definitions = nil;
+	self.singletons = nil;
 	[super dealloc];
 }
 
 #pragma mark public methods
 - (void) addDefinition: (OxICObjectDefinition*) definition {
-	[definitions setObject:definition forKey:definition.name];
+	[self.definitions setObject:definition forKey:definition.name];
 }
 
 - (void) addDefinitionFromClassName: (NSString*) className {
@@ -56,13 +64,18 @@
 }
 
 - (id) getObject: (NSString*) name {
-	OxICObjectDefinition *definition = [definitions objectForKey:name];
+	/* check the singleton pool first */
+	id object = [self.singletons objectForKey:name];
 	
-	if (definition == nil) {
-		return nil;
-	} else {
-		return [self getObjectForDefinition:definition];
+	if (object == nil) {
+		OxICObjectDefinition *definition = [self.definitions objectForKey:name];
+		
+		if (definition != nil) {
+			object = [self getObjectForDefinition:definition];
+		}
 	}
+	
+	return object;
 }
 
 - (void) injectObject: (id) object withDefinition:(OxICObjectDefinition*) definition {
@@ -85,7 +98,7 @@
 	id object;
 	
 	if (definition.singleton) {
-		object = [objects objectForKey:definition.name];
+		object = [self.singletons objectForKey:definition.name];
 	} else {
 		object = nil;
 	}
@@ -93,7 +106,9 @@
 	if (object == nil) {
 		object = [self buildObject:definition];
 		if (definition.singleton) {
-			[objects setObject:object forKey:definition.name];
+			[self.singletons setObject:object forKey:definition.name];
+			/* Remove the definition, releasing memory */
+			[self.definitions removeObjectForKey:definition.name];
 		}
 	}
 	
