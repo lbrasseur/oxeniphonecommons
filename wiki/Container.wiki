@@ -84,7 +84,7 @@ For a more complete example, please download the source code and open the [http:
 =Advanced topics=
 
 ==Custom factories==
-Object construction can be customized implementing the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICFactoryObject.h OxICFactoryObject]. You must just implement this protocol and specify the implementing class name in the definition as object class. The container will detect that it is a factory and will inject. After that, it will call the getObject method. This approach is borrowed from Spring [http://static.springsource.org/spring/docs/2.5.x/api/org/springframework/beans/factory/FactoryBean.html FactoryBean].
+Object construction can be customized implementing the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICFactoryObject.h OxICFactoryObject]. You must just implement this protocol and specify the implementing class name in the definition as object class. The container will detect that it is a factory and will inject. After that, it will call the getObject method. This approach is borrowed from Spring [http://static.springsource.org/spring/docs/2.5.x/api/org/springframework/beans/factory/FactoryBean.html FactoryBean] or Guice [http://code.google.com/p/google-guice/wiki/ProviderBindings Provider].
 
 Besides, the container provides some common use factories:
  * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICDefaultFactoryObject.m OxICDefaultFactoryObject]: This factory is used when no factory is specified. It just creates the object and injects it using the container.
