@@ -42,9 +42,6 @@
 - (id) getObject {
 	id object = [self.classWrapper newObject];
 	
-	/* Objects handled by default factory are required to have an empty init method */
-	[object init];
-	
 	[self.container injectObject:object withDefinition:self.definition];
 
 	return [object autorelease];
