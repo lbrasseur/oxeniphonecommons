@@ -28,6 +28,8 @@
 		DA99864311F3F6F600A75DF1 /* OxICWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */; };
 		DA99864611F3F7FC00A75DF1 /* OxICPropertyDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */; };
 		DA99864711F3F7FC00A75DF1 /* OxICPropertyDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */; };
+		DAA8F28D13F478C200BE690D /* OxICViewControllerFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */; };
+		DAA8F28E13F478C200BE690D /* OxICViewControllerFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA8F28C13F478C200BE690D /* OxICViewControllerFactoryObject.m */; };
 		DACB367211F516E900FE67D4 /* OxICSimpleWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */; };
 		DACB367311F516E900FE67D4 /* OxICSimpleWrapperFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */; };
 		DACB36EE11F5370800FE67D4 /* OxICContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36E511F5370800FE67D4 /* OxICContainer.h */; };
@@ -66,6 +68,8 @@
 		DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICWrapperFactory.h; sourceTree = "<group>"; };
 		DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICPropertyDescriptor.h; sourceTree = "<group>"; };
 		DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICPropertyDescriptor.m; sourceTree = "<group>"; };
+		DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICViewControllerFactoryObject.h; sourceTree = "<group>"; };
+		DAA8F28C13F478C200BE690D /* OxICViewControllerFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICViewControllerFactoryObject.m; sourceTree = "<group>"; };
 		DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICSimpleWrapperFactory.h; sourceTree = "<group>"; };
 		DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICSimpleWrapperFactory.m; sourceTree = "<group>"; };
 		DACB36E511F5370800FE67D4 /* OxICContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICContainer.h; path = Classes/Container/OxICContainer.h; sourceTree = SOURCE_ROOT; };
@@ -210,6 +214,8 @@
 				DA6856EC13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m */,
 				DADDC86913EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h */,
 				DADDC86A13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m */,
+				DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */,
+				DAA8F28C13F478C200BE690D /* OxICViewControllerFactoryObject.m */,
 			);
 			name = Container;
 			path = Classes/Container;
@@ -240,6 +246,7 @@
 				DA35B00813E9FF75004E17EC /* OxICNibFactoryObject.h in Headers */,
 				DA6856ED13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h in Headers */,
 				DADDC86B13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h in Headers */,
+				DAA8F28D13F478C200BE690D /* OxICViewControllerFactoryObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +305,7 @@
 				DA35B00913E9FF75004E17EC /* OxICNibFactoryObject.m in Sources */,
 				DA6856EE13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m in Sources */,
 				DADDC86C13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m in Sources */,
+				DAA8F28E13F478C200BE690D /* OxICViewControllerFactoryObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
