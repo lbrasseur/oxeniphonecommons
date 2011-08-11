@@ -20,7 +20,7 @@
 
 
 - (id) getObject {
-	UIViewController *controller = [objc_getClass([self.controllerClass UTF8String]) new];
+	UIViewController *controller = [objc_getClass([self.controllerClass UTF8String]) alloc];
 	[controller initWithNibName:self.nibName bundle:nil];
 	return [controller autorelease];
 }

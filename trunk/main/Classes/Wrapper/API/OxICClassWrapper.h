@@ -37,10 +37,16 @@
 - (BOOL) hasProperty:(NSString*) propertyName;
 
 /**
- * Creates a new object.
+ * Creates a new object. Also calls the init method.
  * @return The new object
  */
 - (id) newObject;
+
+/**
+ * Creates a new object. Doesn't call the init method.
+ * @return The new object
+ */
+- (id) allocObject;
 
 /**
  * Indicates if the wrapepd class conforms to a given protocol..
