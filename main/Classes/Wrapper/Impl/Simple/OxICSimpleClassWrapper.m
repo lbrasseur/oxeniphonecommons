@@ -72,6 +72,10 @@
 	return [self.type new];
 }
 
+- (id) allocObject {
+	return [self.type alloc];
+}
+
 - (BOOL) conformsToProtocol: (Protocol*) protocol {
 	return class_conformsToProtocol(self.type, protocol);
 }
