@@ -10,7 +10,7 @@ It aims to provide some functionalities from [http://www.springsource.org/ Sprin
 ==The basics==
 The container has the following characteristics:
 
-  * The container holds definitions about objects. No object is created until somebody request it.
+  ** The container holds definitions about objects. No object is created until somebody request it.
 
   - Every definition must have a name that must be unique inside the container in order to identify the object.
 
