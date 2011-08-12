@@ -153,7 +153,7 @@ When you request an object for whose the definitions is marked as lazy, an insta
 }
 }}}
 
-=The failed View/ViewController decoupling experiment=
+=The failed view / view controller decoupling experiment=
 One of the ideas when building this container was decoupling the view controller from the view. Our first try was creating a factory for NIBs:
 
   ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICNibFactoryObject.m OxICNibFactoryObject]: this class creates a [http://developer.apple.com/library/ios/#documentation/uikit/reference/UIView_Class/UIView/UIView.html UIView] from a NIB. The NIB name and the owner (typically the view controller) must be specified. The NIB is readed from the bundle.
