@@ -97,8 +97,6 @@ Besides, the container provides some common use factories:
 
  ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICDefaultFactoryObject.m OxICDefaultFactoryObject]: This factory is used when no factory is specified. It just creates the object and injects it using the container.
 
-  ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICNibFactoryObject.m OxICNibFactoryObject]: this class creates a [http://developer.apple.com/library/ios/#documentation/uikit/reference/UIView_Class/UIView/UIView.html UIView] from a NIB. The NIB name and the owner (typically the view controller) must be specified. The NIB is readed from the bundle.
-
   ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICManagedObjectModelFactoryObject.m OxICManagedObjectModelFactoryObject]: Creates a [http://en.wikipedia.org/wiki/Core_Data Core Data] [http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/CoreDataFramework/Classes/NSManagedObjectModel_Class/Reference/Reference.html NSManagedObjectModel] object, merging all the definitions present in the bundle. 
 
   ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.m OxICPersistentStoreCoordinatorFactoryObject]: Creates a [http://en.wikipedia.org/wiki/Core_Data Core Data] [http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/CoreDataFramework/Classes/NSPersistentStoreCoordinator_Class/NSPersistentStoreCoordinator.html NSPersistentStoreCoordinator]. The store URL and the managed object model must be injected.
@@ -107,27 +105,6 @@ Besides, the container provides some common use factories:
 When you request an object for whose the definitions is marked as lazy, an instance of [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICLazyProxy.m OxICLazyProxy] is returned. This is a subclass of [http://developer.apple.com/library/mac/#documentation/cocoa/reference/foundation/Classes/NSProxy_Class/Reference/Reference.html NSProxy] which holds a reference to the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICFactoryObject.h OxICFactoryObject] that instantiates the object upon the first method call.
 
 =Advanced examples=
-==NIB view==
-{{{
-id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
-OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
-[wrapperFactory release];
-	
-[newContainer addDefinition: [OxICObjectDefinition withName: @"mainView"
-                                                   andClass: @"OxICNibFactoryObject"
-                                               andSingleton: FALSE
-                                                    andLazy: FALSE
-                                              andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                              @"mainViewController", @"owner",
-                                                              nil]
-                                                  andValues: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                              @"MyViewController", @"name",
-                                                              nil]]
- ];
-	
-[newContainer addDefinitionFromClassName:@"MyViewController"];
-
-}}}
 ==Core Data==
 {{{
 - (OxICContainer *) buildContainer {
@@ -175,3 +152,57 @@ OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrap
    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 }}}
+
+=The failed View/ViewController decoupling experiment=
+One of the ideas when building this container was decoupling the view controller from the view. Our first try was creating a factory for NIBs:
+
+  ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICNibFactoryObject.m OxICNibFactoryObject]: this class creates a [http://developer.apple.com/library/ios/#documentation/uikit/reference/UIView_Class/UIView/UIView.html UIView] from a NIB. The NIB name and the owner (typically the view controller) must be specified. The NIB is readed from the bundle.
+
+We even wrote an example for that:
+
+{{{
+id<OxICWrapperFactory> wrapperFactory = [[OxICSimpleWrapperFactory alloc] init];
+OxICContainer *newContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+[wrapperFactory release];
+	
+[newContainer addDefinition: [OxICObjectDefinition withName: @"mainView"
+                                                   andClass: @"OxICNibFactoryObject"
+                                               andSingleton: FALSE
+                                                    andLazy: FALSE
+                                              andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                              @"mainViewController", @"owner",
+                                                              nil]
+                                                  andValues: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                              @"MyViewController", @"name",
+                                                              nil]]
+ ];
+	
+[newContainer addDefinitionFromClassName:@"MyViewController"];
+
+}}}
+
+but that didn't work. Why? Because creating the view and passing the controller as owner is not enough. So, according to [http://developer.apple.com/library/ios/#documentation/uikit/reference/UIViewController_Class/Reference/Reference.html UIViewController] reference documentation:
+
+". . . There are two mutually exclusive ways to specify these views: manually or using a nib file. If you specify the views manually, you must implement the loadView method and use it to assign a root view object to the view property. If you specify views using a nib file, you must not override loadView but should instead create a nib file in Interface Builder and then initialize your view controller object using the initWithNibName:bundle: method. . ."
+
+The following methods are called in sequence:
+
+  ** initWithNibName:bundle:
+
+  ** loadView
+
+  ** viewDidLoad
+
+If you don't override the loadView method and don't pass a NIB name (just like happens with the container, because it uses the empty init method), the UIViewController will try loading a NIB with the same name of the controller. But if you override loadView and do nothing, viewDidLoad is not triggered. In other words, the iPhone view creation is very rigid. It must be done inside view controller creation.
+
+We tried a second option: creating a custom factory for creating view controllers using the initWithNibName:bundle: method ([http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICViewControllerFactoryObject.m OxICViewControllerFactoryObject]), but there was other problem: the created view controller wasn't injected, because the object definition was used in order to inject the factory itself.
+
+So, a solution could be creating a way to specify separated definitions for factory and for the object. Another option would be adding support for specifying the init method to use and its parameter. Both of them would be against our goal of keeping the container simple. We though in adding a custom "annotation" for the NIB name, but it would be almost the same thing that overriding the init method and passing the NIB name hardcode.
+
+So, until we got a new idea (or somebody provides us a new one), use the following rules:
+
+  ** If the view is in a NIB with the same name, just create the view controller using a simple object declaration in the container.
+
+  ** If the view must be created by code, do the same as the previous point but override the loadView method
+
+  ** If the view is in a NIB with a different name, just override the init method and call the initWithNibName:bundle: method with the desired NIB name.
