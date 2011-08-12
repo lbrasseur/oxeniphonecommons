@@ -94,9 +94,13 @@ For a more complete example, please download the source code and open the [http:
 Object construction can be customized implementing the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICFactoryObject.h OxICFactoryObject]. You must just implement this protocol and specify the implementing class name in the definition as object class. The container will detect that it is a factory and will inject. After that, it will call the getObject method. This approach is borrowed from Spring [http://static.springsource.org/spring/docs/2.5.x/api/org/springframework/beans/factory/FactoryBean.html FactoryBean] and Guice [http://code.google.com/p/google-guice/wiki/ProviderBindings Provider].
 
 Besides, the container provides some common use factories:
-  ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICDefaultFactoryObject.m OxICDefaultFactoryObject]: This factory is used when no factory is specified. It just creates the object and injects it using the container.
+ 
+ ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICDefaultFactoryObject.m OxICDefaultFactoryObject]: This factory is used when no factory is specified. It just creates the object and injects it using the container.
+
   ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICNibFactoryObject.m OxICNibFactoryObject]: this class creates a [http://developer.apple.com/library/ios/#documentation/uikit/reference/UIView_Class/UIView/UIView.html UIView] from a NIB. The NIB name and the owner (typically the view controller) must be specified. The NIB is readed from the bundle.
+
   ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICManagedObjectModelFactoryObject.m OxICManagedObjectModelFactoryObject]: Creates a [http://en.wikipedia.org/wiki/Core_Data Core Data] [http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/CoreDataFramework/Classes/NSManagedObjectModel_Class/Reference/Reference.html NSManagedObjectModel] object, merging all the definitions present in the bundle. 
+
   ** [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.m OxICPersistentStoreCoordinatorFactoryObject]: Creates a [http://en.wikipedia.org/wiki/Core_Data Core Data] [http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/CoreDataFramework/Classes/NSPersistentStoreCoordinator_Class/NSPersistentStoreCoordinator.html NSPersistentStoreCoordinator]. The store URL and the managed object model must be injected.
 
 ==Lazy objects==
