@@ -9,15 +9,24 @@ It aims to provide some functionalities from [http://www.springsource.org/ Sprin
 
 ==The basics==
 The container has the following characteristics:
- * The container holds definitions about objects. No object is created until somebody request it.
- * Every definition must have a name that must be unique inside the container in order to identify the object.
- * The definition can indicate that the object must be singleton (it is created and stored in a pool when the object is requested the first time). If singleton is specified as FALSE, the object will be created each time (but it can be released when no longer required). This is similar to prototype scope in [http://www.springsource.org/ Spring] , an as we learned from using [http://code.google.com/p/roboguice/ RoboGuice], this behavior would be preferible in many mobile development scenarios. 
- * The definition can indicate that the object must be lazy. That is, when the object is requested, a proxy to such object is returned. Upon the first method call on such reference, the object is created. This is useful for avoiding creating big object graphs unnecessarily.
- * The object can be injected (this is the main goal of the framework!). It must have properties or at least setters for performing the injection. The definition allows performing the following injections:
-   * References to other definitions (by name). 
-   * Values
- * New factories can be implemented for object creation customization.
- * Container instantiation can be done by code and "annotations" (like [http://code.google.com/p/google-guice/ Guice]/[http://www.springsource.org/ Spring]) or by XML (like [http://www.springsource.org/ Spring]).
+
+  - The container holds definitions about objects. No object is created until somebody request it.
+
+  - Every definition must have a name that must be unique inside the container in order to identify the object.
+
+  - The definition can indicate that the object must be singleton (it is created and stored in a pool when the object is requested the first time). If singleton is specified as FALSE, the object will be created each time (but it can be released when no longer required). This is similar to prototype scope in [http://www.springsource.org/ Spring] , an as we learned from using [http://code.google.com/p/roboguice/ RoboGuice], this behavior would be preferible in many mobile development scenarios.
+
+  - The definition can indicate that the object must be lazy. That is, when the object is requested, a proxy to such object is returned. Upon the first method call on such reference, the object is created. This is useful for avoiding creating big object graphs unnecessarily.
+
+  - The object can be injected (this is the main goal of the framework!). It must have properties or at least setters for performing the injection. The definition allows performing the following injections:
+
+      # References to other definitions (by name). 
+
+      # Values
+
+  - New factories can be implemented for object creation customization.
+
+  - Container instantiation can be done by code and "annotations" (like [http://code.google.com/p/google-guice/ Guice]/[http://www.springsource.org/ Spring]) or by XML (like [http://www.springsource.org/ Spring]).
 
 =A simple example=
 The main class is [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Container/OxICContainer.m OxICContainer], which represents (I feel you guessed it) the container. It depends on [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/API/OxICWrapperFactory.h OxICWrapperFactory] in order to handle classes and objects dynamically. So, instantiating it is pretty simple:
