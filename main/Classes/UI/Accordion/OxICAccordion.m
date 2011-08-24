@@ -55,6 +55,7 @@
 - (void) setCollapsed:(BOOL) collapsed toSection: (int) sectionPosition {
 	float currentY = 0;
 	int currentPosition = 0;
+	[UIView beginAnimations:@"accordion" context:NULL];
 	for (OxICAccordionSection *section in self.sections) {
 		
 		float height = 0;
@@ -73,7 +74,7 @@
 		currentY += height;
 		currentPosition++;
 	}
-	
+	[UIView commitAnimations];
 	
 	self.contentSize = CGSizeMake(self.contentSize.width, currentY);
 }

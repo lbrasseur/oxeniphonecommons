@@ -34,6 +34,8 @@
 		collapsedHeight = frame.size.height;
 		expandedHeight = frame.size.height + content.frame.size.height;
 		
+		[self addSubview:self.content];
+		
 		UIButton *labelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		[labelButton setTitle:title forState:UIControlStateNormal];
 		labelButton.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
@@ -41,7 +43,7 @@
 		
 		[self addSubview:labelButton];
 		
-		self.content.frame = CGRectMake(0, self.frame.size.height, content.frame.size.width, content.frame.size.height);		
+		[self collapse];
     }
     return self;
 }
@@ -55,12 +57,14 @@
 #pragma mark Interface methods
 - (void) collapse {
 	self.collapsedFlag = YES;
-	[self.content removeFromSuperview];
+	self.content.frame = CGRectMake(0, self.frame.size.height - (content.frame.size.height / 2), content.frame.size.width, content.frame.size.height);		
+	self.content.hidden = YES;
 }
 
 - (void) expand {
 	self.collapsedFlag = NO;
-	[self addSubview:self.content];
+	self.content.frame = CGRectMake(0, self.frame.size.height, content.frame.size.width, content.frame.size.height);		
+	self.content.hidden = NO;
 }
 
 
