@@ -17,7 +17,7 @@
 
 
 @implementation OxICAccordionSection
-@synthesize parent, collapsedFlag, position, collapsedHeight, content;
+@synthesize parent, collapsedFlag, position, content;
 
 # pragma mark Init and dealloc
 - (id) initWithFrame:(CGRect)frame
@@ -31,7 +31,6 @@
 		self.collapsedFlag = YES;
 		self.position = sectionPosition;
 		self.content = sectionContent;
-		collapsedHeight = frame.size.height;
 		
 		[self addSubview:self.content];
 		
@@ -66,6 +65,9 @@
 	self.content.hidden = NO;
 }
 
+- (void) setContentHeight:(float) contentHeight {
+	self.content.frame = CGRectMake(self.content.frame.origin.y, self.content.frame.origin.y, content.frame.size.width, contentHeight);
+}
 
 #pragma mark Events
 - (void) buttonClick:(id) sender {

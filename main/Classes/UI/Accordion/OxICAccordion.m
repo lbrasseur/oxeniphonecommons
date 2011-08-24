@@ -49,8 +49,10 @@
 	[self.sections addObject:section];
 	[section release];
 	
-	
-	//self.contentSize = CGSizeMake(self.contentSize.width, self.contentSize.height + self.collapsedHeight);
+	float newContentHeight = self.frame.size.height - ([self.sections count] * self.collapsedHeight);
+	for (OxICAccordionSection *section in self.sections) {
+		[section setContentHeight:newContentHeight];
+	}
 }
 
 - (void) expand: (int) sectionPosition {
