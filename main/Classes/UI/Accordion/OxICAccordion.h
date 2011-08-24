@@ -17,6 +17,6 @@
 - (void) addSection: (NSString*) title
 		withContent: (UIView*) content;
 
-- (void) setCollapsed:(BOOL) collapsed toSection: (int) sectionPosition;
+- (void) expand: (int) sectionPosition;
 
 @end

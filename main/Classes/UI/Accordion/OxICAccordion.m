@@ -49,34 +49,37 @@
 	[self.sections addObject:section];
 	[section release];
 	
-	self.contentSize = CGSizeMake(self.contentSize.width, self.contentSize.height + self.collapsedHeight);
+	
+	//self.contentSize = CGSizeMake(self.contentSize.width, self.contentSize.height + self.collapsedHeight);
 }
 
-- (void) setCollapsed:(BOOL) collapsed toSection: (int) sectionPosition {
-	float currentY = 0;
+- (void) expand: (int) sectionPosition {
 	int currentPosition = 0;
+	int sectionCount = [self.sections count];
 	[UIView beginAnimations:@"accordion" context:NULL];
 	for (OxICAccordionSection *section in self.sections) {
+		float yPosition;
 		
-		float height = 0;
+		if (currentPosition <= sectionPosition) {
+			yPosition = currentPosition * self.collapsedHeight;
+		} else {
+			yPosition = self.frame.size.height - ((sectionCount - currentPosition) * self.collapsedHeight);
+		}
 		
 		
-		if (currentPosition == sectionPosition && !collapsed) {
-			height = section.expandedHeight;
+		if (currentPosition == sectionPosition) {
 			[section expand];
 		} else {
-			height = section.collapsedHeight;
 			[section collapse];
 		}
 		
-		section.frame = CGRectMake(0, currentY, self.frame.size.width, height);
+		section.frame = CGRectMake(0, yPosition, self.frame.size.width, self.collapsedHeight);
 
-		currentY += height;
 		currentPosition++;
 	}
 	[UIView commitAnimations];
 	
-	self.contentSize = CGSizeMake(self.contentSize.width, currentY);
+	//self.contentSize = CGSizeMake(self.contentSize.width, currentY);
 }
 
 

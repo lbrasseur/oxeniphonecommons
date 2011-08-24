@@ -17,7 +17,7 @@
 
 
 @implementation OxICAccordionSection
-@synthesize parent, collapsedFlag, position, collapsedHeight, expandedHeight, content;
+@synthesize parent, collapsedFlag, position, collapsedHeight, content;
 
 # pragma mark Init and dealloc
 - (id) initWithFrame:(CGRect)frame
@@ -32,7 +32,6 @@
 		self.position = sectionPosition;
 		self.content = sectionContent;
 		collapsedHeight = frame.size.height;
-		expandedHeight = frame.size.height + content.frame.size.height;
 		
 		[self addSubview:self.content];
 		
@@ -70,7 +69,9 @@
 
 #pragma mark Events
 - (void) buttonClick:(id) sender {
-	[self.parent setCollapsed:!self.collapsedFlag toSection:self.position];
+	if (self.collapsedFlag) {
+		[self.parent expand:self.position];
+	}
 }
 
 @end

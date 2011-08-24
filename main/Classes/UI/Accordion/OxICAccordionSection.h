@@ -14,12 +14,10 @@
 	BOOL collapsedFlag;
 	int position;
 	float collapsedHeight;
-	float expandedHeight;
 	UIView* content;
 }
 
 @property (nonatomic, assign, readonly) float collapsedHeight;
-@property (nonatomic, assign, readonly) float expandedHeight;
 
 - (id) initWithFrame:(CGRect)frame
 		   andParent:(OxICAccordion*) parentAccordion
