@@ -13,11 +13,8 @@
 	OxICAccordion *parent;
 	BOOL collapsedFlag;
 	int position;
-	float collapsedHeight;
 	UIView* content;
 }
-
-@property (nonatomic, assign, readonly) float collapsedHeight;
 
 - (id) initWithFrame:(CGRect)frame
 		   andParent:(OxICAccordion*) parentAccordion
@@ -29,5 +26,8 @@
 - (void) collapse;
 
 - (void) expand;
+
+- (void) setContentHeight:(float) contentHeight;
+
 
 @end
