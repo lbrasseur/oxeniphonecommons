@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface OxICAccordion : UIScrollView {
+@interface OxICAccordion : UIView {
 	float collapsedHeight;
 	NSMutableArray* sections;
 }
