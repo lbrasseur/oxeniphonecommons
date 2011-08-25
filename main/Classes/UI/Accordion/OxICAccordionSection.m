@@ -13,11 +13,12 @@
 @property (nonatomic, assign) BOOL collapsedFlag;
 @property (nonatomic, assign) int position;
 @property (nonatomic, retain) UIView* content;
+@property (nonatomic, assign) float collapsedHeight;
 @end
 
 
 @implementation OxICAccordionSection
-@synthesize parent, collapsedFlag, position, content, contentHeight;
+@synthesize parent, collapsedFlag, position, content, contentHeight, collapsedHeight;
 
 # pragma mark Init and dealloc
 - (id) initWithFrame:(CGRect)frame
@@ -29,6 +30,7 @@
     if ((self = [super initWithFrame:frame])) {
 		self.parent = parentAccordion;
 		self.collapsedFlag = YES;
+		self.collapsedHeight = self.frame.size.height;
 		self.position = sectionPosition;
 		self.content = sectionContent;
 		
@@ -55,12 +57,12 @@
 #pragma mark Interface methods
 - (void) collapse {
 	self.collapsedFlag = YES;
-	self.content.frame = CGRectMake(0, self.frame.size.height, content.frame.size.width, 0);
+	self.content.frame = CGRectMake(0, self.collapsedHeight, content.frame.size.width, 0);
 }
 
 - (void) expand {
 	self.collapsedFlag = NO;
-	self.content.frame = CGRectMake(0, self.frame.size.height, content.frame.size.width, contentHeight);
+	self.content.frame = CGRectMake(0, self.collapsedHeight, content.frame.size.width, self.contentHeight);
 }
 
 - (void) setContentHeight:(float) newContentHeight {
