@@ -51,7 +51,7 @@
 	
 	float newContentHeight = self.frame.size.height - ([self.sections count] * self.collapsedHeight);
 	for (OxICAccordionSection *section in self.sections) {
-		[section setContentHeight:newContentHeight];
+		section.contentHeight = newContentHeight;
 	}
 }
 

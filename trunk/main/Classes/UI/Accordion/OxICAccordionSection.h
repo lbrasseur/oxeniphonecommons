@@ -14,6 +14,7 @@
 	BOOL collapsedFlag;
 	int position;
 	UIView* content;
+	float contentHeight;
 }
 
 - (id) initWithFrame:(CGRect)frame
@@ -27,7 +28,7 @@
 
 - (void) expand;
 
-- (void) setContentHeight:(float) contentHeight;
+@property (nonatomic, assign) float contentHeight;
 
 
 @end
