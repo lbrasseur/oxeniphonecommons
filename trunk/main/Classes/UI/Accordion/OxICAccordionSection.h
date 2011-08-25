@@ -15,6 +15,7 @@
 	int position;
 	UIView* content;
 	float contentHeight;
+	float collapsedHeight;
 }
 
 - (id) initWithFrame:(CGRect)frame

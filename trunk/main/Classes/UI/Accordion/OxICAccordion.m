@@ -12,10 +12,11 @@
 @interface OxICAccordion()
 @property (nonatomic, retain) NSMutableArray* sections;
 @property (nonatomic, assign) float collapsedHeight;
+@property (nonatomic, assign) float contentHeight;
 @end
 
 @implementation OxICAccordion
-@synthesize sections, collapsedHeight;
+@synthesize sections, collapsedHeight, contentHeight;
 
 #pragma mark Init and dealloc
 - (id)initWithFrame:(CGRect)frame {
@@ -47,9 +48,9 @@
 	[self.sections addObject:section];
 	[section release];
 	
-	float newContentHeight = self.frame.size.height - ([self.sections count] * self.collapsedHeight);
+	self.contentHeight = self.frame.size.height - ([self.sections count] * self.collapsedHeight);
 	for (OxICAccordionSection *section in self.sections) {
-		section.contentHeight = newContentHeight;
+		section.contentHeight = self.contentHeight;
 	}
 }
 
@@ -69,11 +70,11 @@
 		
 		if (currentPosition == sectionPosition) {
 			[section expand];
+			section.frame = CGRectMake(0, yPosition, self.frame.size.width, self.collapsedHeight + self.contentHeight);
 		} else {
 			[section collapse];
+			section.frame = CGRectMake(0, yPosition, self.frame.size.width, self.collapsedHeight);
 		}
-		
-		section.frame = CGRectMake(0, yPosition, self.frame.size.width, self.collapsedHeight);
 
 		currentPosition++;
 	}

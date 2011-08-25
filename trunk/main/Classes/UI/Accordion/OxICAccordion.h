@@ -11,6 +11,7 @@
 
 @interface OxICAccordion : UIView {
 	float collapsedHeight;
+	float contentHeight;
 	NSMutableArray* sections;
 }
 
