@@ -45,6 +45,10 @@
 		DACB36F411F5370800FE67D4 /* OxICObjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */; };
 		DACB36F511F5370800FE67D4 /* OxICXmlContainerBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */; };
 		DACB36F611F5370800FE67D4 /* OxICXmlContainerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */; };
+		DADCC1F21406CC58006E902F /* OxICInteractiveSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */; };
+		DADCC1F31406CC58006E902F /* OxICInteractiveSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */; };
+		DADCC1F61406D898006E902F /* OxICInteractiveSelectorOption.h in Headers */ = {isa = PBXBuildFile; fileRef = DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */; };
+		DADCC1F71406D898006E902F /* OxICInteractiveSelectorOption.m in Sources */ = {isa = PBXBuildFile; fileRef = DADCC1F51406D898006E902F /* OxICInteractiveSelectorOption.m */; };
 		DADDC86B13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DADDC86913EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h */; };
 		DADDC86C13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DADDC86A13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m */; };
 /* End PBXBuildFile section */
@@ -89,6 +93,10 @@
 		DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICObjectDefinition.m; path = Classes/Container/OxICObjectDefinition.m; sourceTree = SOURCE_ROOT; };
 		DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICXmlContainerBuilder.h; path = Classes/Container/OxICXmlContainerBuilder.h; sourceTree = SOURCE_ROOT; };
 		DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICXmlContainerBuilder.m; path = Classes/Container/OxICXmlContainerBuilder.m; sourceTree = SOURCE_ROOT; };
+		DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICInteractiveSelector.h; sourceTree = "<group>"; };
+		DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICInteractiveSelector.m; sourceTree = "<group>"; };
+		DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICInteractiveSelectorOption.h; sourceTree = "<group>"; };
+		DADCC1F51406D898006E902F /* OxICInteractiveSelectorOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICInteractiveSelectorOption.m; sourceTree = "<group>"; };
 		DADDC86913EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPersistentStoreCoordinatorFactoryObject.h; path = Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.h; sourceTree = SOURCE_ROOT; };
 		DADDC86A13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPersistentStoreCoordinatorFactoryObject.m; path = Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -206,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				DAB352D913FD48C300D6163A /* Accordion */,
+				DADCC1EF1406CC1C006E902F /* InteractiveSelector */,
 			);
 			name = UI;
 			path = Classes/UI;
@@ -251,6 +260,18 @@
 			path = Classes/Container;
 			sourceTree = SOURCE_ROOT;
 		};
+		DADCC1EF1406CC1C006E902F /* InteractiveSelector */ = {
+			isa = PBXGroup;
+			children = (
+				DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */,
+				DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */,
+				DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */,
+				DADCC1F51406D898006E902F /* OxICInteractiveSelectorOption.m */,
+			);
+			name = InteractiveSelector;
+			path = Classes/UI/InteractiveSelector;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -279,6 +300,8 @@
 				DAA8F28D13F478C200BE690D /* OxICViewControllerFactoryObject.h in Headers */,
 				DAB352DE13FD48C300D6163A /* OxICAccordion.h in Headers */,
 				DAB352E013FD48C300D6163A /* OxICAccordionSection.h in Headers */,
+				DADCC1F21406CC58006E902F /* OxICInteractiveSelector.h in Headers */,
+				DADCC1F61406D898006E902F /* OxICInteractiveSelectorOption.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +363,8 @@
 				DAA8F28E13F478C200BE690D /* OxICViewControllerFactoryObject.m in Sources */,
 				DAB352DF13FD48C300D6163A /* OxICAccordion.m in Sources */,
 				DAB352E113FD48C300D6163A /* OxICAccordionSection.m in Sources */,
+				DADCC1F31406CC58006E902F /* OxICInteractiveSelector.m in Sources */,
+				DADCC1F71406D898006E902F /* OxICInteractiveSelectorOption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

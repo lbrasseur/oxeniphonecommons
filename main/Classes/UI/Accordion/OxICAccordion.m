@@ -14,7 +14,6 @@
 @property (nonatomic, assign) float collapsedHeight;
 @end
 
-
 @implementation OxICAccordion
 @synthesize sections, collapsedHeight;
 
@@ -23,7 +22,6 @@
     if ((self = [super initWithFrame:frame])) {
 		self.collapsedHeight = 25;
 		self.sections = [NSMutableArray arrayWithCapacity:10];
-		self.contentSize = CGSizeMake(frame.size.width, 0);
     }
     return self;
 }
@@ -80,8 +78,6 @@
 		currentPosition++;
 	}
 	[UIView commitAnimations];
-	
-	//self.contentSize = CGSizeMake(self.contentSize.width, currentY);
 }
 
 
