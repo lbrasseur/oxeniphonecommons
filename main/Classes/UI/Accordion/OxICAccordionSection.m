@@ -17,7 +17,7 @@
 
 
 @implementation OxICAccordionSection
-@synthesize parent, collapsedFlag, position, content;
+@synthesize parent, collapsedFlag, position, content, contentHeight;
 
 # pragma mark Init and dealloc
 - (id) initWithFrame:(CGRect)frame
@@ -55,17 +55,16 @@
 #pragma mark Interface methods
 - (void) collapse {
 	self.collapsedFlag = YES;
-	self.content.frame = CGRectMake(0, self.frame.size.height - (content.frame.size.height / 2), content.frame.size.width, content.frame.size.height);		
-	self.content.hidden = YES;
+	self.content.frame = CGRectMake(0, self.frame.size.height, content.frame.size.width, 0);
 }
 
 - (void) expand {
 	self.collapsedFlag = NO;
-	self.content.frame = CGRectMake(0, self.frame.size.height, content.frame.size.width, content.frame.size.height);		
-	self.content.hidden = NO;
+	self.content.frame = CGRectMake(0, self.frame.size.height, content.frame.size.width, contentHeight);
 }
 
-- (void) setContentHeight:(float) contentHeight {
+- (void) setContentHeight:(float) newContentHeight {
+	contentHeight = newContentHeight;
 	self.content.frame = CGRectMake(self.content.frame.origin.y, self.content.frame.origin.y, content.frame.size.width, contentHeight);
 }
 
