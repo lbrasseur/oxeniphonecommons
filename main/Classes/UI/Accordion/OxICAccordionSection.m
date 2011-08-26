@@ -32,7 +32,12 @@
 		self.collapsedFlag = YES;
 		self.collapsedHeight = self.frame.size.height;
 		self.position = sectionPosition;
-		self.content = sectionContent;
+		
+		UIScrollView* contentScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 0)];
+		sectionContent.frame = CGRectMake(0, 0, sectionContent.frame.size.width, sectionContent.frame.size.height);
+		[contentScroll addSubview:sectionContent];
+		self.content = contentScroll;
+		[contentScroll release];
 		
 		[self addSubview:self.content];
 		
