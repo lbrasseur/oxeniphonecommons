@@ -55,9 +55,10 @@
 }
 
 - (void) expand: (int) sectionPosition {
+	[UIView beginAnimations:@"accordion" context:NULL];
+	
 	int currentPosition = 0;
 	int sectionCount = [self.sections count];
-	[UIView beginAnimations:@"accordion" context:NULL];
 	for (OxICAccordionSection *section in self.sections) {
 		float yPosition;
 		
@@ -78,6 +79,7 @@
 
 		currentPosition++;
 	}
+
 	[UIView commitAnimations];
 }
 
