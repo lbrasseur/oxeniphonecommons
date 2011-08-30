@@ -12,6 +12,7 @@
 #define BUTTON_MARGIN 3
 
 @interface OxICInteractiveSelector()
+- (void) redraw;
 @property (nonatomic, retain) NSMutableArray* options;
 @property (nonatomic, assign) float optionSize;
 @end
@@ -56,39 +57,50 @@
 
 - (void) setOption:(id) identifier
 	  withSelected:(BOOL) selected {
-	
-	BOOL itemChanged = NO;
-	
-	[UIView beginAnimations:@"interactiveSelector" context:NULL];
-
-	int visibleCount = 0;
 	for (OxICInteractiveSelectorOption* option in self.options) {
 		if ([identifier isEqual:option.identifier]) {
-			itemChanged = option.selected != selected;
-			option.selected = selected;
-			if (selected) {
-				[option removeFromSuperview];
-			} else {
-				[self addSubview:option];
+			if (option.selected != selected) {
+				option.selected = selected;
+				[self redraw];
+				if (selected && self.selectorDelegate !=nil) {
+					[self.selectorDelegate selected:identifier onSelector:self];
+				}
+				break;
 			}
 		}
-		
-		if (!option.selected) {
+	}
+}
+
+#pragma mark UISearchBarDelegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+	for (OxICInteractiveSelectorOption* option in self.options) {
+		option.visible = [searchText isEqualToString:@""] || [option.label rangeOfString:searchText].location != NSNotFound;
+	}
+	[self redraw];
+}
+
+#pragma mark Private methods
+- (void) redraw {
+	[UIView beginAnimations:@"interactiveSelector" context:NULL];
+	
+	int visibleCount = 0;
+	for (OxICInteractiveSelectorOption* option in self.options) {
+		if (!option.selected && option.visible) {
 			option.frame = CGRectMake(visibleCount * self.optionSize + BUTTON_MARGIN,
 									  option.frame.origin.y,
 									  option.frame.size.width,
 									  option.frame.size.height);
 			visibleCount ++;
+			option.hidden = NO;
+		} else {
+			option.hidden = YES;
 		}
 	}
 	
 	self.contentSize = CGSizeMake(visibleCount * self.optionSize, self.optionSize);
-
+	
 	[UIView commitAnimations];
-
-	if (itemChanged && selected && self.selectorDelegate !=nil) {
-		[self.selectorDelegate selected:identifier onSelector:self];
-	}
 }
+
 
 @end
