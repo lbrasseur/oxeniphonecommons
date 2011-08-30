@@ -12,15 +12,19 @@
 @interface OxICInteractiveSelectorOption : UIView {
 	id identifier;
 	BOOL selected;
+	BOOL visible;
+	NSString *label;
 	OxICInteractiveSelector *parent;
 }
 
 - (id) initWithFrame:(CGRect)frame
 	   andIdentifier:(id) optionIdentifier
-			andLabel:(NSString*) label
+			andLabel:(NSString*) aLabel
 		   andParent:(OxICInteractiveSelector*) parentSelector;
 	
 @property (nonatomic, assign) BOOL selected;
+@property (nonatomic, assign) BOOL visible;
 @property (nonatomic, retain) id identifier;
+@property (nonatomic, retain) NSString *label;
 
 @end

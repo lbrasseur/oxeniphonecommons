@@ -13,20 +13,22 @@
 @end
 
 @implementation OxICInteractiveSelectorOption
-@synthesize identifier, selected, parent;
+@synthesize identifier, label, selected, visible, parent;
 
 - (id) initWithFrame:(CGRect)frame
 	   andIdentifier:(id) optionIdentifier
-			andLabel:(NSString*) label
+			andLabel:(NSString*) aLabel
 		   andParent:(OxICInteractiveSelector*) parentSelector {
 	
     if ((self = [super initWithFrame:frame])) {
 		self.selected = NO;
+		self.visible = YES;
 		self.parent = parentSelector;
 		self.identifier = optionIdentifier;
+		self.label = aLabel;
 		
 		UIButton *labelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		[labelButton setTitle:label forState:UIControlStateNormal];
+		[labelButton setTitle:self.label forState:UIControlStateNormal];
 		labelButton.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
 		[labelButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
 		
@@ -39,6 +41,7 @@
 - (void)dealloc {
 	self.parent = nil;
 	self.identifier = nil;
+	self.label = nil;
     [super dealloc];
 }
 
