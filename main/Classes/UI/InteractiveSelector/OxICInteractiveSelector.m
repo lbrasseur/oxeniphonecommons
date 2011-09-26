@@ -70,7 +70,14 @@
 		}
 	}
 }
-
+- (OxICInteractiveSelectorOption*) getOption:(id) identifier {
+	for (OxICInteractiveSelectorOption* option in self.options) {
+		if (option.identifier == identifier) {
+			return option;
+		}
+	}
+	return nil;
+}
 #pragma mark UISearchBarDelegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
 	for (OxICInteractiveSelectorOption* option in self.options) {

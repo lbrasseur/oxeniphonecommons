@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OxICInteractiveSelectorOption.h"
+
 @class OxICInteractiveSelector;
 
 @protocol OxICInteractiveSelectorDelegate
@@ -29,4 +31,5 @@
 - (void) setOption:(id) identifier
 	  withSelected:(BOOL) selected;
 
+- (OxICInteractiveSelectorOption*) getOption:(id) identifier;
 @end

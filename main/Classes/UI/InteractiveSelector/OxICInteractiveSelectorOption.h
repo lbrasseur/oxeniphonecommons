@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OxICInteractiveSelector.h"
+@class OxICInteractiveSelector;
 
 @interface OxICInteractiveSelectorOption : UIView {
 	id identifier;
