@@ -1,5 +1,5 @@
 //
-//  AbstractDao.m
+//  OxICBaseDao.m
 //  RecetarioiPhone
 //
 //  Created by Lautaro Brasseur on 30/07/11.

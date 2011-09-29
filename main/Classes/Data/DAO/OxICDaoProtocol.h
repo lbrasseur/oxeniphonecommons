@@ -1,5 +1,5 @@
 //
-//  DaoProtocol.h
+//  OxICDaoProtocol.h
 //
 //  Created by Lautaro Brasseur on 30/07/11.
 //  Copyright Oxen Software Studio 2011. All rights reserved.
