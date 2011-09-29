@@ -18,7 +18,8 @@
 
 
 @interface OxICInteractiveSelector : UIScrollView<UISearchBarDelegate> {
-	float optionSize;
+	float optionWidth;
+	float optionHeight;
 	NSMutableArray* options;
 	id<OxICInteractiveSelectorDelegate> selectorDelegate;
 }
