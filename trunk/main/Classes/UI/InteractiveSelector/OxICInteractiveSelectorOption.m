@@ -7,6 +7,7 @@
 //
 
 #import "OxICInteractiveSelectorOption.h"
+#import "OxICInteractiveSelector.h"
 
 @interface OxICInteractiveSelectorOption()
 @property (nonatomic, retain) OxICInteractiveSelector *parent;
