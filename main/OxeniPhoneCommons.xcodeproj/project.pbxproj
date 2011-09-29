@@ -30,6 +30,9 @@
 		DA99864711F3F7FC00A75DF1 /* OxICPropertyDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */; };
 		DAA8F28D13F478C200BE690D /* OxICViewControllerFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */; };
 		DAA8F28E13F478C200BE690D /* OxICViewControllerFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA8F28C13F478C200BE690D /* OxICViewControllerFactoryObject.m */; };
+		DAABCDC1143529E700CF2ABA /* OxICBaseDao.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */; };
+		DAABCDC2143529E700CF2ABA /* OxICBaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */; };
+		DAABCDC3143529E700CF2ABA /* OxICDaoProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */; };
 		DAB352DE13FD48C300D6163A /* OxICAccordion.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB352DA13FD48C300D6163A /* OxICAccordion.h */; };
 		DAB352DF13FD48C300D6163A /* OxICAccordion.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB352DB13FD48C300D6163A /* OxICAccordion.m */; };
 		DAB352E013FD48C300D6163A /* OxICAccordionSection.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */; };
@@ -78,6 +81,9 @@
 		DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICPropertyDescriptor.m; sourceTree = "<group>"; };
 		DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICViewControllerFactoryObject.h; sourceTree = "<group>"; };
 		DAA8F28C13F478C200BE690D /* OxICViewControllerFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICViewControllerFactoryObject.m; sourceTree = "<group>"; };
+		DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICBaseDao.h; path = Classes/Data/DAO/OxICBaseDao.h; sourceTree = SOURCE_ROOT; };
+		DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICBaseDao.m; path = Classes/Data/DAO/OxICBaseDao.m; sourceTree = SOURCE_ROOT; };
+		DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICDaoProtocol.h; path = Classes/Data/DAO/OxICDaoProtocol.h; sourceTree = SOURCE_ROOT; };
 		DAB352DA13FD48C300D6163A /* OxICAccordion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICAccordion.h; path = Classes/UI/Accordion/OxICAccordion.h; sourceTree = SOURCE_ROOT; };
 		DAB352DB13FD48C300D6163A /* OxICAccordion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICAccordion.m; path = Classes/UI/Accordion/OxICAccordion.m; sourceTree = SOURCE_ROOT; };
 		DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICAccordionSection.h; path = Classes/UI/Accordion/OxICAccordionSection.h; sourceTree = SOURCE_ROOT; };
@@ -149,6 +155,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DAABCDBC143529E700CF2ABA /* Data */,
 				DAB352D813FD48C300D6163A /* UI */,
 				DACB36E411F5370800FE67D4 /* Container */,
 				DA99863011F3F67100A75DF1 /* Wrapper */,
@@ -208,6 +215,26 @@
 			);
 			name = Simple;
 			path = Classes/Wrapper/Impl/Simple;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAABCDBC143529E700CF2ABA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DAABCDBD143529E700CF2ABA /* DAO */,
+			);
+			name = Data;
+			path = Classes/Data;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAABCDBD143529E700CF2ABA /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */,
+				DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */,
+				DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */,
+			);
+			name = DAO;
+			path = Classes/Data/DAO;
 			sourceTree = SOURCE_ROOT;
 		};
 		DAB352D813FD48C300D6163A /* UI */ = {
@@ -302,6 +329,8 @@
 				DAB352E013FD48C300D6163A /* OxICAccordionSection.h in Headers */,
 				DADCC1F21406CC58006E902F /* OxICInteractiveSelector.h in Headers */,
 				DADCC1F61406D898006E902F /* OxICInteractiveSelectorOption.h in Headers */,
+				DAABCDC1143529E700CF2ABA /* OxICBaseDao.h in Headers */,
+				DAABCDC3143529E700CF2ABA /* OxICDaoProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +394,7 @@
 				DAB352E113FD48C300D6163A /* OxICAccordionSection.m in Sources */,
 				DADCC1F31406CC58006E902F /* OxICInteractiveSelector.m in Sources */,
 				DADCC1F71406D898006E902F /* OxICInteractiveSelectorOption.m in Sources */,
+				DAABCDC2143529E700CF2ABA /* OxICBaseDao.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
