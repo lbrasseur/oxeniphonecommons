@@ -32,6 +32,10 @@
 		[labelButton setTitle:self.label forState:UIControlStateNormal];
 		labelButton.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
 		[labelButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+		labelButton.titleLabel.textAlignment =  UITextAlignmentCenter;
+		labelButton.titleLabel.lineBreakMode   =  UILineBreakModeWordWrap;
+		labelButton.titleLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(9.0)];
+		labelButton.titleLabel.numberOfLines = 4;  
 		
 		[self addSubview:labelButton];
 		
