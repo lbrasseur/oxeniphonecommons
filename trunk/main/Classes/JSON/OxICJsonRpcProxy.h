@@ -15,6 +15,10 @@
 	id<OxICWrapperFactory> wrapperFactory;
 }
 
+@property (retain, nonatomic) Protocol* protocol;
+@property (retain, nonatomic) NSString* url;
+@property (retain, nonatomic) id<OxICWrapperFactory> wrapperFactory;
+
 - (id) initWithProtocol: (Protocol*) aProtocol
 				 andURL: (NSString*) aURL
 	  andWrapperFactory:(id<OxICWrapperFactory>) aWrapperFactory;
