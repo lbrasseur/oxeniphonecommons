@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OxICWrapperFactory.h"
 
 @interface OxICJsonRpcProxy : NSProxy {
 	Protocol *protocol;
 	NSString *url;
+	id<OxICWrapperFactory> wrapperFactory;
 }
 
 - (id) initWithProtocol: (Protocol*) aProtocol
-				 andURL: (NSString*) aURL;
+				 andURL: (NSString*) aURL
+	  andWrapperFactory:(id<OxICWrapperFactory>) aWrapperFactory;
 
 @end
