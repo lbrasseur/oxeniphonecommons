@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA28E3DC143636A900F6BA83 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DA28E3D9143636A900F6BA83 /* JSONKit.h */; };
+		DA28E3DD143636A900F6BA83 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DA28E3DA143636A900F6BA83 /* JSONKit.m */; };
+		DA28E3E0143637DE00F6BA83 /* OxICJsonRpcProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */; };
+		DA28E3E1143637DE00F6BA83 /* OxICJsonRpcProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA28E3DF143637DE00F6BA83 /* OxICJsonRpcProxy.m */; };
 		DA35AE9E13E9E068004E17EC /* OxICFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35AE9C13E9E068004E17EC /* OxICFactoryObject.h */; };
 		DA35AEC013E9E6CB004E17EC /* OxICDefaultFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35AEBE13E9E6CB004E17EC /* OxICDefaultFactoryObject.h */; };
 		DA35AEC113E9E6CB004E17EC /* OxICDefaultFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35AEBF13E9E6CB004E17EC /* OxICDefaultFactoryObject.m */; };
@@ -60,6 +64,12 @@
 		AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxeniPhoneCommons_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOxeniPhoneCommons.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA28E3D8143636A900F6BA83 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CHANGELOG.md; path = Classes/JSON/JSONKit/CHANGELOG.md; sourceTree = SOURCE_ROOT; };
+		DA28E3D9143636A900F6BA83 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Classes/JSON/JSONKit/JSONKit.h; sourceTree = SOURCE_ROOT; };
+		DA28E3DA143636A900F6BA83 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = Classes/JSON/JSONKit/JSONKit.m; sourceTree = SOURCE_ROOT; };
+		DA28E3DB143636A900F6BA83 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = Classes/JSON/JSONKit/README.md; sourceTree = SOURCE_ROOT; };
+		DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJsonRpcProxy.h; sourceTree = "<group>"; };
+		DA28E3DF143637DE00F6BA83 /* OxICJsonRpcProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJsonRpcProxy.m; sourceTree = "<group>"; };
 		DA35AE9C13E9E068004E17EC /* OxICFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICFactoryObject.h; sourceTree = "<group>"; };
 		DA35AEBE13E9E6CB004E17EC /* OxICDefaultFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDefaultFactoryObject.h; sourceTree = "<group>"; };
 		DA35AEBF13E9E6CB004E17EC /* OxICDefaultFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDefaultFactoryObject.m; sourceTree = "<group>"; };
@@ -155,9 +165,10 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DAABCDBC143529E700CF2ABA /* Data */,
-				DAB352D813FD48C300D6163A /* UI */,
 				DACB36E411F5370800FE67D4 /* Container */,
+				DAABCDBC143529E700CF2ABA /* Data */,
+				DA28E3D6143636A900F6BA83 /* JSON */,
+				DAB352D813FD48C300D6163A /* UI */,
 				DA99863011F3F67100A75DF1 /* Wrapper */,
 			);
 			name = Classes;
@@ -170,6 +181,29 @@
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
+		};
+		DA28E3D6143636A900F6BA83 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				DA28E3D7143636A900F6BA83 /* JSONKit */,
+				DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */,
+				DA28E3DF143637DE00F6BA83 /* OxICJsonRpcProxy.m */,
+			);
+			name = JSON;
+			path = Classes/JSON;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA28E3D7143636A900F6BA83 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				DA28E3D8143636A900F6BA83 /* CHANGELOG.md */,
+				DA28E3D9143636A900F6BA83 /* JSONKit.h */,
+				DA28E3DA143636A900F6BA83 /* JSONKit.m */,
+				DA28E3DB143636A900F6BA83 /* README.md */,
+			);
+			name = JSONKit;
+			path = Classes/JSON/JSONKit;
+			sourceTree = SOURCE_ROOT;
 		};
 		DA99863011F3F67100A75DF1 /* Wrapper */ = {
 			isa = PBXGroup;
@@ -285,7 +319,7 @@
 			);
 			name = Container;
 			path = Classes/Container;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 		DADCC1EF1406CC1C006E902F /* InteractiveSelector */ = {
 			isa = PBXGroup;
@@ -331,6 +365,8 @@
 				DADCC1F61406D898006E902F /* OxICInteractiveSelectorOption.h in Headers */,
 				DAABCDC1143529E700CF2ABA /* OxICBaseDao.h in Headers */,
 				DAABCDC3143529E700CF2ABA /* OxICDaoProtocol.h in Headers */,
+				DA28E3DC143636A900F6BA83 /* JSONKit.h in Headers */,
+				DA28E3E0143637DE00F6BA83 /* OxICJsonRpcProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +431,8 @@
 				DADCC1F31406CC58006E902F /* OxICInteractiveSelector.m in Sources */,
 				DADCC1F71406D898006E902F /* OxICInteractiveSelectorOption.m in Sources */,
 				DAABCDC2143529E700CF2ABA /* OxICBaseDao.m in Sources */,
+				DA28E3DD143636A900F6BA83 /* JSONKit.m in Sources */,
+				DA28E3E1143637DE00F6BA83 /* OxICJsonRpcProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
