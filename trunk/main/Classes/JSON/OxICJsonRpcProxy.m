@@ -8,6 +8,8 @@
 
 #import "OxICJsonRpcProxy.h"
 #import "JSONKit.h"
+#import "OxICJDictionaryProxy.h"
+#import "OxICJDictionaryConverter.h"
 #import <objc/runtime.h>
 
 @interface OxICJsonRpcProxy()
@@ -15,16 +17,19 @@
 	 withArguments: (NSArray*) arguments;
 @property (retain, nonatomic) Protocol* protocol;
 @property (retain, nonatomic) NSString* url;
+@property (retain, nonatomic) id<OxICWrapperFactory> wrapperFactory;
 @end
 
 @implementation OxICJsonRpcProxy
-@synthesize protocol, url;
+@synthesize protocol, url, wrapperFactory;
 
 #pragma mark init and dealloc
 - (id) initWithProtocol: (Protocol*) aProtocol
-				 andURL: (NSString*) aURL {
+				 andURL: (NSString*) aURL
+	  andWrapperFactory:(id<OxICWrapperFactory>) aWrapperFactory {
 	self.protocol = aProtocol;
 	self.url = aURL;
+	self.wrapperFactory = aWrapperFactory;
 	
 	return self;
 }
@@ -32,6 +37,7 @@
 - (void) dealloc {
 	self.protocol = nil;
 	self.url = nil;
+	self.wrapperFactory = nil;
 	[super dealloc];
 }
 
@@ -76,12 +82,17 @@
 - (id) processJson: (NSString*)method
 	 withArguments: (NSArray*) arguments {
 	
+	OxICJDictionaryConverter *dictionaryConverter = [[OxICJDictionaryConverter alloc] initWithWrapperFactory:self.wrapperFactory];
+	
 	NSDictionary *message = [NSDictionary dictionaryWithObjectsAndKeys:
 						     [NSNumber numberWithInt:1], @"id",
 						     @"1.0", @"jsonrpc",
 						     method, @"method",
-						     arguments, @"params",
+						     [dictionaryConverter convert:arguments], @"params",
 						     nil];
+	
+	[dictionaryConverter release];
+	
 	
 	NSError *error = nil;
 	NSData *requestData = [message JSONDataWithOptions:JKSerializeOptionNone error:&error];
@@ -111,7 +122,7 @@
 	
 	NSDictionary *responseDict = [[JSONDecoder decoder] objectWithData:responseData];
 	
-	return [responseDict valueForKey:@"result"];
+	return [OxICJDictionaryProxy buildProxy:[responseDict valueForKey:@"result"]];
 }
 
 @end
