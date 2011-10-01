@@ -15,9 +15,6 @@
 @interface OxICJsonRpcProxy()
 - (id) processJson: (NSString*)method
 	 withArguments: (NSArray*) arguments;
-@property (retain, nonatomic) Protocol* protocol;
-@property (retain, nonatomic) NSString* url;
-@property (retain, nonatomic) id<OxICWrapperFactory> wrapperFactory;
 @end
 
 @implementation OxICJsonRpcProxy
