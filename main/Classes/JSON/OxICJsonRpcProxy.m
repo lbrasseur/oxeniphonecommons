@@ -13,6 +13,10 @@
 #import <objc/runtime.h>
 
 @interface OxICJsonRpcProxy()
+@property (retain, nonatomic) Protocol* protocol;
+@property (retain, nonatomic) NSString* url;
+@property (retain, nonatomic) id<OxICWrapperFactory> wrapperFactory;
+
 - (id) processJson: (NSString*)method
 	 withArguments: (NSArray*) arguments;
 @end
@@ -24,6 +28,7 @@
 - (id) initWithProtocol: (Protocol*) aProtocol
 				 andURL: (NSString*) aURL
 	  andWrapperFactory:(id<OxICWrapperFactory>) aWrapperFactory {
+	
 	self.protocol = aProtocol;
 	self.url = aURL;
 	self.wrapperFactory = aWrapperFactory;

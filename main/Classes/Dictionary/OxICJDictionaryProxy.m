@@ -29,7 +29,9 @@
 
 #pragma mark Interface methods
 + (id) buildProxy: (id) object {
-	if ([object isKindOfClass:[NSDictionary class]]) {
+	if (object == nil || [object isKindOfClass:[NSNull class]]) {
+		return nil;
+	} else if ([object isKindOfClass:[NSDictionary class]]) {
 		return [[[OxICJDictionaryProxy alloc] initWithDictionary:object] autorelease];
 	} else {
 		return object;
