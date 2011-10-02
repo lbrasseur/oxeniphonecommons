@@ -1,0 +1,13 @@
+#summary UI components documentation.
+#labels UI,Cocoa,iPhone,iPad,Accordion,Selector
+
+= Introduction =
+
+This project has an [http://code.google.com/p/oxeniphonecommons/source/browse/#svn%2Ftrunk%2Fmain%2FClasses%2FUI UI components] section. It contains UI widgets that we developed for specific requirements.
+
+
+= Details =
+
+Before mentioned widgets include:
+  * An [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/UI/Accordion/ accordion] control. It allows adding N sections, each one with an arbitrary UIView which is shown/hidden clicking a button.
+  * An [http://code.google.com/p/oxeniphonecommons/source/browse/#svn%2Ftrunk%2Fmain%2FClasses%2FUI%2FInteractiveSelector interactive selector], which allows selecting/unselecting options. Options are shown horizontally and can be scolled. It also can act as delegate for a search bar, in order to filter options.
