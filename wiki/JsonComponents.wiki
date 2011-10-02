@@ -29,7 +29,7 @@ You must provide the protocol to be proxied, the URL used to make HTTP post, and
 NOTE: Protocol is currently used just for creating a proper [http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSMethodSignature_Class/Reference/Reference.html NSMethodSignature].
 
 === With the IoC container ===
-You can instantiate a proxy from the [Container IoC container] using the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/OxICJsonRpcProxyFactoryObject.m OxICJsonRpcProxyFactoryObject] class. Just add a definition simliar to the following one:
+You can instantiate a JSON RPC proxy from the [Container IoC container] using the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/OxICJsonRpcProxyFactoryObject.m OxICJsonRpcProxyFactoryObject] class. Just add a definition simliar to the following one:
 
 {{{
 [newContainer addDefinition: [OxICObjectDefinition withName: @"authenticationService"
