@@ -22,8 +22,8 @@ You must provide the protocol to be proxied, the URL used to make HTTP post, and
 
 {{{
 - (id) initWithProtocol: (Protocol*) aProtocol
-				 andURL: (NSString*) aURL
-	  andWrapperFactory:(id<OxICWrapperFactory>) aWrapperFactory;
+                     andURL: (NSString*) aURL
+   andWrapperFactory:(id<OxICWrapperFactory>) aWrapperFactory;
 }}}
 
 NOTE: Protocol is currently used just for creating a proper [http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSMethodSignature_Class/Reference/Reference.html NSMethodSignature].
@@ -32,17 +32,16 @@ NOTE: Protocol is currently used just for creating a proper [http://developer.ap
 You can instantiate a proxy from the [Container IoC container] using the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/OxICJsonRpcProxyFactoryObject.m OxICJsonRpcProxyFactoryObject] class. Just add a definition simliar to the following one:
 
 {{{
-	[newContainer addDefinition: [OxICObjectDefinition withName: @"authenticationService"
-													   andClass: @"OxICJsonRpcProxyFactoryObject"
-												   andSingleton: NO
-														andLazy: NO
-												  andReferences: nil
-													  andValues: [NSDictionary dictionaryWithObjectsAndKeys:
-																  @"http://multivac.com/authentication", @"url",
-																  @protocol(AuthenticationService), @"protocol",
-																  wrapperFactory, @"wrapperFactory",
-																  nil]]
-	 ];
-
+[newContainer addDefinition: [OxICObjectDefinition withName: @"authenticationService"
+                                                   andClass: @"OxICJsonRpcProxyFactoryObject"
+                                               andSingleton: NO
+                                                    andLazy: NO
+                                              andReferences: nil
+                                                  andValues: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                               @"http://multivac.com/authentication", @"url",
+                                                               @protocol(AuthenticationService), @"protocol",
+                                                               wrapperFactory, @"wrapperFactory",
+                                                             nil]]
+];
 
 }}}
