@@ -1,16 +1,17 @@
 #summary Wrapper documentation
-#labels Wrapper,Cocoa,iPhone
+#labels Wrapper,Cocoa,iPhone,iPad
 
 = Introduction =
-Documentation for Wrapper component.
-
+Documentation for [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/ Wrapper component].
 
 = Details =
-The `Wrapper` component allows wrapping of classes and objects in order to manipulate them in a dynamic way.
+The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/ Wrapper component] allows wrapping of classes and objects in order to manipulate them in a dynamic way.
 
-The implementation is hidden behind a `WrapperFactory`.
+The implementation is hidden behind a [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/API/OxICWrapperFactory.h WrapperFactory]-
 
-A simple implementation is provided.
+A [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/Impl/Simple/ simple implementation] is provided.
+
+The interface style is taken from [http://static.springsource.org/spring/docs/3.0.5.RELEASE/reference/validation.html Spring Bean Wrapper].
 
 = Ideas =
-  * Provide a more sophisticated implementation with chained property access (using dot in property name).
+  * Provide a more sophisticated implementation with chained property access (using dot in property name). Maybe it works, since current implementation uses key-value coding.
