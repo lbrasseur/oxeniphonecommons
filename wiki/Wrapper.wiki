@@ -7,7 +7,7 @@ Documentation for [http://code.google.com/p/oxeniphonecommons/source/browse/trun
 = Details =
 The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/ Wrapper component] allows wrapping of classes and objects in order to manipulate them in a dynamic way.
 
-The implementation is hidden behind a [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/API/OxICWrapperFactory.h WrapperFactory]-
+The implementation is hidden behind a [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/API/OxICWrapperFactory.h WrapperFactory].
 
 A [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Wrapper/Impl/Simple/ simple implementation] is provided.
 
