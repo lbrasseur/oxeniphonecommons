@@ -1,0 +1,17 @@
+#summary JSON Components.
+#labels Cocoa,iPhone,iPad,JSON,jsonrpc4j,JSONKit
+
+= Introduction =
+
+This section contains utility [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/ JSON components].
+
+
+= JSON RPC Proxy =
+
+The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/OxICJsonRpcProxy.m OxICJsonRpcProxy] class provides a proxy for transparently accessing HTTP based JSON services. It follows the message format used by [http://code.google.com/p/jsonrpc4j/ jsonrpc4j].
+
+The proxy intercepts the messages, puts the selector name as method name, converts the selector arguments into JSON and sends it over HTTP. When it receives the response, it converts the JSON response into the proper Objective C equivalent object.
+
+The selector name sent to the server is modified in order to make it Java-friendly. Colons are removed and character after colons are capitalized. For example, if the selector name is sayHi:withMessage:, it will be translated into sayHiWithMessage(String, String) method.
+
+Internally, the proxy uses the [https://github.com/johnezang/JSONKit JSONKit] parser in order to perform JSON conversion. Since JSONKit, like most Objective C based JSON parsers, marshals/unmarshals data from/to [http://developer.apple.com/library/mac/#documentation/cocoa/reference/foundation/classes/nsdictionary_class/Reference/Reference.html NSDictionary] instances, we developed some [DictionaryComponents dictionary components]. The JSON RPC proxy copies arguments into a NSDictionary before sending them using the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Dictionary/OxICJDictionaryConverter.m OxICJDictionaryConverter] class. In a similar way, responses containing dictionaries are wrapped into a proxy using [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Dictionary/OxICJDictionaryProxy.m OxICJDictionaryProxy].
