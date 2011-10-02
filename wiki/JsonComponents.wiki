@@ -8,7 +8,7 @@ This section contains utility [http://code.google.com/p/oxeniphonecommons/source
 
 = JSON RPC Proxy =
 
-The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/OxICJsonRpcProxy.m OxICJsonRpcProxy] class provides a proxy for transparently accessing HTTP based JSON services. It follows the message format used by [http://code.google.com/p/jsonrpc4j/ jsonrpc4j].
+The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/OxICJsonRpcProxy.m OxICJsonRpcProxy] class provides a proxy for transparently accessing HTTP based JSON services. It uses the message format defined by [http://code.google.com/p/jsonrpc4j/ jsonrpc4j].
 
 The proxy intercepts the messages, puts the selector name as method name, converts the selector arguments into JSON and sends it over HTTP. When it receives the response, it converts the JSON response into the proper Objective C equivalent object.
 
