@@ -19,16 +19,16 @@
 @end
 
 @implementation OxICInteractiveSelector
-@synthesize options, optionWidth, optionHeight, selectorDelegate;
+@synthesize options, optionWidth, optionHeight, selectorDelegate, vertical;
 
 #pragma mark Init and dealloc
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-		self.optionWidth = frame.size.height + 30;
-		self.optionHeight = frame.size.height;		
 		self.options = [NSMutableArray arrayWithCapacity:10];
 		self.scrollEnabled = YES;
 		self.selectorDelegate = nil;
+		self.vertical = NO;
+		self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -42,19 +42,39 @@
 #pragma mark interface methods
 - (void) addOption:(id) identifier
 		 withLabel:(NSString*) label {
-	float optionButtonSize = self.optionWidth - (BUTTON_MARGIN * 2);
-	OxICInteractiveSelectorOption* option = [[OxICInteractiveSelectorOption alloc] initWithFrame:CGRectMake([self.options count] * self.optionWidth + BUTTON_MARGIN,
-																											BUTTON_MARGIN,
-																											optionButtonSize,
-																											self.optionHeight - (BUTTON_MARGIN * 2))
+
+	CGRect optionFrame;
+	if (self.vertical) {
+		self.optionWidth = self.frame.size.width;
+		self.optionHeight = 30;		
+		optionFrame = CGRectMake(BUTTON_MARGIN,
+								 [self.options count] * self.optionHeight + BUTTON_MARGIN,
+								 self.optionWidth  - (BUTTON_MARGIN * 2),
+								 self.optionHeight - (BUTTON_MARGIN * 2));
+	} else {
+		self.optionWidth = self.frame.size.height + 30;
+		self.optionHeight = self.frame.size.height;		
+		optionFrame = CGRectMake([self.options count] * self.optionWidth + BUTTON_MARGIN,
+				   BUTTON_MARGIN,
+				   self.optionWidth - (BUTTON_MARGIN * 2),
+				   self.optionHeight - (BUTTON_MARGIN * 2));
+		
+	}
+
+	OxICInteractiveSelectorOption* option = [[OxICInteractiveSelectorOption alloc] initWithFrame:optionFrame
 																				   andIdentifier:identifier
 																						andLabel:label
 																					   andParent:self];
 	[self addSubview:option];
 	[self.options addObject:option];
-	[option release];
+	[option release];	
 	
-	self.contentSize = CGSizeMake([self.options count] * self.optionWidth, self.optionHeight);
+	if (self.vertical) {
+		self.contentSize = CGSizeMake(self.optionWidth, [self.options count] * self.optionHeight);
+	} else {
+		self.contentSize = CGSizeMake([self.options count] * self.optionWidth, self.optionHeight);
+	}
+	
 }
 
 - (void) setOption:(id) identifier
@@ -81,6 +101,16 @@
 	return nil;
 }
 #pragma mark UISearchBarDelegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+	if (self.selectorDelegate !=nil) {
+		[self.selectorDelegate searchBarDidBeginEditing:searchBar onSelector:self];
+	}
+}
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+	if (self.selectorDelegate !=nil) {
+		[self.selectorDelegate searchBarDidEndEditing:searchBar onSelector:self];
+	}
+}
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
 	for (OxICInteractiveSelectorOption* option in self.options) {
 		option.visible = [searchText isEqualToString:@""] || [option.label rangeOfString:searchText].location != NSNotFound;
@@ -95,19 +125,30 @@
 	int visibleCount = 0;
 	for (OxICInteractiveSelectorOption* option in self.options) {
 		if (!option.selected && option.visible) {
-			option.frame = CGRectMake(visibleCount * self.optionHeight + BUTTON_MARGIN,
-									  option.frame.origin.y,
-									  option.frame.size.width,
-									  option.frame.size.height);
+			if (self.vertical) {
+				option.frame = CGRectMake(option.frame.origin.x,
+										  visibleCount * self.optionHeight + BUTTON_MARGIN,
+										  option.frame.size.width,
+										  option.frame.size.height);
+			} else {
+				option.frame = CGRectMake(visibleCount * self.optionWidth + BUTTON_MARGIN,
+										  option.frame.origin.y,
+										  option.frame.size.width,
+										  option.frame.size.height);
+			}
+
 			visibleCount ++;
 			option.hidden = NO;
 		} else {
 			option.hidden = YES;
 		}
 	}
-	
-	self.contentSize = CGSizeMake(visibleCount * self.optionWidth, self.optionHeight);
-	
+	if (self.vertical) {
+		self.contentSize = CGSizeMake(self.optionWidth, visibleCount * self.optionHeight);
+	} else {
+		self.contentSize = CGSizeMake(visibleCount * self.optionWidth, self.optionHeight);
+	}
+
 	[UIView commitAnimations];
 }
 

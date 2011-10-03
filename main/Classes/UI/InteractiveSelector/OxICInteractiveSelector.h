@@ -14,6 +14,10 @@
 @protocol OxICInteractiveSelectorDelegate
 - (void) selected:(id) identifier
 	   onSelector:(OxICInteractiveSelector*) selector;
+- (void) searchBarDidBeginEditing:(UISearchBar*) searchBar
+	   onSelector:(OxICInteractiveSelector*) selector;
+- (void) searchBarDidEndEditing:(UISearchBar*) searchBar
+	   onSelector:(OxICInteractiveSelector*) selector;
 @end
 
 
@@ -22,9 +26,11 @@
 	float optionHeight;
 	NSMutableArray* options;
 	id<OxICInteractiveSelectorDelegate> selectorDelegate;
+	BOOL vertical;
 }
 
 @property (nonatomic, retain) id<OxICInteractiveSelectorDelegate> selectorDelegate;
+@property (nonatomic, assign) BOOL vertical;
 
 - (void) addOption:(id) identifier
 		 withLabel:(NSString*) label;
