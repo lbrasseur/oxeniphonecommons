@@ -10,7 +10,7 @@
 #import "OxICObjectWrapper.h"
 #import "OxICWrapperFactory.h"
 
-@interface OxICJDictionaryConverter : NSObject {
+@interface OxICDictionaryConverter : NSObject {
 	id<OxICWrapperFactory> wrapperFactory;
 }
 

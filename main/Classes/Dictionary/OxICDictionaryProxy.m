@@ -6,14 +6,14 @@
 //  Copyright 2011 Oxen Software Studio. All rights reserved.
 //
 
-#import "OxICJDictionaryProxy.h"
+#import "OxICDictionaryProxy.h"
 
-@interface OxICJDictionaryProxy()
+@interface OxICDictionaryProxy()
 @property (retain, nonatomic) NSDictionary* dictionary;
 @end
 
 
-@implementation OxICJDictionaryProxy
+@implementation OxICDictionaryProxy
 @synthesize dictionary;
 
 #pragma mark Init and dealloc
@@ -32,7 +32,7 @@
 	if (object == nil || [object isKindOfClass:[NSNull class]]) {
 		return nil;
 	} else if ([object isKindOfClass:[NSDictionary class]]) {
-		return [[[OxICJDictionaryProxy alloc] initWithDictionary:object] autorelease];
+		return [[[OxICDictionaryProxy alloc] initWithDictionary:object] autorelease];
 	} else {
 		return object;
 	}
@@ -41,7 +41,7 @@
 #pragma mark NSProxy methods
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
 	NSString *selectorName = NSStringFromSelector(anInvocation.selector);
-	id returnValue = [OxICJDictionaryProxy buildProxy:[self.dictionary valueForKey:selectorName]];
+	id returnValue = [OxICDictionaryProxy buildProxy:[self.dictionary valueForKey:selectorName]];
 	[anInvocation setReturnValue:&returnValue];
 }
 

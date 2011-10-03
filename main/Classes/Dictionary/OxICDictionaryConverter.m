@@ -6,14 +6,14 @@
 //  Copyright 2011 Oxen Software Studio. All rights reserved.
 //
 
-#import "OxICJDictionaryConverter.h"
+#import "OxICDictionaryConverter.h"
 #import "OxICObjectWrapper.h"
 
-@interface OxICJDictionaryConverter()
+@interface OxICDictionaryConverter()
 @property (nonatomic, retain) id<OxICWrapperFactory> wrapperFactory;
 @end
 
-@implementation OxICJDictionaryConverter
+@implementation OxICDictionaryConverter
 @synthesize wrapperFactory;
 
 #pragma mark Init and dealloc

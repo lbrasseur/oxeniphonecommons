@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface OxICJDictionaryProxy : NSProxy {
+@interface OxICDictionaryProxy : NSProxy {
 	NSDictionary* dictionary;
 }
 
