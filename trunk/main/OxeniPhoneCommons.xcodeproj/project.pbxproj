@@ -32,10 +32,10 @@
 		DA99864311F3F6F600A75DF1 /* OxICWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */; };
 		DA99864611F3F7FC00A75DF1 /* OxICPropertyDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */; };
 		DA99864711F3F7FC00A75DF1 /* OxICPropertyDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */; };
-		DAA57DB514377C1C000E2319 /* OxICJDictionaryProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA57DB314377C1C000E2319 /* OxICJDictionaryProxy.h */; };
-		DAA57DB614377C1C000E2319 /* OxICJDictionaryProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA57DB414377C1C000E2319 /* OxICJDictionaryProxy.m */; };
-		DAA57E0E14379DC7000E2319 /* OxICJDictionaryConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA57E0C14379DC7000E2319 /* OxICJDictionaryConverter.h */; };
-		DAA57E0F14379DC7000E2319 /* OxICJDictionaryConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA57E0D14379DC7000E2319 /* OxICJDictionaryConverter.m */; };
+		DAA57DB514377C1C000E2319 /* OxICDictionaryProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA57DB314377C1C000E2319 /* OxICDictionaryProxy.h */; };
+		DAA57DB614377C1C000E2319 /* OxICDictionaryProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA57DB414377C1C000E2319 /* OxICDictionaryProxy.m */; };
+		DAA57E0E14379DC7000E2319 /* OxICDictionaryConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA57E0C14379DC7000E2319 /* OxICDictionaryConverter.h */; };
+		DAA57E0F14379DC7000E2319 /* OxICDictionaryConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA57E0D14379DC7000E2319 /* OxICDictionaryConverter.m */; };
 		DAA57F9F1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA57F9D1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h */; };
 		DAA57FA01437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA57F9E1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m */; };
 		DAA8F28D13F478C200BE690D /* OxICViewControllerFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */; };
@@ -95,10 +95,10 @@
 		DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICWrapperFactory.h; sourceTree = "<group>"; };
 		DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICPropertyDescriptor.h; sourceTree = "<group>"; };
 		DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICPropertyDescriptor.m; sourceTree = "<group>"; };
-		DAA57DB314377C1C000E2319 /* OxICJDictionaryProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJDictionaryProxy.h; sourceTree = "<group>"; };
-		DAA57DB414377C1C000E2319 /* OxICJDictionaryProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJDictionaryProxy.m; sourceTree = "<group>"; };
-		DAA57E0C14379DC7000E2319 /* OxICJDictionaryConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJDictionaryConverter.h; sourceTree = "<group>"; };
-		DAA57E0D14379DC7000E2319 /* OxICJDictionaryConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJDictionaryConverter.m; sourceTree = "<group>"; };
+		DAA57DB314377C1C000E2319 /* OxICDictionaryProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDictionaryProxy.h; sourceTree = "<group>"; };
+		DAA57DB414377C1C000E2319 /* OxICDictionaryProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDictionaryProxy.m; sourceTree = "<group>"; };
+		DAA57E0C14379DC7000E2319 /* OxICDictionaryConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDictionaryConverter.h; sourceTree = "<group>"; };
+		DAA57E0D14379DC7000E2319 /* OxICDictionaryConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDictionaryConverter.m; sourceTree = "<group>"; };
 		DAA57F9D1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJsonRpcProxyFactoryObject.h; sourceTree = "<group>"; };
 		DAA57F9E1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJsonRpcProxyFactoryObject.m; sourceTree = "<group>"; };
 		DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICViewControllerFactoryObject.h; sourceTree = "<group>"; };
@@ -269,10 +269,10 @@
 		DAA57DB214377B4F000E2319 /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				DAA57DB314377C1C000E2319 /* OxICJDictionaryProxy.h */,
-				DAA57DB414377C1C000E2319 /* OxICJDictionaryProxy.m */,
-				DAA57E0C14379DC7000E2319 /* OxICJDictionaryConverter.h */,
-				DAA57E0D14379DC7000E2319 /* OxICJDictionaryConverter.m */,
+				DAA57DB314377C1C000E2319 /* OxICDictionaryProxy.h */,
+				DAA57DB414377C1C000E2319 /* OxICDictionaryProxy.m */,
+				DAA57E0C14379DC7000E2319 /* OxICDictionaryConverter.h */,
+				DAA57E0D14379DC7000E2319 /* OxICDictionaryConverter.m */,
 			);
 			name = Dictionary;
 			path = Classes/Dictionary;
@@ -394,8 +394,8 @@
 				DAABCDC3143529E700CF2ABA /* OxICDaoProtocol.h in Headers */,
 				DA28E3DC143636A900F6BA83 /* JSONKit.h in Headers */,
 				DA28E3E0143637DE00F6BA83 /* OxICJsonRpcProxy.h in Headers */,
-				DAA57DB514377C1C000E2319 /* OxICJDictionaryProxy.h in Headers */,
-				DAA57E0E14379DC7000E2319 /* OxICJDictionaryConverter.h in Headers */,
+				DAA57DB514377C1C000E2319 /* OxICDictionaryProxy.h in Headers */,
+				DAA57E0E14379DC7000E2319 /* OxICDictionaryConverter.h in Headers */,
 				DAA57F9F1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,8 +463,8 @@
 				DAABCDC2143529E700CF2ABA /* OxICBaseDao.m in Sources */,
 				DA28E3DD143636A900F6BA83 /* JSONKit.m in Sources */,
 				DA28E3E1143637DE00F6BA83 /* OxICJsonRpcProxy.m in Sources */,
-				DAA57DB614377C1C000E2319 /* OxICJDictionaryProxy.m in Sources */,
-				DAA57E0F14379DC7000E2319 /* OxICJDictionaryConverter.m in Sources */,
+				DAA57DB614377C1C000E2319 /* OxICDictionaryProxy.m in Sources */,
+				DAA57E0F14379DC7000E2319 /* OxICDictionaryConverter.m in Sources */,
 				DAA57FA01437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,8 @@
 
 #import "OxICJsonRpcProxy.h"
 #import "JSONKit.h"
-#import "OxICJDictionaryProxy.h"
-#import "OxICJDictionaryConverter.h"
+#import "OxICDictionaryProxy.h"
+#import "OxICDictionaryConverter.h"
 #import <objc/runtime.h>
 
 @interface OxICJsonRpcProxy()
@@ -84,7 +84,7 @@
 - (id) processJson: (NSString*)method
 	 withArguments: (NSArray*) arguments {
 	
-	OxICJDictionaryConverter *dictionaryConverter = [[OxICJDictionaryConverter alloc] initWithWrapperFactory:self.wrapperFactory];
+	OxICDictionaryConverter *dictionaryConverter = [[OxICDictionaryConverter alloc] initWithWrapperFactory:self.wrapperFactory];
 	
 	NSDictionary *message = [NSDictionary dictionaryWithObjectsAndKeys:
 						     [NSNumber numberWithInt:1], @"id",
@@ -124,7 +124,7 @@
 	
 	NSDictionary *responseDict = [[JSONDecoder decoder] objectWithData:responseData];
 	
-	return [OxICJDictionaryProxy buildProxy:[responseDict valueForKey:@"result"]];
+	return [OxICDictionaryProxy buildProxy:[responseDict valueForKey:@"result"]];
 }
 
 @end
