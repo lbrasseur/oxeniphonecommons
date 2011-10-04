@@ -8,7 +8,7 @@ This section contains utility [http://code.google.com/p/oxeniphonecommons/source
 
 = JSON RPC Proxy =
 
-The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/OxICJsonRpcProxy.m OxICJsonRpcProxy] class provides a proxy for transparently accessing HTTP based JSON services. It uses the message format defined by [http://code.google.com/p/jsonrpc4j/ jsonrpc4j].
+The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/OxICJsonRpcProxy.m OxICJsonRpcProxy] class provides a proxy for transparently accessing HTTP based JSON services. It uses the message format defined by [http://json-rpc.org/ JSON RPC] (well, in fact, we just used [http://code.google.com/p/jsonrpc4j/ jsonrpc4j] in order to test it - the component development is stil in progress).
 
 The proxy intercepts the messages, puts the selector name as method name, converts the selector arguments into JSON and sends it over HTTP. When it receives the response, it converts the JSON response into the proper Objective C equivalent object.
 
@@ -22,8 +22,8 @@ You must provide the protocol to be proxied, the URL used to make HTTP post, and
 
 {{{
 - (id) initWithProtocol: (Protocol*) aProtocol
-                     andURL: (NSString*) aURL
-   andWrapperFactory:(id<OxICWrapperFactory>) aWrapperFactory;
+                 andURL: (NSString*) aURL
+      andWrapperFactory:(id<OxICWrapperFactory>) aWrapperFactory;
 }}}
 
 NOTE: Protocol is currently used just for creating a proper [http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSMethodSignature_Class/Reference/Reference.html NSMethodSignature].
