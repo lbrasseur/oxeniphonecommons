@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43FADAB1143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FADAAF143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h */; };
+		43FADAB2143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FADAB0143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m */; };
 		AA747D9F0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		DA28E3DC143636A900F6BA83 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DA28E3D9143636A900F6BA83 /* JSONKit.h */; };
@@ -67,6 +69,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43FADAAF143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICExpandableTableViewUtil.h; sourceTree = "<group>"; };
+		43FADAB0143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICExpandableTableViewUtil.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxeniPhoneCommons_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOxeniPhoneCommons.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +199,15 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		43FADAA9143C9E1F00AE26E6 /* ExpandableSectionTableView */ = {
+			isa = PBXGroup;
+			children = (
+				43FADAAF143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h */,
+				43FADAB0143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m */,
+			);
+			path = ExpandableSectionTableView;
+			sourceTree = "<group>";
+		};
 		DA28E3D6143636A900F6BA83 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +314,7 @@
 		DAB352D813FD48C300D6163A /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				43FADAA9143C9E1F00AE26E6 /* ExpandableSectionTableView */,
 				DAB352D913FD48C300D6163A /* Accordion */,
 				DADCC1EF1406CC1C006E902F /* InteractiveSelector */,
 			);
@@ -397,6 +411,7 @@
 				DAA57DB514377C1C000E2319 /* OxICDictionaryProxy.h in Headers */,
 				DAA57E0E14379DC7000E2319 /* OxICDictionaryConverter.h in Headers */,
 				DAA57F9F1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h in Headers */,
+				43FADAB1143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +481,7 @@
 				DAA57DB614377C1C000E2319 /* OxICDictionaryProxy.m in Sources */,
 				DAA57E0F14379DC7000E2319 /* OxICDictionaryConverter.m in Sources */,
 				DAA57FA01437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m in Sources */,
+				43FADAB2143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
