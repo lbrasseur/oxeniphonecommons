@@ -22,14 +22,23 @@
 @synthesize options, optionWidth, optionHeight, selectorDelegate, vertical;
 
 #pragma mark Init and dealloc
+- (void) initialize {
+	self.options = [NSMutableArray arrayWithCapacity:10];
+	self.scrollEnabled = YES;
+	self.selectorDelegate = nil;
+	self.vertical = NO;
+	self.backgroundColor = [UIColor whiteColor];
+	self.clipsToBounds = YES;
+}
+
+- (void)awakeFromNib {
+	[self initialize];
+}
+
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-		self.options = [NSMutableArray arrayWithCapacity:10];
-		self.scrollEnabled = YES;
-		self.selectorDelegate = nil;
-		self.vertical = NO;
-		self.backgroundColor = [UIColor whiteColor];
-    }
+		[self initialize];
+   }
     return self;
 }
 
