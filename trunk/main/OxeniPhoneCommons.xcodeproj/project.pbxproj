@@ -49,6 +49,8 @@
 		DAB352DF13FD48C300D6163A /* OxICAccordion.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB352DB13FD48C300D6163A /* OxICAccordion.m */; };
 		DAB352E013FD48C300D6163A /* OxICAccordionSection.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */; };
 		DAB352E113FD48C300D6163A /* OxICAccordionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB352DD13FD48C300D6163A /* OxICAccordionSection.m */; };
+		DACA9DD81440EBA7004ECD74 /* OxICPopupPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = DACA9DD61440EBA7004ECD74 /* OxICPopupPickerView.h */; };
+		DACA9DD91440EBA7004ECD74 /* OxICPopupPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DACA9DD71440EBA7004ECD74 /* OxICPopupPickerView.m */; };
 		DACB367211F516E900FE67D4 /* OxICSimpleWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */; };
 		DACB367311F516E900FE67D4 /* OxICSimpleWrapperFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */; };
 		DACB36EE11F5370800FE67D4 /* OxICContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36E511F5370800FE67D4 /* OxICContainer.h */; };
@@ -114,6 +116,8 @@
 		DAB352DB13FD48C300D6163A /* OxICAccordion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICAccordion.m; path = Classes/UI/Accordion/OxICAccordion.m; sourceTree = SOURCE_ROOT; };
 		DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICAccordionSection.h; path = Classes/UI/Accordion/OxICAccordionSection.h; sourceTree = SOURCE_ROOT; };
 		DAB352DD13FD48C300D6163A /* OxICAccordionSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICAccordionSection.m; path = Classes/UI/Accordion/OxICAccordionSection.m; sourceTree = SOURCE_ROOT; };
+		DACA9DD61440EBA7004ECD74 /* OxICPopupPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICPopupPickerView.h; sourceTree = "<group>"; };
+		DACA9DD71440EBA7004ECD74 /* OxICPopupPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICPopupPickerView.m; sourceTree = "<group>"; };
 		DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICSimpleWrapperFactory.h; sourceTree = "<group>"; };
 		DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICSimpleWrapperFactory.m; sourceTree = "<group>"; };
 		DACB36E511F5370800FE67D4 /* OxICContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICContainer.h; path = Classes/Container/OxICContainer.h; sourceTree = SOURCE_ROOT; };
@@ -314,9 +318,10 @@
 		DAB352D813FD48C300D6163A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				43FADAA9143C9E1F00AE26E6 /* ExpandableSectionTableView */,
 				DAB352D913FD48C300D6163A /* Accordion */,
+				43FADAA9143C9E1F00AE26E6 /* ExpandableSectionTableView */,
 				DADCC1EF1406CC1C006E902F /* InteractiveSelector */,
+				DACA9DD51440EB33004ECD74 /* PopupPickerView */,
 			);
 			name = UI;
 			path = Classes/UI;
@@ -332,6 +337,16 @@
 			);
 			name = Accordion;
 			path = Classes/UI/Accordion;
+			sourceTree = SOURCE_ROOT;
+		};
+		DACA9DD51440EB33004ECD74 /* PopupPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				DACA9DD61440EBA7004ECD74 /* OxICPopupPickerView.h */,
+				DACA9DD71440EBA7004ECD74 /* OxICPopupPickerView.m */,
+			);
+			name = PopupPickerView;
+			path = Classes/UI/PopupPickerView;
 			sourceTree = SOURCE_ROOT;
 		};
 		DACB36E411F5370800FE67D4 /* Container */ = {
@@ -412,6 +427,7 @@
 				DAA57E0E14379DC7000E2319 /* OxICDictionaryConverter.h in Headers */,
 				DAA57F9F1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h in Headers */,
 				43FADAB1143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h in Headers */,
+				DACA9DD81440EBA7004ECD74 /* OxICPopupPickerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +498,7 @@
 				DAA57E0F14379DC7000E2319 /* OxICDictionaryConverter.m in Sources */,
 				DAA57FA01437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m in Sources */,
 				43FADAB2143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m in Sources */,
+				DACA9DD91440EBA7004ECD74 /* OxICPopupPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
