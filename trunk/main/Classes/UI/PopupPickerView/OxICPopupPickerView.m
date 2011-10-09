@@ -22,6 +22,8 @@
 	self.identifiers = [NSMutableArray arrayWithCapacity:10];
 	self.labels = [NSMutableArray arrayWithCapacity:10];
 	
+	selectedRow = -1;
+	
 	textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 	textField.borderStyle = UITextBorderStyleRoundedRect;
 	textField.delegate = self;
@@ -88,6 +90,12 @@
 	pickerView.delegate = self;
 	pickerView.showsSelectionIndicator = YES;
 	
+	if (selectedRow >= 0) {
+		pickerSelectedRow = selectedRow;
+	} else {
+		pickerSelectedRow = 0;
+	}
+
 	[pickerView selectRow:selectedRow inComponent:0 animated:NO];
 	
 	[menu addSubview:pickerView];
@@ -123,7 +131,7 @@
 
 #pragma mark UIActionSheetDelegate methods
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-	if (buttonIndex == 1) {
+	if (buttonIndex == 1 && pickerSelectedRow >= 0) {
 		selectedRow = pickerSelectedRow;
 		textField.text = [self.labels objectAtIndex:selectedRow];
 	}
