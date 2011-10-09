@@ -1,5 +1,5 @@
 //
-//  OxICPopupPickerView.h
+//  OxICPopupListPicker.h
 //  OxeniPhoneCommons
 //
 //  Created by Lautaro Brasseur on 08/10/11.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface OxICPopupPickerView : UIView<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate> {
+@interface OxICPopupListPicker : UIView<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate> {
 	UITextField *textField;
 	NSMutableArray *identifiers;
 	NSMutableArray *labels;

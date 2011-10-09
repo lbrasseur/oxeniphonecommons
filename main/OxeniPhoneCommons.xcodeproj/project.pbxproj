@@ -45,12 +45,16 @@
 		DAABCDC1143529E700CF2ABA /* OxICBaseDao.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */; };
 		DAABCDC2143529E700CF2ABA /* OxICBaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */; };
 		DAABCDC3143529E700CF2ABA /* OxICDaoProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */; };
+		DAB2871414422A1600F41B20 /* OxICViewUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB2871214422A1600F41B20 /* OxICViewUtils.h */; };
+		DAB2871514422A1600F41B20 /* OxICViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB2871314422A1600F41B20 /* OxICViewUtils.m */; };
+		DAB2875E14422EDA00F41B20 /* OxICPopupDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB2875A14422EDA00F41B20 /* OxICPopupDatePicker.h */; };
+		DAB2875F14422EDA00F41B20 /* OxICPopupDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB2875B14422EDA00F41B20 /* OxICPopupDatePicker.m */; };
+		DAB2876014422EDA00F41B20 /* OxICPopupListPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB2875C14422EDA00F41B20 /* OxICPopupListPicker.h */; };
+		DAB2876114422EDA00F41B20 /* OxICPopupListPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB2875D14422EDA00F41B20 /* OxICPopupListPicker.m */; };
 		DAB352DE13FD48C300D6163A /* OxICAccordion.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB352DA13FD48C300D6163A /* OxICAccordion.h */; };
 		DAB352DF13FD48C300D6163A /* OxICAccordion.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB352DB13FD48C300D6163A /* OxICAccordion.m */; };
 		DAB352E013FD48C300D6163A /* OxICAccordionSection.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */; };
 		DAB352E113FD48C300D6163A /* OxICAccordionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB352DD13FD48C300D6163A /* OxICAccordionSection.m */; };
-		DACA9DD81440EBA7004ECD74 /* OxICPopupPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = DACA9DD61440EBA7004ECD74 /* OxICPopupPickerView.h */; };
-		DACA9DD91440EBA7004ECD74 /* OxICPopupPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DACA9DD71440EBA7004ECD74 /* OxICPopupPickerView.m */; };
 		DACB367211F516E900FE67D4 /* OxICSimpleWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */; };
 		DACB367311F516E900FE67D4 /* OxICSimpleWrapperFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */; };
 		DACB36EE11F5370800FE67D4 /* OxICContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36E511F5370800FE67D4 /* OxICContainer.h */; };
@@ -112,12 +116,16 @@
 		DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICBaseDao.h; path = Classes/Data/DAO/OxICBaseDao.h; sourceTree = SOURCE_ROOT; };
 		DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICBaseDao.m; path = Classes/Data/DAO/OxICBaseDao.m; sourceTree = SOURCE_ROOT; };
 		DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICDaoProtocol.h; path = Classes/Data/DAO/OxICDaoProtocol.h; sourceTree = SOURCE_ROOT; };
+		DAB2871214422A1600F41B20 /* OxICViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICViewUtils.h; path = Classes/UI/ViewUtils/OxICViewUtils.h; sourceTree = SOURCE_ROOT; };
+		DAB2871314422A1600F41B20 /* OxICViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICViewUtils.m; path = Classes/UI/ViewUtils/OxICViewUtils.m; sourceTree = SOURCE_ROOT; };
+		DAB2875A14422EDA00F41B20 /* OxICPopupDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPopupDatePicker.h; path = Classes/UI/PopupPicker/OxICPopupDatePicker.h; sourceTree = SOURCE_ROOT; };
+		DAB2875B14422EDA00F41B20 /* OxICPopupDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPopupDatePicker.m; path = Classes/UI/PopupPicker/OxICPopupDatePicker.m; sourceTree = SOURCE_ROOT; };
+		DAB2875C14422EDA00F41B20 /* OxICPopupListPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPopupListPicker.h; path = Classes/UI/PopupPicker/OxICPopupListPicker.h; sourceTree = SOURCE_ROOT; };
+		DAB2875D14422EDA00F41B20 /* OxICPopupListPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPopupListPicker.m; path = Classes/UI/PopupPicker/OxICPopupListPicker.m; sourceTree = SOURCE_ROOT; };
 		DAB352DA13FD48C300D6163A /* OxICAccordion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICAccordion.h; path = Classes/UI/Accordion/OxICAccordion.h; sourceTree = SOURCE_ROOT; };
 		DAB352DB13FD48C300D6163A /* OxICAccordion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICAccordion.m; path = Classes/UI/Accordion/OxICAccordion.m; sourceTree = SOURCE_ROOT; };
 		DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICAccordionSection.h; path = Classes/UI/Accordion/OxICAccordionSection.h; sourceTree = SOURCE_ROOT; };
 		DAB352DD13FD48C300D6163A /* OxICAccordionSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICAccordionSection.m; path = Classes/UI/Accordion/OxICAccordionSection.m; sourceTree = SOURCE_ROOT; };
-		DACA9DD61440EBA7004ECD74 /* OxICPopupPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICPopupPickerView.h; sourceTree = "<group>"; };
-		DACA9DD71440EBA7004ECD74 /* OxICPopupPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICPopupPickerView.m; sourceTree = "<group>"; };
 		DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICSimpleWrapperFactory.h; sourceTree = "<group>"; };
 		DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICSimpleWrapperFactory.m; sourceTree = "<group>"; };
 		DACB36E511F5370800FE67D4 /* OxICContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICContainer.h; path = Classes/Container/OxICContainer.h; sourceTree = SOURCE_ROOT; };
@@ -315,13 +323,36 @@
 			path = Classes/Data/DAO;
 			sourceTree = SOURCE_ROOT;
 		};
+		DAB2871114422A1600F41B20 /* ViewUtils */ = {
+			isa = PBXGroup;
+			children = (
+				DAB2871214422A1600F41B20 /* OxICViewUtils.h */,
+				DAB2871314422A1600F41B20 /* OxICViewUtils.m */,
+			);
+			name = ViewUtils;
+			path = Classes/UI/ViewUtils;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAB2875914422EDA00F41B20 /* PopupPicker */ = {
+			isa = PBXGroup;
+			children = (
+				DAB2875A14422EDA00F41B20 /* OxICPopupDatePicker.h */,
+				DAB2875B14422EDA00F41B20 /* OxICPopupDatePicker.m */,
+				DAB2875C14422EDA00F41B20 /* OxICPopupListPicker.h */,
+				DAB2875D14422EDA00F41B20 /* OxICPopupListPicker.m */,
+			);
+			name = PopupPicker;
+			path = Classes/UI/PopupPicker;
+			sourceTree = SOURCE_ROOT;
+		};
 		DAB352D813FD48C300D6163A /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				DAB352D913FD48C300D6163A /* Accordion */,
 				43FADAA9143C9E1F00AE26E6 /* ExpandableSectionTableView */,
 				DADCC1EF1406CC1C006E902F /* InteractiveSelector */,
-				DACA9DD51440EB33004ECD74 /* PopupPickerView */,
+				DAB2875914422EDA00F41B20 /* PopupPicker */,
+				DAB2871114422A1600F41B20 /* ViewUtils */,
 			);
 			name = UI;
 			path = Classes/UI;
@@ -337,16 +368,6 @@
 			);
 			name = Accordion;
 			path = Classes/UI/Accordion;
-			sourceTree = SOURCE_ROOT;
-		};
-		DACA9DD51440EB33004ECD74 /* PopupPickerView */ = {
-			isa = PBXGroup;
-			children = (
-				DACA9DD61440EBA7004ECD74 /* OxICPopupPickerView.h */,
-				DACA9DD71440EBA7004ECD74 /* OxICPopupPickerView.m */,
-			);
-			name = PopupPickerView;
-			path = Classes/UI/PopupPickerView;
 			sourceTree = SOURCE_ROOT;
 		};
 		DACB36E411F5370800FE67D4 /* Container */ = {
@@ -427,7 +448,9 @@
 				DAA57E0E14379DC7000E2319 /* OxICDictionaryConverter.h in Headers */,
 				DAA57F9F1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h in Headers */,
 				43FADAB1143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h in Headers */,
-				DACA9DD81440EBA7004ECD74 /* OxICPopupPickerView.h in Headers */,
+				DAB2871414422A1600F41B20 /* OxICViewUtils.h in Headers */,
+				DAB2875E14422EDA00F41B20 /* OxICPopupDatePicker.h in Headers */,
+				DAB2876014422EDA00F41B20 /* OxICPopupListPicker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +521,9 @@
 				DAA57E0F14379DC7000E2319 /* OxICDictionaryConverter.m in Sources */,
 				DAA57FA01437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m in Sources */,
 				43FADAB2143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m in Sources */,
-				DACA9DD91440EBA7004ECD74 /* OxICPopupPickerView.m in Sources */,
+				DAB2871514422A1600F41B20 /* OxICViewUtils.m in Sources */,
+				DAB2875F14422EDA00F41B20 /* OxICPopupDatePicker.m in Sources */,
+				DAB2876114422EDA00F41B20 /* OxICPopupListPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
