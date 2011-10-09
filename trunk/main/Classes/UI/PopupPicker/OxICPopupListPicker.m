@@ -1,20 +1,20 @@
 //
-//  OxICPopupPickerView.m
+//  OxICPopupListPicker.m
 //  OxeniPhoneCommons
 //
 //  Created by Lautaro Brasseur on 08/10/11.
 //  Copyright 2011 Oxen Software Studio. All rights reserved.
 //
 
-#import "OxICPopupPickerView.h"
+#import "OxICPopupListPicker.h"
 
-@interface OxICPopupPickerView()
+@interface OxICPopupListPicker()
 - (void) showPicker;
 @property (nonatomic, retain) NSMutableArray *identifiers;
 @property (nonatomic, retain) NSMutableArray *labels;
 @end
 
-@implementation OxICPopupPickerView
+@implementation OxICPopupListPicker
 @synthesize labels, identifiers;
 
 #pragma mark Initialization and dealloc
