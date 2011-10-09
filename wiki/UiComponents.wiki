@@ -13,5 +13,5 @@ Before mentioned widgets include:
  * An [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/UI/Accordion/ accordion] control. It allows adding N sections, each one with an arbitrary UIView which is shown/hidden clicking a button.
  * An [http://code.google.com/p/oxeniphonecommons/source/browse/#svn%2Ftrunk%2Fmain%2FClasses%2FUI%2FInteractiveSelector interactive selector], which allows selecting/unselecting options. Options are shown horizontally and can be scrolled. It also can act as delegate for a search bar, in order to filter options.
  * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/UI/PopupPicker Popup pickers] for:
-  * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/UI/PopupPicker/OxICPopupDatePicker.m Date]
+  * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/UI/PopupPicker/OxICPopupDatePicker.m Date and time] (or both)
   * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/UI/PopupPicker/OxICPopupListPicker.m Lists] (with key-value, pretty much like a combo).
