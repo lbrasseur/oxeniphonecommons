@@ -7,25 +7,30 @@
 //
 
 #import "OxICPopupDatePicker.h"
+#import "OxICViewUtils.h"
 
 @interface OxICPopupDatePicker()
 - (void) showPicker;
+@property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, retain) UIDatePicker *datePicker;
 @end
 
 @implementation OxICPopupDatePicker
 @synthesize date;
 @synthesize datePickerMode;
+@synthesize textField;
+@synthesize datePicker;
 
 #pragma mark Initialization and dealloc
 - (void)initialize {
 	self.date = nil;
 	self.datePickerMode = UIDatePickerModeDateAndTime;
 	
-	textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-	textField.borderStyle = UITextBorderStyleRoundedRect;
-	textField.delegate = self;
-	[self addSubview:textField];
-	[textField release];
+	self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+	self.textField.borderStyle = UITextBorderStyleRoundedRect;
+	self.textField.delegate = self;
+	[self addSubview:self.textField];
+	[self.textField release];
 }
 
 - (void)awakeFromNib {
@@ -41,6 +46,8 @@
 
 - (void)dealloc {
 	self.date = nil;
+	self.datePicker = nil;
+	self.textField = nil;
     [super dealloc];
 }
 
@@ -48,6 +55,10 @@
 
 #pragma mark Private methods
 - (void) showPicker {
+	OxICViewUtils *viewUtils = [[OxICViewUtils alloc] init];
+	[[viewUtils findCurrentTextField] resignFirstResponder];
+	[viewUtils release];
+	
 	UIActionSheet *menu = [[UIActionSheet alloc] initWithTitle:nil
 													  delegate:self
 											 cancelButtonTitle:NSLocalizedString(@"Done", @"Done")
@@ -55,7 +66,7 @@
 											 otherButtonTitles:nil];
 	
 	// Add the picker
-	datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,150,0,216)];
+	self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,150,0,216)];
 	
 	if (self.date != nil) {
 		datePicker.date = self.date;
@@ -98,5 +109,6 @@
 		textField.text = [dateFormatter stringFromDate:self.date];
 		[dateFormatter release];
 	}
+	self.datePicker = nil;
 }
 @end

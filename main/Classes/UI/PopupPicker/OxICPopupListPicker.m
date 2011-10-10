@@ -7,15 +7,19 @@
 //
 
 #import "OxICPopupListPicker.h"
+#import "OxICViewUtils.h"
 
 @interface OxICPopupListPicker()
 - (void) showPicker;
 @property (nonatomic, retain) NSMutableArray *identifiers;
 @property (nonatomic, retain) NSMutableArray *labels;
+@property (nonatomic, retain) UITextField *textField;
 @end
 
 @implementation OxICPopupListPicker
-@synthesize labels, identifiers;
+@synthesize labels;
+@synthesize identifiers;
+@synthesize textField;
 
 #pragma mark Initialization and dealloc
 - (void)initialize {
@@ -24,11 +28,11 @@
 	
 	selectedRow = -1;
 	
-	textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-	textField.borderStyle = UITextBorderStyleRoundedRect;
-	textField.delegate = self;
-	[self addSubview:textField];
-	[textField release];
+	self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+	self.textField.borderStyle = UITextBorderStyleRoundedRect;
+	self.textField.delegate = self;
+	[self addSubview:self.textField];
+	[self.textField release];
 }
 
 - (void)awakeFromNib {
@@ -45,6 +49,7 @@
 - (void)dealloc {
 	self.identifiers = nil;
 	self.labels = nil;
+	self.textField = nil;
     [super dealloc];
 }
 
@@ -78,6 +83,10 @@
 
 #pragma mark Private methods
 - (void) showPicker {
+	OxICViewUtils *viewUtils = [[OxICViewUtils alloc] init];
+	[[viewUtils findCurrentTextField] resignFirstResponder];
+	[viewUtils release];
+	
 	UIActionSheet *menu = [[UIActionSheet alloc] initWithTitle:nil
 													  delegate:self
 											 cancelButtonTitle:NSLocalizedString(@"Done", @"Done")
