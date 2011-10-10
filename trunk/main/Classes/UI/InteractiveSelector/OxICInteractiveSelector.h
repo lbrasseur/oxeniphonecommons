@@ -14,10 +14,11 @@
 @protocol OxICInteractiveSelectorDelegate
 - (void) selected:(id) identifier
 	   onSelector:(OxICInteractiveSelector*) selector;
+@optional
 - (void) searchBarDidBeginEditing:(UISearchBar*) searchBar
-	   onSelector:(OxICInteractiveSelector*) selector;
+					   onSelector:(OxICInteractiveSelector*) selector;
 - (void) searchBarDidEndEditing:(UISearchBar*) searchBar
-	   onSelector:(OxICInteractiveSelector*) selector;
+					 onSelector:(OxICInteractiveSelector*) selector;
 @end
 
 

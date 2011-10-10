@@ -51,6 +51,8 @@
 		DAB2875F14422EDA00F41B20 /* OxICPopupDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB2875B14422EDA00F41B20 /* OxICPopupDatePicker.m */; };
 		DAB2876014422EDA00F41B20 /* OxICPopupListPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB2875C14422EDA00F41B20 /* OxICPopupListPicker.h */; };
 		DAB2876114422EDA00F41B20 /* OxICPopupListPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB2875D14422EDA00F41B20 /* OxICPopupListPicker.m */; };
+		DAB288541442603600F41B20 /* OxICPopupInteractiveSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB288521442603600F41B20 /* OxICPopupInteractiveSelector.h */; };
+		DAB288551442603600F41B20 /* OxICPopupInteractiveSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB288531442603600F41B20 /* OxICPopupInteractiveSelector.m */; };
 		DAB352DE13FD48C300D6163A /* OxICAccordion.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB352DA13FD48C300D6163A /* OxICAccordion.h */; };
 		DAB352DF13FD48C300D6163A /* OxICAccordion.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB352DB13FD48C300D6163A /* OxICAccordion.m */; };
 		DAB352E013FD48C300D6163A /* OxICAccordionSection.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */; };
@@ -122,6 +124,8 @@
 		DAB2875B14422EDA00F41B20 /* OxICPopupDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPopupDatePicker.m; path = Classes/UI/PopupPicker/OxICPopupDatePicker.m; sourceTree = SOURCE_ROOT; };
 		DAB2875C14422EDA00F41B20 /* OxICPopupListPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPopupListPicker.h; path = Classes/UI/PopupPicker/OxICPopupListPicker.h; sourceTree = SOURCE_ROOT; };
 		DAB2875D14422EDA00F41B20 /* OxICPopupListPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPopupListPicker.m; path = Classes/UI/PopupPicker/OxICPopupListPicker.m; sourceTree = SOURCE_ROOT; };
+		DAB288521442603600F41B20 /* OxICPopupInteractiveSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPopupInteractiveSelector.h; path = Classes/UI/PopupPicker/OxICPopupInteractiveSelector.h; sourceTree = SOURCE_ROOT; };
+		DAB288531442603600F41B20 /* OxICPopupInteractiveSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPopupInteractiveSelector.m; path = Classes/UI/PopupPicker/OxICPopupInteractiveSelector.m; sourceTree = SOURCE_ROOT; };
 		DAB352DA13FD48C300D6163A /* OxICAccordion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICAccordion.h; path = Classes/UI/Accordion/OxICAccordion.h; sourceTree = SOURCE_ROOT; };
 		DAB352DB13FD48C300D6163A /* OxICAccordion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICAccordion.m; path = Classes/UI/Accordion/OxICAccordion.m; sourceTree = SOURCE_ROOT; };
 		DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICAccordionSection.h; path = Classes/UI/Accordion/OxICAccordionSection.h; sourceTree = SOURCE_ROOT; };
@@ -336,6 +340,8 @@
 		DAB2875914422EDA00F41B20 /* PopupPicker */ = {
 			isa = PBXGroup;
 			children = (
+				DAB288521442603600F41B20 /* OxICPopupInteractiveSelector.h */,
+				DAB288531442603600F41B20 /* OxICPopupInteractiveSelector.m */,
 				DAB2875A14422EDA00F41B20 /* OxICPopupDatePicker.h */,
 				DAB2875B14422EDA00F41B20 /* OxICPopupDatePicker.m */,
 				DAB2875C14422EDA00F41B20 /* OxICPopupListPicker.h */,
@@ -451,6 +457,7 @@
 				DAB2871414422A1600F41B20 /* OxICViewUtils.h in Headers */,
 				DAB2875E14422EDA00F41B20 /* OxICPopupDatePicker.h in Headers */,
 				DAB2876014422EDA00F41B20 /* OxICPopupListPicker.h in Headers */,
+				DAB288541442603600F41B20 /* OxICPopupInteractiveSelector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +531,7 @@
 				DAB2871514422A1600F41B20 /* OxICViewUtils.m in Sources */,
 				DAB2875F14422EDA00F41B20 /* OxICPopupDatePicker.m in Sources */,
 				DAB2876114422EDA00F41B20 /* OxICPopupListPicker.m in Sources */,
+				DAB288551442603600F41B20 /* OxICPopupInteractiveSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
