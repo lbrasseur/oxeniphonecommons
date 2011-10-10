@@ -20,6 +20,7 @@
 @synthesize labels;
 @synthesize identifiers;
 @synthesize textField;
+@synthesize pickerDelegate;
 
 #pragma mark Initialization and dealloc
 - (void)initialize {
@@ -58,6 +59,12 @@
 		 withLabel:(NSString*) label {
 	[self.identifiers addObject:identifier];
 	[self.labels addObject:label];
+}
+
+- (void) clear {
+	[self.identifiers removeAllObjects];
+	[self.labels removeAllObjects];
+	self.textField.text = nil;
 }
 
 - (id) selected {
@@ -118,7 +125,9 @@
 
 #pragma mark UITextFieldDelegate methods
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-	[self showPicker];
+	if ([self.identifiers count] > 0) {
+		[self showPicker];
+	}
 	return NO;
 }
 
@@ -143,6 +152,9 @@
 	if (buttonIndex == 1 && pickerSelectedRow >= 0) {
 		selectedRow = pickerSelectedRow;
 		textField.text = [self.labels objectAtIndex:selectedRow];
+		if (self.pickerDelegate != nil) {
+			[self.pickerDelegate onSelection:self];
+		}
 	}
 }
 @end
