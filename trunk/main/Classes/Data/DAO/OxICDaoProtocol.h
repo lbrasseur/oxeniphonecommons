@@ -17,6 +17,11 @@
 - (id) insertNewObject;
 
 /*!
+ Flushes pending changes.
+ */
+- (void) flush;
+
+/*!
  Reads all the object from the database.
  */
 - (NSArray*) findAll;
