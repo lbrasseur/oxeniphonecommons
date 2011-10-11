@@ -53,7 +53,10 @@
 		NSMutableDictionary *targetDictionary = [NSMutableDictionary dictionaryWithCapacity:[sourceDictionary count]];
 		
 		for (NSString* key in sourceDictionary) {
-			[targetDictionary setObject:[self convert:[sourceDictionary objectForKey:key]] forKey:key];
+			id value = [sourceDictionary objectForKey:key];
+			if (value != nil) {
+				[targetDictionary setObject:[self convert:value] forKey:key];
+			}
 		}						
 		
 		return targetDictionary;
@@ -64,7 +67,10 @@
 		NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithCapacity:[descriptors count]];
 		
 		for (OxICPropertyDescriptor *descriptor in descriptors) {
-			[dictionary setObject:[self convert:[wrapper getProperty:descriptor.name]] forKey:descriptor.name];
+			id value = [wrapper getProperty:descriptor.name];
+			if (value != nil) {
+				[dictionary setObject:[self convert:value] forKey:descriptor.name];
+			}
 		}
 		
 		return dictionary;

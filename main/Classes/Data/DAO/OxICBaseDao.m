@@ -8,6 +8,10 @@
 
 #import "OxICBaseDao.h"
 
+@interface OxICBaseDao()
+- (void) raiseError:(NSError*) error;
+@end
+
 
 @implementation OxICBaseDao
 
@@ -29,11 +33,17 @@
 										 inManagedObjectContext: self.managedObjectContext];
 }
 
+- (void) flush {
+	NSError* error = nil;
+	if(![self.managedObjectContext save:&error]) {
+		[self raiseError:error];
+	}	
+}
+
 - (NSArray*) findAll {
 	NSError *error = nil; 
 	if (![self.fetchedResultsController performFetch:&error]) { 
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		exit(-1);
+		[self raiseError:error];
 	} 
 	
 	return [self.fetchedResultsController fetchedObjects];
@@ -71,8 +81,7 @@
 	[sortDescriptor release];
 	
 	if (fetchResults == nil) {
-		NSLog(@"Error while fetching objects: %@", [error description]);
-		return nil;
+		[self raiseError:error];
 	}
 	
 	return fetchResults;
@@ -117,6 +126,17 @@
 	self.fetchedResultsController = nil;
 	self.managedObjectContext = nil;
 	[super dealloc];
+}
+
+#pragma mark Private methods
+- (void) raiseError:(NSError*) error {
+	NSLog(@"OxICBaseDao error: %@", [error localizedDescription]);
+	NSException* exception = [NSException
+							  exceptionWithName:[error localizedDescription]
+							  reason:[error description]
+							  userInfo:[error userInfo]];
+	@throw exception;
+	
 }
 
 @end
