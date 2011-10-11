@@ -48,6 +48,16 @@
 		
 		return targetArray;
 		
+	} else if ([object isKindOfClass:[NSSet class]]) {
+		NSSet *sourceSet = object;
+		NSMutableSet *targetSet = [NSMutableSet setWithCapacity:[sourceSet count]];
+		
+		for (id element in sourceSet) {
+			[targetSet addObject:[self convert:element]];
+		}						
+		
+		return targetSet;
+		
 	} else if ([object isKindOfClass:[NSDictionary class]]) {
 		NSDictionary *sourceDictionary = object;
 		NSMutableDictionary *targetDictionary = [NSMutableDictionary dictionaryWithCapacity:[sourceDictionary count]];
