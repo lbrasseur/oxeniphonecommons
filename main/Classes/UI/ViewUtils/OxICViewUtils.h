@@ -15,9 +15,16 @@
 @interface OxICViewUtils : NSObject {
 }
 
-/*! 
+/*!
  Returns the UITextField that has the current focus.
  */
 - (UITextField*) findCurrentTextField;
+
+/*!
+ Runs a selector asynchronously.
+ */
+- (void) runAsync:(SEL) selector
+	   withTarget:(id) target
+	  andCallback:(SEL) callback;
 
 @end
