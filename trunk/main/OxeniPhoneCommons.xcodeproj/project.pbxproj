@@ -45,6 +45,12 @@
 		DAABCDC1143529E700CF2ABA /* OxICBaseDao.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */; };
 		DAABCDC2143529E700CF2ABA /* OxICBaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */; };
 		DAABCDC3143529E700CF2ABA /* OxICDaoProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */; };
+		DAAD3742144A157E00DAF2C3 /* OxICJsonRestProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAD373E144A157E00DAF2C3 /* OxICJsonRestProxy.h */; };
+		DAAD3743144A157E00DAF2C3 /* OxICJsonRestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD373F144A157E00DAF2C3 /* OxICJsonRestProxy.m */; };
+		DAAD3744144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAD3740144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h */; };
+		DAAD3745144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD3741144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m */; };
+		DAAD374C144A16D500DAF2C3 /* OxICBaseJsonProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAD374A144A16D500DAF2C3 /* OxICBaseJsonProxy.h */; };
+		DAAD374D144A16D500DAF2C3 /* OxICBaseJsonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD374B144A16D500DAF2C3 /* OxICBaseJsonProxy.m */; };
 		DAB2871414422A1600F41B20 /* OxICViewUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB2871214422A1600F41B20 /* OxICViewUtils.h */; };
 		DAB2871514422A1600F41B20 /* OxICViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB2871314422A1600F41B20 /* OxICViewUtils.m */; };
 		DAB2875E14422EDA00F41B20 /* OxICPopupDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB2875A14422EDA00F41B20 /* OxICPopupDatePicker.h */; };
@@ -118,6 +124,12 @@
 		DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICBaseDao.h; path = Classes/Data/DAO/OxICBaseDao.h; sourceTree = SOURCE_ROOT; };
 		DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICBaseDao.m; path = Classes/Data/DAO/OxICBaseDao.m; sourceTree = SOURCE_ROOT; };
 		DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICDaoProtocol.h; path = Classes/Data/DAO/OxICDaoProtocol.h; sourceTree = SOURCE_ROOT; };
+		DAAD373E144A157E00DAF2C3 /* OxICJsonRestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICJsonRestProxy.h; path = Classes/JSON/OxICJsonRestProxy.h; sourceTree = SOURCE_ROOT; };
+		DAAD373F144A157E00DAF2C3 /* OxICJsonRestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICJsonRestProxy.m; path = Classes/JSON/OxICJsonRestProxy.m; sourceTree = SOURCE_ROOT; };
+		DAAD3740144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICJsonRestProxyFactoryObject.h; path = Classes/JSON/OxICJsonRestProxyFactoryObject.h; sourceTree = SOURCE_ROOT; };
+		DAAD3741144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICJsonRestProxyFactoryObject.m; path = Classes/JSON/OxICJsonRestProxyFactoryObject.m; sourceTree = SOURCE_ROOT; };
+		DAAD374A144A16D500DAF2C3 /* OxICBaseJsonProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICBaseJsonProxy.h; path = Classes/JSON/OxICBaseJsonProxy.h; sourceTree = SOURCE_ROOT; };
+		DAAD374B144A16D500DAF2C3 /* OxICBaseJsonProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICBaseJsonProxy.m; path = Classes/JSON/OxICBaseJsonProxy.m; sourceTree = SOURCE_ROOT; };
 		DAB2871214422A1600F41B20 /* OxICViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICViewUtils.h; path = Classes/UI/ViewUtils/OxICViewUtils.h; sourceTree = SOURCE_ROOT; };
 		DAB2871314422A1600F41B20 /* OxICViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICViewUtils.m; path = Classes/UI/ViewUtils/OxICViewUtils.m; sourceTree = SOURCE_ROOT; };
 		DAB2875A14422EDA00F41B20 /* OxICPopupDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPopupDatePicker.h; path = Classes/UI/PopupPicker/OxICPopupDatePicker.h; sourceTree = SOURCE_ROOT; };
@@ -227,11 +239,17 @@
 		DA28E3D6143636A900F6BA83 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				DA28E3D7143636A900F6BA83 /* JSONKit */,
+				DAAD374A144A16D500DAF2C3 /* OxICBaseJsonProxy.h */,
+				DAAD374B144A16D500DAF2C3 /* OxICBaseJsonProxy.m */,
+				DAAD373E144A157E00DAF2C3 /* OxICJsonRestProxy.h */,
+				DAAD373F144A157E00DAF2C3 /* OxICJsonRestProxy.m */,
+				DAAD3740144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h */,
+				DAAD3741144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m */,
 				DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */,
 				DA28E3DF143637DE00F6BA83 /* OxICJsonRpcProxy.m */,
 				DAA57F9D1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h */,
 				DAA57F9E1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m */,
+				DA28E3D7143636A900F6BA83 /* JSONKit */,
 			);
 			name = JSON;
 			path = Classes/JSON;
@@ -458,6 +476,9 @@
 				DAB2875E14422EDA00F41B20 /* OxICPopupDatePicker.h in Headers */,
 				DAB2876014422EDA00F41B20 /* OxICPopupListPicker.h in Headers */,
 				DAB288541442603600F41B20 /* OxICPopupInteractiveSelector.h in Headers */,
+				DAAD3742144A157E00DAF2C3 /* OxICJsonRestProxy.h in Headers */,
+				DAAD3744144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h in Headers */,
+				DAAD374C144A16D500DAF2C3 /* OxICBaseJsonProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +553,9 @@
 				DAB2875F14422EDA00F41B20 /* OxICPopupDatePicker.m in Sources */,
 				DAB2876114422EDA00F41B20 /* OxICPopupListPicker.m in Sources */,
 				DAB288551442603600F41B20 /* OxICPopupInteractiveSelector.m in Sources */,
+				DAAD3743144A157E00DAF2C3 /* OxICJsonRestProxy.m in Sources */,
+				DAAD3745144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m in Sources */,
+				DAAD374D144A16D500DAF2C3 /* OxICBaseJsonProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
