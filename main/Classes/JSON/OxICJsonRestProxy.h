@@ -1,5 +1,5 @@
 //
-//  OxICJsonRpcProxy.h
+//  OxICJsonRestProxy.h
 //  OxeniPhoneCommons
 //
 //  Created by Lautaro Brasseur on 30/09/11.
@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "OxICBaseJsonProxy.h"
 
-@interface OxICJsonRpcProxy : OxICBaseJsonProxy {
+@interface OxICJsonRestProxy : OxICBaseJsonProxy {
 }
+
 @end
