@@ -33,6 +33,10 @@
 										 inManagedObjectContext: self.managedObjectContext];
 }
 
+- (void) delete:(id) anObject {
+	[self.managedObjectContext deleteObject:anObject];
+}
+
 - (void) flush {
 	NSError* error = nil;
 	if(![self.managedObjectContext save:&error]) {

@@ -17,6 +17,11 @@
 - (id) insertNewObject;
 
 /*!
+ Deletes an object.
+ */
+- (void) delete:(id) anObject;
+
+/*!
  Flushes pending changes.
  */
 - (void) flush;
