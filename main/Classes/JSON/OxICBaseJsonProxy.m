@@ -110,7 +110,6 @@
 
 	error = nil;
 	NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-	
 	if (error != nil) {
 		NSException* exception = [NSException
 								  exceptionWithName:@"HTTP request error"
@@ -119,7 +118,17 @@
 		@throw exception;
 	}
 	
-	return [OxICDictionaryProxy buildProxy:[self buildResponse:[[JSONDecoder decoder] objectWithData:responseData]]];
+	error = nil;
+	id parsedObject = [[JSONDecoder decoder] objectWithData:responseData error:&error];
+	if (error != nil) {
+		NSException* exception = [NSException
+								  exceptionWithName:@"JSON parsing error"
+								  reason:[error description]
+								  userInfo:[error userInfo]];
+		@throw exception;
+	}
+	
+	return [OxICDictionaryProxy buildProxy:[self buildResponse:parsedObject]];
 }
 
 - (NSDictionary*) buildMessageForMethod: (NSString*)method
