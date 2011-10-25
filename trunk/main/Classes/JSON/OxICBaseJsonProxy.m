@@ -9,14 +9,16 @@
 #import "OxICBaseJsonProxy.h"
 #import "JSONKit.h"
 #import "OxICDictionaryProxy.h"
+#import "OxICDictionaryConverter.h"
 #import <objc/runtime.h>
 
 @interface OxICBaseJsonProxy()
 @property (retain, nonatomic) Protocol* protocol;
 
-- (NSDictionary*) buildMessageForMethod: (NSString*)method
-						  withArguments: (NSArray*) arguments;
-
+- (NSDictionary*) buildMessageForMethod: (NSString*) method
+						  withArguments: (NSArray*) arguments
+						   andConverter: (OxICDictionaryConverter*) dictionaryConverter;
+	
 - (NSString*) buildUrlForMethod: (NSString*)method
 				  withArguments: (NSArray*) arguments;
 
@@ -24,10 +26,16 @@
 
 - (id) processJson: (NSString*)method
 	 withArguments: (NSArray*) arguments;
+
 @end
 
 @implementation OxICBaseJsonProxy
-@synthesize protocol, url, wrapperFactory;
+@synthesize protocol;
+@synthesize url;
+@synthesize wrapperFactory;
+@synthesize capitalizeMethods;
+@synthesize capitalizeFields;
+
 
 #pragma mark init and dealloc
 - (id) initWithProtocol: (Protocol*) aProtocol
@@ -37,6 +45,8 @@
 	self.protocol = aProtocol;
 	self.url = aURL;
 	self.wrapperFactory = aWrapperFactory;
+	self.capitalizeMethods = NO;
+	self.capitalizeFields = NO;
 	
 	return self;
 }
@@ -89,8 +99,12 @@
 - (id) processJson: (NSString*)method
 	 withArguments: (NSArray*) arguments {
 	
+	OxICDictionaryConverter *dictionaryConverter = [[OxICDictionaryConverter alloc] initWithWrapperFactory:self.wrapperFactory];
+	dictionaryConverter.capitalizeFields = self.capitalizeFields;
 	NSDictionary *message = [self buildMessageForMethod:method
-										  withArguments:arguments];
+										  withArguments:arguments
+										   andConverter:dictionaryConverter];
+	[dictionaryConverter release];
 	
 	NSError *error = nil;
 	NSData *requestData = [message JSONDataWithOptions:JKSerializeOptionNone error:&error];
@@ -110,6 +124,7 @@
 
 	error = nil;
 	NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+	
 	if (error != nil) {
 		NSException* exception = [NSException
 								  exceptionWithName:@"HTTP request error"
@@ -128,15 +143,17 @@
 		@throw exception;
 	}
 	
-	return [OxICDictionaryProxy buildProxy:[self buildResponse:parsedObject]];
+	return [OxICDictionaryProxy buildProxy:[self buildResponse:parsedObject]
+							withCapitalize:self.capitalizeFields];
 }
 
-- (NSDictionary*) buildMessageForMethod: (NSString*)method
-						  withArguments: (NSArray*) arguments {
+- (NSDictionary*) buildMessageForMethod: (NSString*) method
+						  withArguments: (NSArray*) arguments
+						   andConverter: (OxICDictionaryConverter*) dictionaryConverter {
 	return nil;
 }
 
-- (NSString*) buildUrlForMethod: (NSString*)method
+- (NSString*) buildUrlForMethod: (NSString*) method
 				  withArguments: (NSArray*) arguments {
 	return nil;
 }

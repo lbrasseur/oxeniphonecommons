@@ -14,16 +14,11 @@
 
 @implementation OxICJsonRestProxy
 
-- (NSDictionary*) buildMessageForMethod: (NSString*)method
-						  withArguments: (NSArray*) arguments {
+- (NSDictionary*) buildMessageForMethod: (NSString*) method
+						  withArguments: (NSArray*) arguments
+						   andConverter: (OxICDictionaryConverter*) dictionaryConverter {
 	if ([arguments count] == 1) {
-		OxICDictionaryConverter *dictionaryConverter = [[OxICDictionaryConverter alloc] initWithWrapperFactory:self.wrapperFactory];
-		
-		NSDictionary *message = [dictionaryConverter convert:[arguments objectAtIndex:0]];
-		
-		[dictionaryConverter release];
-		
-		return message;
+		return [dictionaryConverter convert:[arguments objectAtIndex:0]];
 	} else if ([arguments count] == 0) {
 		return nil;
 	} else {
@@ -37,7 +32,15 @@
 
 - (NSString*) buildUrlForMethod: (NSString*)method
 				  withArguments: (NSArray*) arguments {
-	return [NSString stringWithFormat:@"%@/%@", self.url, method];
+	
+	NSString *methodInUrl;
+	if (self.capitalizeMethods) {
+		methodInUrl = [method capitalizedString];
+	} else {
+		methodInUrl = method;
+	}
+	
+	return [NSString stringWithFormat:@"%@/%@", self.url, methodInUrl];
 }
 
 - (id) buildResponse: (id)serverResponse {

@@ -11,6 +11,8 @@
 		43FADAB2143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FADAB0143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m */; };
 		AA747D9F0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA17C53A1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA17C5381456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h */; };
+		DA17C53B1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA17C5391456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m */; };
 		DA28E3DC143636A900F6BA83 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DA28E3D9143636A900F6BA83 /* JSONKit.h */; };
 		DA28E3DD143636A900F6BA83 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DA28E3DA143636A900F6BA83 /* JSONKit.m */; };
 		DA28E3E0143637DE00F6BA83 /* OxICJsonRpcProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */; };
@@ -88,6 +90,8 @@
 		AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxeniPhoneCommons_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOxeniPhoneCommons.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA17C5381456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICBaseJsonProxyFactoryObject.h; sourceTree = "<group>"; };
+		DA17C5391456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICBaseJsonProxyFactoryObject.m; sourceTree = "<group>"; };
 		DA28E3D8143636A900F6BA83 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CHANGELOG.md; path = Classes/JSON/JSONKit/CHANGELOG.md; sourceTree = SOURCE_ROOT; };
 		DA28E3D9143636A900F6BA83 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Classes/JSON/JSONKit/JSONKit.h; sourceTree = SOURCE_ROOT; };
 		DA28E3DA143636A900F6BA83 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = Classes/JSON/JSONKit/JSONKit.m; sourceTree = SOURCE_ROOT; };
@@ -241,6 +245,8 @@
 			children = (
 				DAAD374A144A16D500DAF2C3 /* OxICBaseJsonProxy.h */,
 				DAAD374B144A16D500DAF2C3 /* OxICBaseJsonProxy.m */,
+				DA17C5381456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h */,
+				DA17C5391456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m */,
 				DAAD373E144A157E00DAF2C3 /* OxICJsonRestProxy.h */,
 				DAAD373F144A157E00DAF2C3 /* OxICJsonRestProxy.m */,
 				DAAD3740144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h */,
@@ -479,6 +485,7 @@
 				DAAD3742144A157E00DAF2C3 /* OxICJsonRestProxy.h in Headers */,
 				DAAD3744144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h in Headers */,
 				DAAD374C144A16D500DAF2C3 /* OxICBaseJsonProxy.h in Headers */,
+				DA17C53A1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +563,7 @@
 				DAAD3743144A157E00DAF2C3 /* OxICJsonRestProxy.m in Sources */,
 				DAAD3745144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m in Sources */,
 				DAAD374D144A16D500DAF2C3 /* OxICBaseJsonProxy.m in Sources */,
+				DA17C53B1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

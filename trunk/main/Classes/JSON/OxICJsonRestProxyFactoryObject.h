@@ -8,16 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "OxICFactoryObject.h"
-#import "OxICWrapperFactory.h"
+#import "OxICBaseJsonProxyFactoryObject.h"
 
-@interface OxICJsonRestProxyFactoryObject : NSObject<OxICFactoryObject> {
-	Protocol *protocol;
-	NSString *url;
-	id<OxICWrapperFactory> wrapperFactory;
+@interface OxICJsonRestProxyFactoryObject : OxICBaseJsonProxyFactoryObject<OxICFactoryObject> {
+
 }
-
-@property (retain, nonatomic) Protocol* protocol;
-@property (retain, nonatomic) NSString* url;
-@property (retain, nonatomic) id<OxICWrapperFactory> wrapperFactory;
 
 @end

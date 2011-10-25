@@ -11,9 +11,13 @@
 
 @interface OxICDictionaryProxy : NSProxy {
 	NSDictionary* dictionary;
+	BOOL capitalizeFields;
 }
 
-+ (id) buildProxy: (id) object;
+@property (assign, nonatomic) BOOL capitalizeFields;
+
++ (id) buildProxy: (id) object
+   withCapitalize:(BOOL)capitalizeFields;
 
 - (id) initWithDictionary: (NSDictionary*) aDictionary;
 

@@ -11,20 +11,23 @@
 
 @implementation OxICJsonRpcProxy
 
-- (NSDictionary*) buildMessageForMethod: (NSString*)method
-						  withArguments: (NSArray*) arguments {
-	OxICDictionaryConverter *dictionaryConverter = [[OxICDictionaryConverter alloc] initWithWrapperFactory:self.wrapperFactory];
+- (NSDictionary*) buildMessageForMethod: (NSString*) method
+						  withArguments: (NSArray*) arguments
+						   andConverter: (OxICDictionaryConverter*) dictionaryConverter {
 	
-	NSDictionary *message = [NSDictionary dictionaryWithObjectsAndKeys:
-						     [NSNumber numberWithInt:1], @"id",
-						     @"1.0", @"jsonrpc",
-						     method, @"method",
-						     [dictionaryConverter convert:arguments], @"params",
-						     nil];
+	NSString *methodInMessage;
+	if (self.capitalizeMethods) {
+		methodInMessage = [method capitalizedString];
+	} else {
+		methodInMessage = method;
+	}
 	
-	[dictionaryConverter release];
-	
-	return message;
+	return [NSDictionary dictionaryWithObjectsAndKeys:
+			[NSNumber numberWithInt:1], @"id",
+			@"1.0", @"jsonrpc",
+			methodInMessage, @"method",
+			[dictionaryConverter convert:arguments], @"params",
+			nil];
 }
 
 - (NSString*) buildUrlForMethod: (NSString*)method

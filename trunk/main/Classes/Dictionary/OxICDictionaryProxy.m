@@ -15,10 +15,12 @@
 
 @implementation OxICDictionaryProxy
 @synthesize dictionary;
+@synthesize capitalizeFields;
 
 #pragma mark Init and dealloc
 - (id) initWithDictionary: (NSDictionary*) aDictionary {
 	self.dictionary = aDictionary;
+	self.capitalizeFields = NO;
 	return self;
 }
 
@@ -28,11 +30,14 @@
 }
 
 #pragma mark Interface methods
-+ (id) buildProxy: (id) object {
++ (id) buildProxy: (id) object
+   withCapitalize:(BOOL)capitalizeFields {
 	if (object == nil || [object isKindOfClass:[NSNull class]]) {
 		return nil;
 	} else if ([object isKindOfClass:[NSDictionary class]]) {
-		return [[[OxICDictionaryProxy alloc] initWithDictionary:object] autorelease];
+		OxICDictionaryProxy *proxy = [[OxICDictionaryProxy alloc] initWithDictionary:object];
+		proxy.capitalizeFields = capitalizeFields;
+		return [proxy autorelease];
 	} else {
 		return object;
 	}
@@ -41,7 +46,16 @@
 #pragma mark NSProxy methods
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
 	NSString *selectorName = NSStringFromSelector(anInvocation.selector);
-	id returnValue = [OxICDictionaryProxy buildProxy:[self.dictionary valueForKey:selectorName]];
+	
+	NSString *key;
+	if (self.capitalizeFields) {
+		key = [selectorName capitalizedString];
+	} else {
+		key = selectorName;
+	}
+	
+	id returnValue = [OxICDictionaryProxy buildProxy:[self.dictionary valueForKey:key]
+									  withCapitalize:self.capitalizeFields];
 	[anInvocation setReturnValue:&returnValue];
 }
 
