@@ -10,19 +10,16 @@
 #import "OxICJsonRestProxy.h"
 
 @implementation OxICJsonRestProxyFactoryObject
-@synthesize protocol, url, wrapperFactory;
-
-- (void) dealloc {
-	self.protocol = nil;
-	self.url = nil;
-	self.wrapperFactory = nil;
-	[super dealloc];
-}
 
 - (id) getObject {
-	return [[[OxICJsonRestProxy alloc] initWithProtocol: self.protocol
-												 andURL: self.url
-									  andWrapperFactory:self.wrapperFactory] autorelease];
+	OxICJsonRestProxy *proxy = [[OxICJsonRestProxy alloc] initWithProtocol: self.protocol
+																	andURL: self.url
+														 andWrapperFactory: self.wrapperFactory];
+	
+	proxy.capitalizeMethods = self.capitalizeMethods;
+	proxy.capitalizeFields = self.capitalizeFields;
+	
+	return [proxy autorelease];
 }
 
 @end

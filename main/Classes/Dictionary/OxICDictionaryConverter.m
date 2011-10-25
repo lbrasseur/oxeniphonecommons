@@ -15,11 +15,13 @@
 
 @implementation OxICDictionaryConverter
 @synthesize wrapperFactory;
+@synthesize capitalizeFields;
 
 #pragma mark Init and dealloc
 - (id) initWithWrapperFactory: (id<OxICWrapperFactory>) aWrapperFactory {
 	if (self = [super init]) {
 		self.wrapperFactory = aWrapperFactory;
+		self.capitalizeFields = NO;
 	}
 	return self;
 }
@@ -78,16 +80,22 @@
 		
 		for (OxICPropertyDescriptor *descriptor in descriptors) {
 			id value = [wrapper getProperty:descriptor.name];
+			NSString *key;
+			
+			if (self.capitalizeFields) {
+				key = [descriptor.name capitalizedString];
+			} else {
+				key = descriptor.name;
+			}
+
+			
 			if (value != nil) {
-				[dictionary setObject:[self convert:value] forKey:descriptor.name];
+				[dictionary setObject:[self convert:value] forKey:key];
 			}
 		}
 		
 		return dictionary;
 	}
-
-
-	
 }
 
 @end

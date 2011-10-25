@@ -12,7 +12,10 @@
 
 @interface OxICDictionaryConverter : NSObject {
 	id<OxICWrapperFactory> wrapperFactory;
+	BOOL capitalizeFields;
 }
+
+@property (assign, nonatomic) BOOL capitalizeFields;
 
 - (id) initWithWrapperFactory: (id<OxICWrapperFactory>) aWrapperFactory;
 
