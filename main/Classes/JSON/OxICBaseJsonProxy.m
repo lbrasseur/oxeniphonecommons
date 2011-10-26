@@ -120,6 +120,7 @@
 	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:[self  buildUrlForMethod:method
 																										withArguments:arguments]]];
 	[request setHTTPMethod:@"POST"];
+	[request addValue:@"text/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPBody:requestData];
 
 	error = nil;
