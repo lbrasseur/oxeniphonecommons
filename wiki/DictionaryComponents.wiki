@@ -10,3 +10,6 @@ This section contains [http://code.google.com/p/oxeniphonecommons/source/browse/
 Components in this section include:
   * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Dictionary/OxICDictionaryConverter.m OxICDictionaryConverter], which reads properties from an object and copies it recursively into dictionaries. It relies on [http://code.google.com/p/oxeniphonecommons/source/browse/#svn%2Ftrunk%2Fmain%2FClasses%2FWrapper class wrapper] in order to acces and enumerate properties. The only restriction is that the object can't contain cyclic references.
   * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Dictionary/OxICDictionaryProxy.m OxICDictionaryProxy], which allows accessing a dictionary through standar "setter/getter" methods in a protocol/class.
+
+Both components have a boolean property:
+ * capitalizeFields: Converts first letter in field names to uppercase. This property can be helpful if your data uses Pascal case convention (for example, data coming from a .NET service).
