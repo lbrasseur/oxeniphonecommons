@@ -53,6 +53,7 @@ You can instantiate a JSON RPC proxy from the [Container IoC container] using th
 
 }}}
 
+Capitalization properties are available in the factory too.
 
 = JSON REST Proxy =
 The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/JSON/OxICJsonRestProxy.m OxICJsonRestProxy] works in a similar way, but it uses a REST-like approach.
@@ -96,3 +97,5 @@ You can instantiate a JSON REST proxy from the [Container IoC container] using t
 ];
 
 }}}
+
+Capitalization properties are available in the factory too.
