@@ -16,6 +16,13 @@ The selector name sent to the server is modified in order to make it Java-friend
 
 In order to perform JSON conversion, the proxy uses the (fast and simple!) [https://github.com/johnezang/JSONKit JSONKit] parser. JSONKit, like most Objective C based JSON parsers, marshals/unmarshals data from/to [http://developer.apple.com/library/mac/#documentation/cocoa/reference/foundation/classes/nsdictionary_class/Reference/Reference.html NSDictionary] instances. Because of this, we developed some [DictionaryComponents dictionary components]. The JSON RPC proxy copies arguments into a NSDictionary before sending them using the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Dictionary/OxICDictionaryConverter.m OxICDictionaryConverter] class. In a similar way, responses containing dictionaries are wrapped into a proxy using [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Dictionary/OxICDictionaryProxy.m OxICDictionaryProxy].
 
+The proxy has two boolean properties:
+ * capitalizeMethods: Converts first letter in method names to uppercase.
+ * capitalizeFields: Converts  first letter in field names to uppercase (in fact, it sets the same property in NSDictionary proxies/adapters)
+These properties can be helpful if your service uses Pascal case convention (for example, .NET conventions).
+
+
+
 == Using the proxy ==
 === Standalone ===
 You must provide the protocol to be proxied, the URL used to make HTTP post, and a [Wrapper wrapper factory]. You provide them using the following init method:
@@ -53,6 +60,12 @@ The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes
 The invoked method is appended to the URL (with a slash). The argument is sent as pure JSON. Likewise, the response is treated as pure JSON too.
 
 Currently, this proxy supports methods with only one argument, so you will need to build DTOs in most cases.
+
+The proxy has two boolean properties (just like the RCP proxy):
+ * capitalizeMethods: Converts first letter in method names to uppercase.
+ * capitalizeFields: Converts  first letter in field names to uppercase (in fact, it sets the same property in NSDictionary proxies/adapters)
+These properties can be helpful if your service uses Pascal case convention (for example, .NET conventions).
+
 
 == Using the proxy ==
 === Standalone ===
