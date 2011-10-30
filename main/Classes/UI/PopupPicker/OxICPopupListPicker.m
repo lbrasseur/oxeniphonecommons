@@ -30,7 +30,7 @@
 	selectedRow = -1;
 	
 	self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-	self.textField.borderStyle = UITextBorderStyleRoundedRect;
+	self.textField.borderStyle = UITextBorderStyleNone;
 	self.textField.delegate = self;
 	[self addSubview:self.textField];
 	[self.textField release];
