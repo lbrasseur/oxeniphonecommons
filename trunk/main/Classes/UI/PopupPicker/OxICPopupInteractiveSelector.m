@@ -35,7 +35,8 @@
 	self.selectedIds = [NSMutableArray arrayWithCapacity:0];
 	
 	self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-	self.textField.borderStyle = UITextBorderStyleRoundedRect;
+	self.textField.borderStyle = UITextBorderStyleNone;
+	self.textField.adjustsFontSizeToFitWidth = YES;
 	self.textField.delegate = self;
 	[self addSubview:self.textField];
 	[self.textField release];
@@ -107,6 +108,9 @@
 	// Add the selector
 	self.availableSelector = [[OxICInteractiveSelector alloc] initWithFrame:CGRectMake(0,150,320,100)];
 	self.selectedSelector = [[OxICInteractiveSelector alloc] initWithFrame:CGRectMake(0,250,320,100)];
+	
+	self.availableSelector.backgroundColor = [UIColor clearColor];
+	self.selectedSelector.backgroundColor = [UIColor clearColor];
 	
 	for (int n = 0; n < [self.identifiers count]; n++) {
 		id identifier = [self.identifiers objectAtIndex:n];
