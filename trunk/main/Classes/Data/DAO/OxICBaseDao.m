@@ -66,6 +66,10 @@
 }
 
 - (NSArray*) findWithFilter:(NSString*)filter {
+	return [self findWithFilter:filter andSortField:sortField];
+}
+
+- (NSArray*) findWithFilter:(NSString*)filter andSortField:(NSString*) aSortField {
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = 
 	[NSEntityDescription entityForName: self.entityName
@@ -76,7 +80,7 @@
 	[fetchRequest setPredicate: predicate];
 	
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] 
-										initWithKey:sortField ascending:YES];
+										initWithKey:aSortField ascending:YES];
 	[fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 	
 	NSError *error;
@@ -88,10 +92,8 @@
 		[self raiseError:error];
 	}
 	
-	return fetchResults;
+	return fetchResults;	
 }
-
-
 - (NSFetchedResultsController*) fetchedResultsController {
 	if (fetchedResultsController != nil) {
 		return fetchedResultsController;

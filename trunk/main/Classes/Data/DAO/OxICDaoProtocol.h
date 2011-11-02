@@ -41,6 +41,11 @@
  */
 - (NSArray*) findWithFilter:(NSString*)filter;
 
+/*!
+ Reads the objects with filter and sort descriptors
+ */
+- (NSArray*) findWithFilter:(NSString*)filter andSortField:(NSString*) aSortField;
+
 
 @end
 
