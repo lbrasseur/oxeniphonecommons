@@ -114,7 +114,7 @@
 		self.date = datePicker.date;
 
 		if (self.pickerDelegate != nil) {
-			[self.pickerDelegate onSelection:self];
+			[self.pickerDelegate onDateSelection:self];
 		}
 	}
 	self.datePicker = nil;
