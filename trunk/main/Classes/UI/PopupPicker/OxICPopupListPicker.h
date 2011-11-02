@@ -11,7 +11,7 @@
 @class OxICPopupListPicker;
 
 @protocol OxICPopupListPickerDelegate
-- (void) onSelection:(OxICPopupListPicker*) picker;
+- (void) onListItemSelection:(OxICPopupListPicker*) picker;
 @end
 
 @interface OxICPopupListPicker : UIView<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate> {

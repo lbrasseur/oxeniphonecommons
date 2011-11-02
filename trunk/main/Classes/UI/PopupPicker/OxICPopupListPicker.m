@@ -153,7 +153,7 @@
 		selectedRow = pickerSelectedRow;
 		textField.text = [self.labels objectAtIndex:selectedRow];
 		if (self.pickerDelegate != nil) {
-			[self.pickerDelegate onSelection:self];
+			[self.pickerDelegate onListItemSelection:self];
 		}
 	}
 }

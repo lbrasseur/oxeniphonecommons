@@ -11,7 +11,7 @@
 @class OxICPopupDatePicker;
 
 @protocol OxICPopupDatePickerDelegate
-- (void) onSelection:(OxICPopupDatePicker*) picker;
+- (void) onDateSelection:(OxICPopupDatePicker*) picker;
 @end
 
 @interface OxICPopupDatePicker : UIView<UITextFieldDelegate, UIActionSheetDelegate> {
