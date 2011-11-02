@@ -20,6 +20,7 @@
 @synthesize datePickerMode;
 @synthesize textField;
 @synthesize datePicker;
+@synthesize pickerDelegate;
 
 #pragma mark Initialization and dealloc
 - (void)initialize {
@@ -48,10 +49,30 @@
 	self.date = nil;
 	self.datePicker = nil;
 	self.textField = nil;
+	self.pickerDelegate = nil;
     [super dealloc];
 }
 
 #pragma mark Interface methods
+- (void) setDate:(NSDate *) aDate {
+	date = aDate;
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	
+	if (self.datePickerMode == UIDatePickerModeDateAndTime || self.datePickerMode == UIDatePickerModeDate) {
+		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+	} else {
+		[dateFormatter setDateStyle:NSDateFormatterNoStyle];
+	}
+	
+	if (self.datePickerMode == UIDatePickerModeDateAndTime || self.datePickerMode == UIDatePickerModeTime) {
+		[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+	} else {
+		[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+	}
+	
+	textField.text = [dateFormatter stringFromDate:self.date];
+	[dateFormatter release];
+}
 
 #pragma mark Private methods
 - (void) showPicker {
@@ -91,23 +112,10 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if (buttonIndex == 1) {
 		self.date = datePicker.date;
-		
-		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		
-		if (self.datePickerMode == UIDatePickerModeDateAndTime || self.datePickerMode == UIDatePickerModeDate) {
-			[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-		} else {
-			[dateFormatter setDateStyle:NSDateFormatterNoStyle];
+
+		if (self.pickerDelegate != nil) {
+			[self.pickerDelegate onSelection:self];
 		}
-		
-		if (self.datePickerMode == UIDatePickerModeDateAndTime || self.datePickerMode == UIDatePickerModeTime) {
-			[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
-		} else {
-			[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-		}
-		
-		textField.text = [dateFormatter stringFromDate:self.date];
-		[dateFormatter release];
 	}
 	self.datePicker = nil;
 }
