@@ -64,12 +64,13 @@
 	   withTarget:(id) target
 	  andCallback:(SEL) callback {
 	
-	RunAsyncData *data = [[RunAsyncData alloc] init];;
+	RunAsyncData *data = [[RunAsyncData alloc] init];
 	data.selector = selector;
 	data.targetObject = target;
 	data.callback = callback;
 	
 	[NSThread detachNewThreadSelector:@selector(runAsync:) toTarget:self withObject:data];
+	[data release];
 }
 
 - (void) runAsync:(RunAsyncData*) data {
@@ -96,7 +97,7 @@
 	[waitView release];
 	
 	[data.targetObject performSelectorOnMainThread:data.callback withObject:returnedObject waitUntilDone:YES];
-	
+
 	[pool release];
 }
 
