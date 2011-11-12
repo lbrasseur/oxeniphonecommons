@@ -29,11 +29,15 @@
 	
 	selectedRow = -1;
 	
-	self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-	self.textField.borderStyle = UITextBorderStyleNone;
+	UITextField *aTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,
+																			0,
+																			self.frame.size.width,
+																			self.frame.size.height)];
+	self.textField = aTextField;
+	[aTextField release];
+	
 	self.textField.delegate = self;
 	[self addSubview:self.textField];
-	[self.textField release];
 }
 
 - (void)awakeFromNib {

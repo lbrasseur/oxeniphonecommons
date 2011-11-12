@@ -34,12 +34,15 @@
 	self.labels = [NSMutableArray arrayWithCapacity:10];
 	self.selectedIds = [NSMutableArray arrayWithCapacity:0];
 	
-	self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-	self.textField.borderStyle = UITextBorderStyleNone;
-	self.textField.adjustsFontSizeToFitWidth = YES;
+	UITextField *aTextField = [[UITextField alloc] initWithFrame:CGRectMake(0,
+																			0,
+																			self.frame.size.width,
+																			self.frame.size.height)];
+	self.textField = aTextField;
+	[aTextField release];
+
 	self.textField.delegate = self;
 	[self addSubview:self.textField];
-	[self.textField release];
 }
 
 - (void)awakeFromNib {

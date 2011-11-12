@@ -30,6 +30,7 @@
 
 @property (nonatomic, retain) id selected;
 @property (nonatomic, retain) id<OxICPopupListPickerDelegate> pickerDelegate;
+@property (nonatomic, retain, readonly) UITextField *textField;
 
 
 @end
