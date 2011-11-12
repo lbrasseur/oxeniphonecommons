@@ -25,5 +25,6 @@
 @property (nonatomic, retain) NSDate *date;
 @property (nonatomic) UIDatePickerMode datePickerMode;
 @property (nonatomic, retain) id<OxICPopupDatePickerDelegate> pickerDelegate;
+@property (nonatomic, retain, readonly) UITextField *textField;
 
 @end

@@ -22,5 +22,6 @@
 		 withLabel:(NSString*) label;
 
 @property (nonatomic, retain) NSArray* selected;
+@property (nonatomic, retain, readonly) UITextField *textField;
 
 @end
