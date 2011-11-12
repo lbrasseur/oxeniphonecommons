@@ -152,7 +152,7 @@
 	unsigned int mc = 0;
 	Method * mlist = class_copyMethodList(objc_getClass([className UTF8String]), &mc);
 	NSString *methodName;
-	NSString *defName;
+	NSString *defName = nil;
 	BOOL defLazy = NO;
 	BOOL defSingleton = NO;
 	int i;

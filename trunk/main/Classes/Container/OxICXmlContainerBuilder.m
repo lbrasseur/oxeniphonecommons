@@ -26,12 +26,16 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 @interface OxICXmlContainerBuilder()
 @property (nonatomic, retain) OxICContainer *container;
 @property (nonatomic, retain) OxICObjectDefinition *objectDefinition;
+@property (nonatomic, retain) NSURLConnection *connection;
 @property (nonatomic, retain) id<OxICContainerBuilderDelegate> delegate;
 @end
 
 
 @implementation OxICXmlContainerBuilder
-@synthesize container, objectDefinition, delegate;
+@synthesize container;
+@synthesize objectDefinition;
+@synthesize connection;
+@synthesize delegate;
 
 #pragma mark Interface emthods
 - (void) buildContainer: (NSURL*) xmlUrl
@@ -47,8 +51,11 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 										  timeoutInterval:60.0];
 	// create the connection with the request
 	// and start loading the data
-	NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-	if (!theConnection) {
+	NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+	self.connection = theConnection;
+	[theConnection release];
+	
+	if (!self.connection) {
 		[self.delegate containerBuildingError];
 	}
 }
@@ -58,6 +65,7 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 	self.container = nil;
 	self.objectDefinition = nil;
 	self.delegate = nil;
+	self.connection = nil;
 	[super dealloc];
 }
 
@@ -71,8 +79,8 @@ static xmlSAXHandler simpleSAXHandlerStruct;
     xmlParseChunk(context, (const char *)[data bytes], [data length], 0);
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    [connection release];
+- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
+    [aConnection release];
     xmlFreeParserCtxt(context);
 	xmlCleanupParser();
 	
@@ -80,8 +88,8 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 	[self.container release];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [connection release];
+- (void)connection:(NSURLConnection *)aConnection didFailWithError:(NSError *)error {
+    [aConnection release];
     xmlFreeParserCtxt(context);
 	xmlCleanupParser();
 

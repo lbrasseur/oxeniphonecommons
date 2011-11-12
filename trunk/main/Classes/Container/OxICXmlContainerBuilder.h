@@ -17,6 +17,7 @@
 	xmlParserCtxtPtr context;
 	OxICContainer *container;
 	OxICObjectDefinition *objectDefinition;
+	NSURLConnection *connection;
 	
 	id<OxICContainerBuilderDelegate> delegate;
 }
