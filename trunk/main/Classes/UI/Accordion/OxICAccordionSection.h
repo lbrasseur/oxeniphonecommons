@@ -13,6 +13,7 @@
 	OxICAccordion *parent;
 	BOOL collapsedFlag;
 	int position;
+	UIView* titleView;
 	UIView* content;
 	float contentHeight;
 	float collapsedHeight;
@@ -20,7 +21,7 @@
 
 - (id) initWithFrame:(CGRect)frame
 		   andParent:(OxICAccordion*) parentAccordion
-		    andTitle:(NSString*) title
+		    andTitle:(UIView*) title
 		    andContent:(UIView*) sectionContent
 		 andPosition:(int) sectionPosition;
 
@@ -30,6 +31,6 @@
 - (void) expand;
 
 @property (nonatomic, assign) float contentHeight;
-
+@property (nonatomic, retain) UIView* titleView;
 
 @end

@@ -16,12 +16,12 @@
 @end
 
 @implementation OxICAccordion
-@synthesize sections, collapsedHeight, contentHeight;
+@synthesize sections, collapsedHeight, contentHeight, delegate;
 
 #pragma mark Init and dealloc
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-		self.collapsedHeight = 25;
+		self.collapsedHeight = -1.f;
 		self.sections = [NSMutableArray arrayWithCapacity:10];
     }
     return self;
@@ -29,6 +29,7 @@
 
 - (void)dealloc {
 	self.sections = nil;
+	[self.delegate release];
     [super dealloc];
 }
 
@@ -36,24 +37,41 @@
 
 - (void) addSection: (NSString*) title
 		withContent: (UIView*) content {
-	
+	UILabel *aLabel = [[UILabel alloc] init];
+	[aLabel setText:title];
+	[aLabel setBackgroundColor:[UIColor yellowColor]];
+	[self addSectionWithView:aLabel withContent:content];
+	[aLabel release];
+}
+- (void) addSectionWithView: (UIView*) titleView
+		withContent: (UIView*) content {
 	int position = [self.sections count];
-	
+	if (self.collapsedHeight < 0) {
+		if (!delegate) {
+			NSLog(@"OxICAccordion not delegate set");
+			[NSException raise:NSInvalidArgumentException
+						format:@"OxICAccordion not delegate set"];
+			
+		}
+		self.collapsedHeight = [delegate heighForTitle];
+	}
 	OxICAccordionSection *section = [[OxICAccordionSection alloc] initWithFrame:CGRectMake(0, position * self.collapsedHeight, self.frame.size.width, self.collapsedHeight)
 																	  andParent: self
-																	   andTitle: title
+																	   andTitle: titleView
 																	 andContent: content
 																	andPosition: position];
 	[self addSubview:section];
+	if ([delegate respondsToSelector:@selector(prepareViewForTitleInSection:withView:)]) {
+		[self.delegate prepareViewForTitleInSection:position withView:titleView];
+	}
 	[self.sections addObject:section];
 	[section release];
 	
 	self.contentHeight = self.frame.size.height - ([self.sections count] * self.collapsedHeight);
 	for (OxICAccordionSection *section in self.sections) {
 		section.contentHeight = self.contentHeight;
-	}
+	}	
 }
-
 - (void) expand: (int) sectionPosition {
 	[UIView beginAnimations:@"accordion" context:NULL];
 	
@@ -81,6 +99,10 @@
 	}
 
 	[UIView commitAnimations];
+}
+
+-(UIView*) titleViewForSection:(int) section {
+	return [[self.sections objectAtIndex:section] titleView];
 }
 
 
