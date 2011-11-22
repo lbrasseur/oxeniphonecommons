@@ -18,12 +18,12 @@
 
 
 @implementation OxICAccordionSection
-@synthesize parent, collapsedFlag, position, content, contentHeight, collapsedHeight;
+@synthesize parent, collapsedFlag, position, content, contentHeight, collapsedHeight, titleView;
 
 # pragma mark Init and dealloc
 - (id) initWithFrame:(CGRect)frame
 		   andParent:(OxICAccordion*) parentAccordion
-		    andTitle:(NSString*) title
+		    andTitle:(UIView*) title
 		  andContent:(UIView*) sectionContent
 		 andPosition:(int) sectionPosition {
 	
@@ -41,8 +41,11 @@
 		
 		[self addSubview:self.content];
 		
-		UIButton *labelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		[labelButton setTitle:title forState:UIControlStateNormal];
+		title.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+		titleView = title;
+		[self addSubview:titleView];
+		
+		UIButton *labelButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		labelButton.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
 		[labelButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
 		
@@ -56,6 +59,7 @@
 - (void) dealloc {
 	self.parent = nil;
 	self.content = nil;
+	self.titleView = nil;
     [super dealloc];
 }
 
@@ -63,11 +67,13 @@
 - (void) collapse {
 	self.collapsedFlag = YES;
 	self.content.frame = CGRectMake(0, self.collapsedHeight, content.frame.size.width, 0);
+	[self.parent.delegate didCollapseSection:position];
 }
 
 - (void) expand {
 	self.collapsedFlag = NO;
 	self.content.frame = CGRectMake(0, self.collapsedHeight, content.frame.size.width, self.contentHeight);
+	[self.parent.delegate didExpandSection:position];
 }
 
 - (void) setContentHeight:(float) newContentHeight {
