@@ -28,7 +28,7 @@
 
 - (void) clear;
 
-@property (nonatomic, retain) id selected;
+@property (nonatomic, assign) id selected;
 @property (nonatomic, retain) id<OxICPopupListPickerDelegate> pickerDelegate;
 @property (nonatomic, retain, readonly) UITextField *textField;
 

@@ -21,7 +21,7 @@
 - (void) addOption:(id) identifier
 		 withLabel:(NSString*) label;
 
-@property (nonatomic, retain) NSArray* selected;
+@property (nonatomic, assign) NSArray* selected;
 @property (nonatomic, retain, readonly) UITextField *textField;
 
 @end

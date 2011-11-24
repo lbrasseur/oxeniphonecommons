@@ -59,23 +59,27 @@
 
 #pragma mark Interface methods
 - (void) setDate:(NSDate *) aDate {
-	date = aDate;
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	
-	if (self.datePickerMode == UIDatePickerModeDateAndTime || self.datePickerMode == UIDatePickerModeDate) {
-		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-	} else {
-		[dateFormatter setDateStyle:NSDateFormatterNoStyle];
-	}
-	
-	if (self.datePickerMode == UIDatePickerModeDateAndTime || self.datePickerMode == UIDatePickerModeTime) {
-		[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
-	} else {
-		[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-	}
-	
-	textField.text = [dateFormatter stringFromDate:self.date];
-	[dateFormatter release];
+	if (date != aDate) {
+        [date release];
+        date = [aDate copy];
+		
+		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+		
+		if (self.datePickerMode == UIDatePickerModeDateAndTime || self.datePickerMode == UIDatePickerModeDate) {
+			[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+		} else {
+			[dateFormatter setDateStyle:NSDateFormatterNoStyle];
+		}
+		
+		if (self.datePickerMode == UIDatePickerModeDateAndTime || self.datePickerMode == UIDatePickerModeTime) {
+			[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+		} else {
+			[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+		}
+		
+		textField.text = [dateFormatter stringFromDate:self.date];
+		[dateFormatter release];
+    }
 }
 
 #pragma mark Private methods
