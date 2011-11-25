@@ -76,6 +76,8 @@
 		DACB36F411F5370800FE67D4 /* OxICObjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */; };
 		DACB36F511F5370800FE67D4 /* OxICXmlContainerBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */; };
 		DACB36F611F5370800FE67D4 /* OxICXmlContainerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */; };
+		DAD24F5F1480249D00FD9083 /* OxICScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD24F5D1480249D00FD9083 /* OxICScrollView.h */; };
+		DAD24F601480249D00FD9083 /* OxICScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD24F5E1480249D00FD9083 /* OxICScrollView.m */; };
 		DADCC1F21406CC58006E902F /* OxICInteractiveSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */; };
 		DADCC1F31406CC58006E902F /* OxICInteractiveSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */; };
 		DADCC1F61406D898006E902F /* OxICInteractiveSelectorOption.h in Headers */ = {isa = PBXBuildFile; fileRef = DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */; };
@@ -157,6 +159,8 @@
 		DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICObjectDefinition.m; path = Classes/Container/OxICObjectDefinition.m; sourceTree = SOURCE_ROOT; };
 		DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICXmlContainerBuilder.h; path = Classes/Container/OxICXmlContainerBuilder.h; sourceTree = SOURCE_ROOT; };
 		DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICXmlContainerBuilder.m; path = Classes/Container/OxICXmlContainerBuilder.m; sourceTree = SOURCE_ROOT; };
+		DAD24F5D1480249D00FD9083 /* OxICScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICScrollView.h; sourceTree = "<group>"; };
+		DAD24F5E1480249D00FD9083 /* OxICScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICScrollView.m; sourceTree = "<group>"; };
 		DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICInteractiveSelector.h; sourceTree = "<group>"; };
 		DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICInteractiveSelector.m; sourceTree = "<group>"; };
 		DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICInteractiveSelectorOption.h; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 				43FADAA9143C9E1F00AE26E6 /* ExpandableSectionTableView */,
 				DADCC1EF1406CC1C006E902F /* InteractiveSelector */,
 				DAB2875914422EDA00F41B20 /* PopupPicker */,
+				DAD24F5C1480246F00FD9083 /* Scroll */,
 				DAB2871114422A1600F41B20 /* ViewUtils */,
 			);
 			name = UI;
@@ -427,6 +432,16 @@
 			name = Container;
 			path = Classes/Container;
 			sourceTree = "<group>";
+		};
+		DAD24F5C1480246F00FD9083 /* Scroll */ = {
+			isa = PBXGroup;
+			children = (
+				DAD24F5D1480249D00FD9083 /* OxICScrollView.h */,
+				DAD24F5E1480249D00FD9083 /* OxICScrollView.m */,
+			);
+			name = Scroll;
+			path = Classes/UI/Scroll;
+			sourceTree = SOURCE_ROOT;
 		};
 		DADCC1EF1406CC1C006E902F /* InteractiveSelector */ = {
 			isa = PBXGroup;
@@ -486,6 +501,7 @@
 				DAAD3744144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h in Headers */,
 				DAAD374C144A16D500DAF2C3 /* OxICBaseJsonProxy.h in Headers */,
 				DA17C53A1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h in Headers */,
+				DAD24F5F1480249D00FD9083 /* OxICScrollView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +580,7 @@
 				DAAD3745144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m in Sources */,
 				DAAD374D144A16D500DAF2C3 /* OxICBaseJsonProxy.m in Sources */,
 				DA17C53B1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m in Sources */,
+				DAD24F601480249D00FD9083 /* OxICScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
