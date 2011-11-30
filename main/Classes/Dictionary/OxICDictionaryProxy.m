@@ -38,6 +38,28 @@
 		OxICDictionaryProxy *proxy = [[OxICDictionaryProxy alloc] initWithDictionary:object];
 		proxy.capitalizeFields = capitalizeFields;
 		return [proxy autorelease];
+	} else if ([object isKindOfClass:[NSArray class]]) {
+		NSArray *sourceArray = object;
+		NSMutableArray *targetArray = [NSMutableArray arrayWithCapacity:[sourceArray count]];
+		
+		for (id element in sourceArray) {
+			[targetArray addObject:[self buildProxy:element
+									 withCapitalize:capitalizeFields]];
+		}						
+		
+		return targetArray;
+		
+	} else if ([object isKindOfClass:[NSSet class]]) {
+		NSSet *sourceSet = object;
+		NSMutableSet *targetSet = [NSMutableSet setWithCapacity:[sourceSet count]];
+		
+		for (id element in sourceSet) {
+			[targetSet addObject:[self buildProxy:element
+								   withCapitalize:capitalizeFields]];
+		}						
+		
+		return targetSet;
+		
 	} else {
 		return object;
 	}
