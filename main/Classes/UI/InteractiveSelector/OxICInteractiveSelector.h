@@ -33,7 +33,7 @@
 @property (nonatomic, retain) id<OxICInteractiveSelectorDelegate> selectorDelegate;
 @property (nonatomic, assign) BOOL vertical;
 
-- (void) addOption:(id) identifier
+- (OxICInteractiveSelectorOption*) addOption:(id) identifier
 		 withLabel:(NSString*) label;
 
 - (void) setOption:(id) identifier

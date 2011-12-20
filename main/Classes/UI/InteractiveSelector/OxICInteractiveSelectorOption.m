@@ -28,20 +28,20 @@
 		self.identifier = optionIdentifier;
 		self.label = aLabel;
 		
-		UIButton *labelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		UIButton *labelButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[labelButton setTitle:self.label forState:UIControlStateNormal];
 		labelButton.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
 		[labelButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-		labelButton.titleLabel.textAlignment =  UITextAlignmentCenter;
-		labelButton.titleLabel.lineBreakMode   =  UILineBreakModeWordWrap;
 		labelButton.titleLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(12.0)];
 		labelButton.titleLabel.textColor = [UIColor blackColor];
-		labelButton.titleLabel.numberOfLines = 4;  
-		
+		labelButton.tag = 111;
 		[self addSubview:labelButton];
 		
     }
     return self;
+}
+-(UIButton*) optionButton {
+	return (UIButton*)[self viewWithTag:111];
 }
 
 - (void)dealloc {
