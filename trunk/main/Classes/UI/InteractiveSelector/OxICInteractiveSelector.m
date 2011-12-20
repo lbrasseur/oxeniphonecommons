@@ -49,7 +49,7 @@
 }
 
 #pragma mark interface methods
-- (void) addOption:(id) identifier
+- (OxICInteractiveSelectorOption*) addOption:(id) identifier
 		 withLabel:(NSString*) label {
 
 	CGRect optionFrame;
@@ -76,13 +76,14 @@
 																					   andParent:self];
 	[self addSubview:option];
 	[self.options addObject:option];
-	[option release];	
 	
 	if (self.vertical) {
 		self.contentSize = CGSizeMake(self.optionWidth, [self.options count] * self.optionHeight);
 	} else {
 		self.contentSize = CGSizeMake([self.options count] * self.optionWidth, self.optionHeight);
 	}
+	return 	[option autorelease];	
+
 	
 }
 

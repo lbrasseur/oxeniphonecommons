@@ -27,4 +27,6 @@
 @property (nonatomic, retain) id identifier;
 @property (nonatomic, retain) NSString *label;
 
+-(UIButton*) optionButton;
+
 @end
