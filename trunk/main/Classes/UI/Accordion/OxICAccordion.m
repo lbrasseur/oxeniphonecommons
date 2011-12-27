@@ -61,6 +61,7 @@
 																	 andContent: content
 																	andPosition: position];
 	[self addSubview:section];
+	section.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
 	if ([delegate respondsToSelector:@selector(prepareViewForTitleInSection:withView:)]) {
 		[self.delegate prepareViewForTitleInSection:position withView:titleView];
 	}
