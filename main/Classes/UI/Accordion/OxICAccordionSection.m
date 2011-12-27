@@ -37,6 +37,8 @@
 		sectionContent.frame = CGRectMake(0, 0, sectionContent.frame.size.width, sectionContent.frame.size.height);
 		[contentScroll addSubview:sectionContent];
 		self.content = contentScroll;
+		self.content.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
+
 		[contentScroll release];
 		
 		[self addSubview:self.content];
@@ -44,11 +46,12 @@
 		title.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
 		titleView = title;
 		[self addSubview:titleView];
+		titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
 		
 		UIButton *labelButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		labelButton.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
 		[labelButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
-		
+		labelButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
 		[self addSubview:labelButton];
 		
 		[self collapse];
