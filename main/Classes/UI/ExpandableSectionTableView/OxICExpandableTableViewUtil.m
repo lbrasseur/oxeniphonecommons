@@ -80,7 +80,7 @@
 		}
 
 		[tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
-		[indexPaths release];
+		[indexPaths release];		
 	}
 	[tableView endUpdates];
 	if (visible) {
@@ -91,6 +91,7 @@
 		if (delegate) {
 			[delegate tableView:tableView didCollapseSection:section userInfo:userInfo];
 		}
+		[tableView reloadData];
 	}
 }
 
