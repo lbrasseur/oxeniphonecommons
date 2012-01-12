@@ -123,7 +123,7 @@
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
 	for (OxICInteractiveSelectorOption* option in self.options) {
-		option.visible = [searchText isEqualToString:@""] || [option.label rangeOfString:searchText].location != NSNotFound;
+		option.visible = [searchText isEqualToString:@""] || [option.label rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
 	}
 	[self redraw];
 }
