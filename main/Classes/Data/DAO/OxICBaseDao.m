@@ -70,6 +70,12 @@
 }
 
 - (NSArray*) findWithFilter:(NSString*)filter andSortField:(NSString*) aSortField {
+	return [self findWithFilter:filter andSortFields:[NSArray arrayWithObject:aSortField]];
+}
+/*!
+ Reads the objects with filter and sort descriptors
+ */
+- (NSArray*) findWithFilter:(NSString*)filter andSortFields:(NSArray*) sortFields {
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = 
 	[NSEntityDescription entityForName: self.entityName
@@ -79,9 +85,17 @@
 	NSPredicate *predicate = [NSPredicate predicateWithFormat: filter];
 	[fetchRequest setPredicate: predicate];
 	
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] 
-										initWithKey:aSortField ascending:YES];
-	[fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+	
+	NSMutableArray *sortDescriptors = [[NSMutableArray alloc] init];
+	NSSortDescriptor *sortDescriptor;
+	for (NSString *aSortField in sortFields) {
+		sortDescriptor = [[NSSortDescriptor alloc] 
+						  initWithKey:aSortField ascending:YES];
+		[sortDescriptors addObject:sortDescriptor];
+	}
+	[fetchRequest setSortDescriptors:sortDescriptors];
+	
+	[sortDescriptors release];
 	
 	NSError *error;
 	NSArray *fetchResults = [managedObjectContext executeFetchRequest: fetchRequest error: &error];
@@ -93,7 +107,9 @@
 	}
 	
 	return fetchResults;	
+	
 }
+
 - (NSFetchedResultsController*) fetchedResultsController {
 	if (fetchedResultsController != nil) {
 		return fetchedResultsController;
