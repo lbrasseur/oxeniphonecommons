@@ -22,16 +22,21 @@
 @end
 
 
-@interface OxICInteractiveSelector : UIScrollView<UISearchBarDelegate> {
+@interface OxICInteractiveSelector : UIView<UISearchBarDelegate> {
 	float optionWidth;
 	float optionHeight;
+	float margin;
 	NSMutableArray* options;
 	id<OxICInteractiveSelectorDelegate> selectorDelegate;
 	BOOL vertical;
+	UIScrollView *scrollView;
 }
 
 @property (nonatomic, retain) id<OxICInteractiveSelectorDelegate> selectorDelegate;
 @property (nonatomic, assign) BOOL vertical;
+@property (nonatomic, assign) float optionWidth;
+@property (nonatomic, assign) float optionHeight;
+@property (nonatomic, assign) UIScrollView *scrollView;
 
 - (OxICInteractiveSelectorOption*) addOption:(id) identifier
 		 withLabel:(NSString*) label;
@@ -40,4 +45,7 @@
 	  withSelected:(BOOL) selected;
 
 - (OxICInteractiveSelectorOption*) getOption:(id) identifier;
+
+-(void) setMargin:(float)aMargin;
+-(float) getMargin;
 @end

@@ -10,25 +10,26 @@
 #import "OxICInteractiveSelectorOption.h"
 
 #define BUTTON_MARGIN 3
+#define DEFAULT_OPTION_HEIGHT 40
 
 @interface OxICInteractiveSelector()
 - (void) redraw;
 @property (nonatomic, retain) NSMutableArray* options;
-@property (nonatomic, assign) float optionWidth;
-@property (nonatomic, assign) float optionHeight;
 @end
 
 @implementation OxICInteractiveSelector
-@synthesize options, optionWidth, optionHeight, selectorDelegate, vertical;
+@synthesize options, optionWidth, optionHeight, selectorDelegate, vertical, scrollView;
 
 #pragma mark Init and dealloc
 - (void) initialize {
 	self.options = [NSMutableArray arrayWithCapacity:10];
-	self.scrollEnabled = YES;
 	self.selectorDelegate = nil;
 	self.vertical = NO;
 	self.backgroundColor = [UIColor whiteColor];
 	self.clipsToBounds = YES;
+	self.optionHeight = 0;
+	self.optionWidth = 0;
+	self.margin = 0;
 }
 
 - (void)awakeFromNib {
@@ -38,6 +39,9 @@
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
 		[self initialize];
+		scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+		scrollView.scrollEnabled = YES;
+		[self addSubview:scrollView];
    }
     return self;
 }
@@ -49,13 +53,25 @@
 }
 
 #pragma mark interface methods
+
+// setting margin redraw scrollview
+- (void) setMargin:(float) aMargin {
+	margin = aMargin;
+	scrollView.frame = CGRectMake(margin, margin, self.frame.size.width - (margin * 2), self.frame.size.height - (margin * 2));
+}
+-(float) getMargin {
+	return margin;
+}
+
 - (OxICInteractiveSelectorOption*) addOption:(id) identifier
 		 withLabel:(NSString*) label {
 
 	CGRect optionFrame;
 	if (self.vertical) {
 		self.optionWidth = self.frame.size.width;
-		self.optionHeight = 30;		
+		if (self.optionHeight <= 0) {
+			self.optionHeight = DEFAULT_OPTION_HEIGHT;
+		}
 		optionFrame = CGRectMake(BUTTON_MARGIN,
 								 [self.options count] * self.optionHeight + BUTTON_MARGIN,
 								 self.optionWidth  - (BUTTON_MARGIN * 2),
@@ -74,13 +90,13 @@
 																				   andIdentifier:identifier
 																						andLabel:label
 																					   andParent:self];
-	[self addSubview:option];
+	[self.scrollView addSubview:option];
 	[self.options addObject:option];
 	
 	if (self.vertical) {
-		self.contentSize = CGSizeMake(self.optionWidth, [self.options count] * self.optionHeight);
+		scrollView.contentSize = CGSizeMake(self.optionWidth, [self.options count] * self.optionHeight);
 	} else {
-		self.contentSize = CGSizeMake([self.options count] * self.optionWidth, self.optionHeight);
+		scrollView.contentSize = CGSizeMake([self.options count] * self.optionWidth, self.optionHeight);
 	}
 	return 	[option autorelease];	
 
@@ -127,6 +143,11 @@
 	}
 	[self redraw];
 }
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+	if (self.selectorDelegate !=nil) {
+		[self.selectorDelegate searchBarDidEndEditing:searchBar onSelector:self];
+	}
+}
 
 #pragma mark Private methods
 - (void) redraw {
@@ -154,9 +175,9 @@
 		}
 	}
 	if (self.vertical) {
-		self.contentSize = CGSizeMake(self.optionWidth, visibleCount * self.optionHeight);
+		scrollView.contentSize = CGSizeMake(self.optionWidth, visibleCount * self.optionHeight);
 	} else {
-		self.contentSize = CGSizeMake(visibleCount * self.optionWidth, self.optionHeight);
+		scrollView.contentSize = CGSizeMake(visibleCount * self.optionWidth, self.optionHeight);
 	}
 
 	[UIView commitAnimations];
