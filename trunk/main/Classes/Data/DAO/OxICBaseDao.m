@@ -92,6 +92,7 @@
 		sortDescriptor = [[NSSortDescriptor alloc] 
 						  initWithKey:aSortField ascending:YES];
 		[sortDescriptors addObject:sortDescriptor];
+		[sortDescriptor release];
 	}
 	[fetchRequest setSortDescriptors:sortDescriptors];
 	
@@ -100,7 +101,6 @@
 	NSError *error;
 	NSArray *fetchResults = [managedObjectContext executeFetchRequest: fetchRequest error: &error];
 	[fetchRequest release];
-	[sortDescriptor release];
 	
 	if (fetchResults == nil) {
 		[self raiseError:error];
