@@ -67,18 +67,23 @@
 
 #pragma mark NSProxy methods
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-	NSString *selectorName = NSStringFromSelector(anInvocation.selector);
-	
-	NSString *key;
-	if (self.capitalizeFields) {
-		key = [selectorName capitalizedString];
+	if (anInvocation.selector == @selector(respondsToSelector:)) {
+		BOOL response = YES;
+		[anInvocation setReturnValue:&response];
 	} else {
-		key = selectorName;
+		NSString *selectorName = NSStringFromSelector(anInvocation.selector);
+		
+		NSString *key;
+		if (self.capitalizeFields) {
+			key = [selectorName capitalizedString];
+		} else {
+			key = selectorName;
+		}
+		
+		id returnValue = [OxICDictionaryProxy buildProxy:[self.dictionary valueForKey:key]
+										  withCapitalize:self.capitalizeFields];
+		[anInvocation setReturnValue:&returnValue];
 	}
-	
-	id returnValue = [OxICDictionaryProxy buildProxy:[self.dictionary valueForKey:key]
-									  withCapitalize:self.capitalizeFields];
-	[anInvocation setReturnValue:&returnValue];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
