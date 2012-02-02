@@ -152,7 +152,10 @@
 
 #pragma mark Private methods
 - (void) raiseError:(NSError*) error {
-	NSLog(@"OxICBaseDao error: %@", [error localizedDescription]);
+#ifdef DEBUG
+	NSLog(@"OxICBaseDao error localizedDescription: %@", [error localizedDescription]);
+	NSLog(@"OxICBaseDao error userInfo: %@", [error userInfo]);
+#endif
 	NSException* exception = [NSException
 							  exceptionWithName:[error localizedDescription]
 							  reason:[error description]

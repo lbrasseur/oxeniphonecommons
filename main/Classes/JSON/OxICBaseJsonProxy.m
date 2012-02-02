@@ -108,6 +108,9 @@
 	
 	NSError *error = nil;
 	NSData *requestData = [message JSONDataWithOptions:JKSerializeOptionNone error:&error];
+#ifdef DEBUG
+	NSLog(@"OxICBaseJsonProxy requestData: [%@]", [[NSString alloc] initWithData:requestData encoding:NSASCIIStringEncoding]);
+#endif
 	
 	if (error != nil) {
 		NSException* exception = [NSException
@@ -125,6 +128,9 @@
 
 	error = nil;
 	NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+#ifdef DEBUG
+	NSLog(@"OxICBaseJsonProxy responseData: [%@]", [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]);
+#endif
 	
 	if (error != nil) {
 		NSException* exception = [NSException
@@ -135,7 +141,10 @@
 	}
 	
 	error = nil;
+	//NSData *responseData = [@"{\"d\":{\"__type\":\"contratodto:#ATUR.Web.DTO\",\"error\":null,\"estado\":true,\"fecha\":\"\\/Date(1323893169737+0000)\\/\",\"imei\":null,\"monto\":0,\"observaciones\":null,\"restricciones\":\"Este contrato solo es valido por un periodo de tiempo, por favor renueva tu contrato\",\"tiempovigencia\":5,\"tipo\":0,\"usuario\":null,\"usuarioid\":null,\"vigenciafinal\":\"\\/Date(1324325169737+0000)\\/\",\"vigenciainicial\":\"\\/Date(1323893169737+0000)\\/\"}}" dataUsingEncoding:NSUTF8StringEncoding];
+	//NSLog(@"responseData: [%@]", [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]);
 	id parsedObject = [[JSONDecoder decoder] objectWithData:responseData error:&error];
+	
 	if (error != nil) {
 		NSException* exception = [NSException
 								  exceptionWithName:@"JSON parsing error"
