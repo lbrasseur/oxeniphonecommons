@@ -10,19 +10,21 @@
 
 @interface OxICBaseDao()
 - (void) raiseError:(NSError*) error;
+- (id) extractFirst:(NSArray*) objects;
 @end
 
 
 @implementation OxICBaseDao
 
-@synthesize fetchedResultsController,managedObjectContext,entityName,sortField;
+@synthesize managedObjectContext;
+@synthesize entityName;
+@synthesize sortField;
 
 - (id) initWithEntity: (NSString*) anEntityName
 			  andSort: (NSString*) aSortField {
 	if (self = [super init]) {
 		self.entityName = anEntityName;
 		self.sortField = aSortField;
-		self.fetchedResultsController = nil;
 		self.managedObjectContext = nil;
 	}
 	return self;
@@ -45,99 +47,94 @@
 }
 
 - (NSArray*) findAll {
-	NSError *error = nil; 
-	if (![self.fetchedResultsController performFetch:&error]) { 
-		[self raiseError:error];
-	} 
+	NSArray *sortFields = nil;
 	
-	return [self.fetchedResultsController fetchedObjects];
+	if (self.sortField != nil) {
+		[NSArray arrayWithObject:self.sortField];
+	}
+	
+	return [self findWithQuerySpec:[OxICQuerySpec withSortFields:sortFields]
+					  andArguments:nil];
 }
 
 - (id) findFirst {
-	NSArray *objects = [self findAll];
-	
-	id value = nil;
-	
-	if ([objects count] > 0) {
-		value = [objects objectAtIndex: 0];
-	}
-	
-	return value;
+	return [self findWithQuerySpec:[OxICQuerySpec withUnique:YES]
+					  andArguments:nil];
+}
+
+- (id) findFirstWithFilter:(NSString*)filter {
+	return [self findWithQuerySpec:[OxICQuerySpec withFilter:filter
+												   andUnique:YES]
+					  andArguments:nil];
 }
 
 - (NSArray*) findWithFilter:(NSString*)filter {
-	return [self findWithFilter:filter andSortField:sortField];
+	return [self findWithQuerySpec:[OxICQuerySpec withFilter:filter]
+					  andArguments:nil];
 }
 
 - (NSArray*) findWithFilter:(NSString*)filter andSortField:(NSString*) aSortField {
-	return [self findWithFilter:filter andSortFields:[NSArray arrayWithObject:aSortField]];
+	return [self findWithQuerySpec:[OxICQuerySpec withFilter:filter
+											   andSortFields:[NSArray arrayWithObject:aSortField]]
+					  andArguments:nil];
 }
-/*!
- Reads the objects with filter and sort descriptors
- */
-- (NSArray*) findWithFilter:(NSString*)filter andSortFields:(NSArray*) sortFields {
+
+- (NSArray*) findWithFilter:(NSString*) filter
+			  andSortFields:(NSArray*) sortFields {
+	return [self findWithQuerySpec:[OxICQuerySpec withFilter:filter
+											   andSortFields:sortFields]
+					  andArguments:nil];
+}
+
+
+- (id) findWithQuerySpec:(OxICQuerySpec*) querySpec
+			andArguments:(NSArray*)arguments {
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = 
-	[NSEntityDescription entityForName: self.entityName
-				inManagedObjectContext: self.managedObjectContext ];
-	[fetchRequest setEntity:entity];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat: filter];
-	[fetchRequest setPredicate: predicate];
+	[fetchRequest setEntity:[NSEntityDescription entityForName:self.entityName
+										inManagedObjectContext: self.managedObjectContext]];
 	
-	
-	NSMutableArray *sortDescriptors = [[NSMutableArray alloc] init];
-	NSSortDescriptor *sortDescriptor;
-	for (NSString *aSortField in sortFields) {
-		sortDescriptor = [[NSSortDescriptor alloc] 
-						  initWithKey:aSortField ascending:YES];
-		[sortDescriptors addObject:sortDescriptor];
-		[sortDescriptor release];
+	if (querySpec.filter != nil) {
+		NSPredicate *predicate;
+		
+		if (arguments == nil) {
+			predicate = [NSPredicate predicateWithFormat:querySpec.filter];
+		} else {
+			predicate = [NSPredicate predicateWithFormat:querySpec.filter
+										   argumentArray:arguments];
+		}
+
+		[fetchRequest setPredicate:predicate];
 	}
-	[fetchRequest setSortDescriptors:sortDescriptors];
 	
-	[sortDescriptors release];
+	if (querySpec.sortFields != nil) {
+		NSMutableArray *sortDescriptors = [NSMutableArray arrayWithCapacity:[querySpec.sortFields count]];
+		
+		for (NSString *currentField in querySpec.sortFields) {
+			NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:currentField
+																		   ascending:YES];
+			[sortDescriptors addObject:sortDescriptor];
+			[sortDescriptor release];
+		}
+		
+		[fetchRequest setSortDescriptors:sortDescriptors];
+	}
 	
 	NSError *error;
-	NSArray *fetchResults = [managedObjectContext executeFetchRequest: fetchRequest error: &error];
+	NSArray *fetchResults = [managedObjectContext executeFetchRequest:fetchRequest
+																error:&error];
 	[fetchRequest release];
 	
 	if (fetchResults == nil) {
 		[self raiseError:error];
 	}
 	
-	return fetchResults;	
-	
-}
-
-- (NSFetchedResultsController*) fetchedResultsController {
-	if (fetchedResultsController != nil) {
-		return fetchedResultsController;
+	if (querySpec.unique) {
+		return [self extractFirst:fetchResults];
+	} else {
+		return fetchResults;
 	}
-	
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName: self.entityName
-											  inManagedObjectContext: self.managedObjectContext ];
-	[fetchRequest setEntity:entity];
-	
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortField ascending:YES];
-	[fetchRequest setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-
-	NSFetchedResultsController *aFetchedResultsController = 
-	[[NSFetchedResultsController alloc] initWithFetchRequest: fetchRequest 
-										managedObjectContext: self.managedObjectContext
-										  sectionNameKeyPath: nil
-												   cacheName: self.entityName];
-	
-	self.fetchedResultsController = aFetchedResultsController;
-	
-	[aFetchedResultsController release];
-	[fetchRequest release];
-	[sortDescriptor release];
-	
-	return fetchedResultsController;
-}    
-
+}
 
 #pragma mark -
 #pragma mark Memory management
@@ -145,7 +142,6 @@
 - (void)dealloc {
 	self.entityName = nil;
 	self.sortField = nil;
-	self.fetchedResultsController = nil;
 	self.managedObjectContext = nil;
 	[super dealloc];
 }
@@ -162,6 +158,16 @@
 							  userInfo:[error userInfo]];
 	@throw exception;
 	
+}
+
+- (id) extractFirst:(NSArray*) objects {
+	id value = nil;
+	
+	if ([objects count] > 0) {
+		value = [objects objectAtIndex: 0];
+	}
+	
+	return value;
 }
 
 @end
