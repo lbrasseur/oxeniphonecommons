@@ -11,3 +11,12 @@ Data access components include:
   * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/ DAO pattern] components:
     * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol], which provides a common interface for basic DAO operations.
     * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICBaseDao.m OxICBaseDao], which provides a basic [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol] implementation using [http://en.wikipedia.org/wiki/Core_Data CoreData].
+    * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProxy.m OxICDaoProxy], which translates invocations into [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol] find methods.
+
+
+= OxICDaoProxy samples =
+== Standalone ==
+
+
+
+== With container ==
