@@ -44,23 +44,27 @@ In the following examples, we'll show how to map the first two (findByName and f
 The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProxyFactoryObject.h OxICDaoProxyFactoryObject]  class provides a factory for creating [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProxy.m OxICDaoProxy] instances from the [Container IoC container].
 
 {{{
-[container addDefinition: [OxICObjectDefinition withName: @"daoProxy"
+[container addDefinition: [OxICObjectDefinition withName: @"personDao"
                                                 andClass: @"OxICDaoProxyFactoryObject"
                                              andSingleton: FALSE
                                                   andLazy: FALSE
                                             andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                             @"dummyDao", @"dao",
+                                                             @"realPersonDao", @"dao",
                                                              nil
                                                            ]
                                                 andValues: [NSDictionary dictionaryWithObjectsAndKeys:
                                                              @protocol(DummyDao), @"protocol",
                                                              [NSDictionary dictionaryWithObjectsAndKeys:
                                                                [OxICQuerySpec withFilter:@"name = 'John Lennon'"
-                                                                               andUnique:YES], @"findJohnLennon",
-                                                               [OxICQuerySpec withFilter:@"name contains %@"], @"findByName:",
+                                                                               andUnique:YES], 
+                                                                              @"findJohnLennon",
+                                                               [OxICQuerySpec withFilter:@"name contains %@"], 
+                                                                              @"findByName:",
                                                                nil], @"querySpecs",
                                                                nil
                                                              ]
                                                            ]
 ];
 }}}
+
+In this example, the container must have a definition for a [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol]  DAO called *realPersonDao*.
