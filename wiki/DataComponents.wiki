@@ -9,14 +9,58 @@ This section contains [http://code.google.com/p/oxeniphonecommons/source/browse/
 
 Data access components include:
   * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/ DAO pattern] components:
+    * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICQuerySpec.h OxICQuerySpec], a class for holding query definitions.
     * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol], which provides a common interface for basic DAO operations.
     * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICBaseDao.m OxICBaseDao], which provides a basic [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol] implementation using [http://en.wikipedia.org/wiki/Core_Data CoreData].
     * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProxy.m OxICDaoProxy], which translates invocations into [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol] find methods.
 
 
 = OxICDaoProxy samples =
+Suppose we have the following protocol:
+
+{{{
+@protocol PersonDao
+
+- (NSArray*) findByName:(NSString*)namePart;
+- (Person*) findJohnLennon;
+
+- (id) insertNewObject;
+- (void) delete:(id) anObject;
+- (void) flush;
+
+@end
+}}}
+
+The proxy allows mapping methods with queries, which will be executed using the findWithQuerySpec:andArguments: method int the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol]  class.
+
+In the following examples, we'll show how to map the first two (findByName and findJohnLennon). Unmapped methods (insertNewObject, delete:, flush) are directly forwarded to [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol] object.
+
+
 == Standalone ==
 
 
 
 == With container ==
+The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProxyFactoryObject.h OxICDaoProxyFactoryObject]  class provides a factory for creating [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProxy.m OxICDaoProxy] instances from the [container container].
+
+{{{
+[container addDefinition: [OxICObjectDefinition withName: @"daoProxy"
+                                                andClass: @"OxICDaoProxyFactoryObject"
+                                             andSingleton: FALSE
+                                                  andLazy: FALSE
+                                            andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                             @"dummyDao", @"dao",
+                                                             nil
+                                                           ]
+                                                andValues: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                             @protocol(DummyDao), @"protocol",
+                                                             [NSDictionary dictionaryWithObjectsAndKeys:
+                                                               [OxICQuerySpec withFilter:@"name = 'John Lennon'"
+                                                                               andUnique:YES], @"findJohnLennon",
+                                                               [OxICQuerySpec withFilter:@"name contains %@"], @"findByName:",
+                                                               nil], @"querySpecs",
+                                                               nil
+                                                             ]
+                                                           ]
+];
+}}}
