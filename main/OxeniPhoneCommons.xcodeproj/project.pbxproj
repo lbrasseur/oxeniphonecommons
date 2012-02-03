@@ -78,8 +78,12 @@
 		DACB36F411F5370800FE67D4 /* OxICObjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */; };
 		DACB36F511F5370800FE67D4 /* OxICXmlContainerBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */; };
 		DACB36F611F5370800FE67D4 /* OxICXmlContainerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */; };
+		DACF386E14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DACF386C14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h */; };
+		DACF386F14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DACF386D14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m */; };
 		DAD24F5F1480249D00FD9083 /* OxICScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD24F5D1480249D00FD9083 /* OxICScrollView.h */; };
 		DAD24F601480249D00FD9083 /* OxICScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD24F5E1480249D00FD9083 /* OxICScrollView.m */; };
+		DADBB6CF14DC0E7B00066FB0 /* OxICQuerySpec.h in Headers */ = {isa = PBXBuildFile; fileRef = DADBB6CD14DC0E7B00066FB0 /* OxICQuerySpec.h */; };
+		DADBB6D014DC0E7B00066FB0 /* OxICQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DADBB6CE14DC0E7B00066FB0 /* OxICQuerySpec.m */; };
 		DADCC1F21406CC58006E902F /* OxICInteractiveSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */; };
 		DADCC1F31406CC58006E902F /* OxICInteractiveSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */; };
 		DADCC1F61406D898006E902F /* OxICInteractiveSelectorOption.h in Headers */ = {isa = PBXBuildFile; fileRef = DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */; };
@@ -163,8 +167,12 @@
 		DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICObjectDefinition.m; path = Classes/Container/OxICObjectDefinition.m; sourceTree = SOURCE_ROOT; };
 		DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICXmlContainerBuilder.h; path = Classes/Container/OxICXmlContainerBuilder.h; sourceTree = SOURCE_ROOT; };
 		DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICXmlContainerBuilder.m; path = Classes/Container/OxICXmlContainerBuilder.m; sourceTree = SOURCE_ROOT; };
+		DACF386C14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDaoProxyFactoryObject.h; sourceTree = "<group>"; };
+		DACF386D14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDaoProxyFactoryObject.m; sourceTree = "<group>"; };
 		DAD24F5D1480249D00FD9083 /* OxICScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICScrollView.h; sourceTree = "<group>"; };
 		DAD24F5E1480249D00FD9083 /* OxICScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICScrollView.m; sourceTree = "<group>"; };
+		DADBB6CD14DC0E7B00066FB0 /* OxICQuerySpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICQuerySpec.h; sourceTree = "<group>"; };
+		DADBB6CE14DC0E7B00066FB0 /* OxICQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICQuerySpec.m; sourceTree = "<group>"; };
 		DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICInteractiveSelector.h; sourceTree = "<group>"; };
 		DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICInteractiveSelector.m; sourceTree = "<group>"; };
 		DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICInteractiveSelectorOption.h; sourceTree = "<group>"; };
@@ -354,8 +362,12 @@
 				DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */,
 				DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */,
 				DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */,
+				DADBB6CD14DC0E7B00066FB0 /* OxICQuerySpec.h */,
+				DADBB6CE14DC0E7B00066FB0 /* OxICQuerySpec.m */,
 				DA00AF6814DB515A00F6B570 /* OxICDaoProxy.h */,
 				DA00AF6914DB515A00F6B570 /* OxICDaoProxy.m */,
+				DACF386C14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h */,
+				DACF386D14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m */,
 			);
 			name = DAO;
 			path = Classes/Data/DAO;
@@ -509,6 +521,8 @@
 				DA17C53A1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h in Headers */,
 				DAD24F5F1480249D00FD9083 /* OxICScrollView.h in Headers */,
 				DA00AF6A14DB515A00F6B570 /* OxICDaoProxy.h in Headers */,
+				DADBB6CF14DC0E7B00066FB0 /* OxICQuerySpec.h in Headers */,
+				DACF386E14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +603,8 @@
 				DA17C53B1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m in Sources */,
 				DAD24F601480249D00FD9083 /* OxICScrollView.m in Sources */,
 				DA00AF6B14DB515A00F6B570 /* OxICDaoProxy.m in Sources */,
+				DADBB6D014DC0E7B00066FB0 /* OxICQuerySpec.m in Sources */,
+				DACF386F14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

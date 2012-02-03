@@ -7,43 +7,50 @@
 //
 
 #import "OxICDaoProxy.h"
-
-@interface OxICDaoProxy()
-@property (retain, nonatomic) id<OxICDaoProtocol> dao;
-@property (retain, nonatomic) NSMutableDictionary *selectorQueries;
-@end
-
+#import <objc/runtime.h>
 
 @implementation OxICDaoProxy
 @synthesize dao;
-@synthesize selectorQueries;
+@synthesize protocol;
+@synthesize querySpecs;
 
-
-- (id) initWithDao: (id<OxICDaoProtocol>) aDao{
-		self.dao = aDao;
-	self.selectorQueries = [NSMutableDictionary dictionaryWithCapacity:10];
+- (id) initWithDao: (id<OxICDaoProtocol>) aDao
+	   andProtocol:(Protocol*)aProtocol {
+	self.dao = aDao;
+	self.protocol = aProtocol;
+	self.querySpecs = [NSMutableDictionary dictionaryWithCapacity:10];
 	return self;
 }
 
 - (void) dealloc {
 	self.dao = nil;
-	self.selectorQueries = nil;
+	self.protocol = nil;
+	self.querySpecs = nil;
 	[super dealloc];
 }
 
-
 - (void) addSelector:(NSString*) selectorName
-		  withFilter:(NSString*) filter {
-	[self.selectorQueries setValue:filter forKey:selectorName];
+	   withQuerySpec:(OxICQuerySpec*) querySpec {
+	[self.querySpecs setValue:querySpec forKey:selectorName];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
 	NSString *selectorName = NSStringFromSelector(anInvocation.selector);
-	NSString *filter = [self.selectorQueries objectForKey:selectorName];
+	OxICQuerySpec *querySpec = [self.querySpecs objectForKey:selectorName];
 	
-	if (filter != nil) {
-		NSArray *response = [self.dao findWithFilter:filter];
-		[anInvocation setReturnValue:&response];
+	if (querySpec != nil) {
+		NSInteger argCount = anInvocation.methodSignature.numberOfArguments;
+		NSMutableArray *arguments = [NSMutableArray arrayWithCapacity:argCount];
+		
+		for (int n = 2; n < argCount; n++) {
+			id arg;
+			[anInvocation getArgument:&arg atIndex:n];
+			[arguments addObject:arg];
+		}
+		
+		id returnValue = [self.dao findWithQuerySpec:querySpec
+										andArguments:arguments];
+		[anInvocation setReturnValue:&returnValue];
 	} else {
 		[anInvocation setTarget:self.dao];
 		[anInvocation invoke];
@@ -51,6 +58,7 @@
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-	return [NSMethodSignature signatureWithObjCTypes:"@^v^c"];
+	return [NSMethodSignature signatureWithObjCTypes: protocol_getMethodDescription(self.protocol, aSelector, YES, YES).types];
 }
+
 @end

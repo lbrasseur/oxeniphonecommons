@@ -13,13 +13,11 @@
  Base class for DAOs.
  */
 @interface OxICBaseDao : NSObject<OxICDaoProtocol> {
-	NSFetchedResultsController *fetchedResultsController;
 	NSManagedObjectContext *managedObjectContext;
 	NSString* entityName;
 	NSString* sortField;
 }
 
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSString* entityName;
 @property (nonatomic, retain) NSString* sortField;

@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OxICQuerySpec.h"
 
 /*!
  Generic protocol to be implemented by DAOs.
@@ -39,18 +40,30 @@
 /*!
  Reads the objects with filter 
  */
-- (NSArray*) findWithFilter:(NSString*)filter;
+- (NSArray*) findWithFilter:(NSString*) filter;
+
+/*!
+ Finds the first object with filter 
+ */
+- (id) findFirstWithFilter:(NSString*) filter;
 
 /*!
  Reads the objects with filter and sort descriptors
  */
-- (NSArray*) findWithFilter:(NSString*)filter andSortField:(NSString*) aSortField;
+- (NSArray*) findWithFilter:(NSString*) filter
+			   andSortField:(NSString*) aSortField;
 
 /*!
  Reads the objects with filter and sort descriptors
  */
-- (NSArray*) findWithFilter:(NSString*)filter andSortFields:(NSArray*) sortFields;
+- (NSArray*) findWithFilter:(NSString*) filter
+			  andSortFields:(NSArray*) sortFields;
 
+/*!
+ Reads objects according a query specification. It may return a single object or an array.
+ */
+- (id) findWithQuerySpec:(OxICQuerySpec*) querySpec
+			andArguments:(NSArray*)arguments;
 
 @end
 
