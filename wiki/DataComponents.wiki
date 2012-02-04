@@ -49,11 +49,11 @@ Once the proxy is created, you can add query specifications to be binded with se
 
 {{{
 [proxy = addSelector:@"findJohnLennon"
-	   withQuerySpec:[OxICQuerySpec withFilter:@"name = 'John Lennon'"
-                                         andUnique:YES]];
+       withQuerySpec:[OxICQuerySpec withFilter:@"name = 'John Lennon'"
+                                     andUnique:YES]];
 
 [proxy = addSelector:@"findByName:"
-	   withQuerySpec:[OxICQuerySpec withFilter:@"name contains %@"]];
+       withQuerySpec:[OxICQuerySpec withFilter:@"name contains %@"]];
 }}}
 
 == With container ==
