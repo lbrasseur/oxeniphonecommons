@@ -37,8 +37,24 @@ In the following examples, we'll show how to map the first two (findByName and f
 
 
 == Standalone ==
+You must initialize the object by passing the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProtocol.h OxICDaoProtocol] instance to be wrapped (*realPersonDao* in this example) and the protocol to be used in order to access the proxy.
 
+{{{
+OxICDaoProxy *proxy = [[OxICDaoProxy alloc] initWithDao:realPersonDao
+                                            andProtocol:@protocol(PersonDao)];
 
+}}}
+
+Once the proxy is created, you can add query specifications to be binded with selectors:
+
+{{{
+[proxy = addSelector:@"findJohnLennon"
+	   withQuerySpec:[OxICQuerySpec withFilter:@"name = 'John Lennon'"
+                                         andUnique:YES]];
+
+[proxy = addSelector:@"findByName:"
+	   withQuerySpec:[OxICQuerySpec withFilter:@"name contains %@"]];
+}}}
 
 == With container ==
 The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProxyFactoryObject.h OxICDaoProxyFactoryObject]  class provides a factory for creating [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Data/DAO/OxICDaoProxy.m OxICDaoProxy] instances from the [Container IoC container].
@@ -53,7 +69,7 @@ The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes
                                                              nil
                                                            ]
                                                 andValues: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                             @protocol(DummyDao), @"protocol",
+                                                             @protocol(PersonDao), @"protocol",
                                                              [NSDictionary dictionaryWithObjectsAndKeys:
                                                                [OxICQuerySpec withFilter:@"name = 'John Lennon'"
                                                                                andUnique:YES], 
