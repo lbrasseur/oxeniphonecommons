@@ -120,8 +120,13 @@
 		@throw exception;
 	}
 	
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:[self  buildUrlForMethod:method
-																										withArguments:arguments]]];
+	NSString *urlStr = [self buildUrlForMethod:method
+								 withArguments:arguments];
+#ifdef DEBUG
+	NSLog(@"OxICBaseJsonProxy URL: [%@]", urlStr);
+#endif
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:urlStr]];
+	
 	[request setHTTPMethod:@"POST"];
 	[request addValue:@"text/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPBody:requestData];
@@ -141,8 +146,6 @@
 	}
 	
 	error = nil;
-	//NSData *responseData = [@"{\"d\":{\"__type\":\"contratodto:#ATUR.Web.DTO\",\"error\":null,\"estado\":true,\"fecha\":\"\\/Date(1323893169737+0000)\\/\",\"imei\":null,\"monto\":0,\"observaciones\":null,\"restricciones\":\"Este contrato solo es valido por un periodo de tiempo, por favor renueva tu contrato\",\"tiempovigencia\":5,\"tipo\":0,\"usuario\":null,\"usuarioid\":null,\"vigenciafinal\":\"\\/Date(1324325169737+0000)\\/\",\"vigenciainicial\":\"\\/Date(1323893169737+0000)\\/\"}}" dataUsingEncoding:NSUTF8StringEncoding];
-	//NSLog(@"responseData: [%@]", [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]);
 	id parsedObject = [[JSONDecoder decoder] objectWithData:responseData error:&error];
 	
 	if (error != nil) {
