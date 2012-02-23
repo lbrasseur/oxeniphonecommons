@@ -29,7 +29,6 @@
 
 - (void)dealloc {
 	self.sections = nil;
-	[self.delegate release];
     [super dealloc];
 }
 
@@ -105,6 +104,5 @@
 -(UIView*) titleViewForSection:(int) section {
 	return [[self.sections objectAtIndex:section] titleView];
 }
-
 
 @end
