@@ -24,7 +24,7 @@
 	NSObject<OxICAccordionDelegate> *delegate;
 }
 
-@property(nonatomic, retain) NSObject<OxICAccordionDelegate> *delegate;
+@property(nonatomic, assign) NSObject<OxICAccordionDelegate> *delegate;
 
 - (void) addSection: (NSString*) title
 		withContent: (UIView*) content;
