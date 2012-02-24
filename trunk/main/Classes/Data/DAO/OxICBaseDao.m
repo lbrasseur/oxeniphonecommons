@@ -50,7 +50,7 @@
 	NSArray *sortFields = nil;
 	
 	if (self.sortField != nil) {
-		[NSArray arrayWithObject:self.sortField];
+		sortFields = [NSArray arrayWithObject:self.sortField];
 	}
 	
 	return [self findWithQuerySpec:[OxICQuerySpec withSortFields:sortFields]

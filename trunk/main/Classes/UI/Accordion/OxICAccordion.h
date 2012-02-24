@@ -21,10 +21,10 @@
 	float collapsedHeight;
 	float contentHeight;
 	NSMutableArray* sections;
-	NSObject<OxICAccordionDelegate> *delegate;
+	id delegate;
 }
 
-@property(nonatomic, assign) NSObject<OxICAccordionDelegate> *delegate;
+@property(nonatomic, assign) id delegate;
 
 - (void) addSection: (NSString*) title
 		withContent: (UIView*) content;
