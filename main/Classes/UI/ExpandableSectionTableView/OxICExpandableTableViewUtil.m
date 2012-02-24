@@ -17,7 +17,7 @@
 
 @property (assign, nonatomic) NSInteger section;
 @property (assign, nonatomic) id userInfo;
-@property (retain, nonatomic) OxICExpandableTableViewUtil *util;
+@property (assign, nonatomic) OxICExpandableTableViewUtil *util;
 @property (retain, nonatomic) UITableView* tableView;
 
 -(void) sectionControlClick:(id) sender;
@@ -33,7 +33,6 @@
 
 -(void) dealloc {
 	[super dealloc];
-	[util release];
 	[tableView release];
 	userInfo = nil;
 }
