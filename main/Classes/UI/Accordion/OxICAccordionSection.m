@@ -9,7 +9,7 @@
 #import "OxICAccordionSection.h"
 
 @interface OxICAccordionSection()
-@property (nonatomic, retain) OxICAccordion *parent;
+@property (nonatomic, assign) OxICAccordion *parent;
 @property (nonatomic, assign) BOOL collapsedFlag;
 @property (nonatomic, assign) int position;
 @property (nonatomic, retain) UIView* content;
@@ -44,7 +44,7 @@
 		[self addSubview:self.content];
 		
 		title.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-		titleView = title;
+		self.titleView = title;
 		[self addSubview:titleView];
 		titleView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
 		
@@ -60,9 +60,8 @@
 }
 
 - (void) dealloc {
-	self.parent = nil;
-	self.content = nil;
-	self.titleView = nil;
+	[content release];
+	[titleView release];
     [super dealloc];
 }
 
