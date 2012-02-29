@@ -18,7 +18,7 @@
 @property (assign, nonatomic) NSInteger section;
 @property (assign, nonatomic) id userInfo;
 @property (assign, nonatomic) OxICExpandableTableViewUtil *util;
-@property (retain, nonatomic) UITableView* tableView;
+@property (assign, nonatomic) UITableView* tableView;
 
 -(void) sectionControlClick:(id) sender;
 
@@ -32,9 +32,8 @@
 }
 
 -(void) dealloc {
-	[super dealloc];
-	[tableView release];
 	userInfo = nil;
+	[super dealloc];
 }
 @end
 
@@ -51,8 +50,13 @@
 
 -(id) init {
 	if (self = [super init]) {
-		self.sectionTargets = [[NSMutableArray alloc] init]; 
-		self.sectionVisibility = [[NSMutableDictionary alloc] init];
+		NSMutableArray *targets = [[NSMutableArray alloc] init];
+		self.sectionTargets = targets;
+		[targets release];
+		
+		NSMutableDictionary *visivility = [[NSMutableDictionary alloc] init];
+		self.sectionVisibility = visivility;
+		[visivility release];
 	}
 	return self;
 }
@@ -116,9 +120,9 @@
 
 
 -(void) dealloc {
-	[super dealloc];
 	[sectionTargets release];
 	[sectionVisibility release];
+	[super dealloc];
 }
 
 @end
