@@ -13,6 +13,7 @@
  Utility class for dealing with UI views.
  */
 @interface OxICViewUtils : NSObject {
+	UIView *waitView;
 }
 
 /*!
@@ -26,5 +27,9 @@
 - (void) runAsync:(SEL) selector
 	   withTarget:(id) target
 	  andCallback:(SEL) callback;
+
+- (void) showActivityIndicator;
+
+- (void) hideActivityIndicator;
 
 @end
