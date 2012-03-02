@@ -30,8 +30,28 @@
 }
 @end
 
-@implementation OxICViewUtils
+@interface OxICViewUtils()
+@property (retain, nonatomic) UIView *waitView;
+@end
 
+@implementation OxICViewUtils
+@synthesize waitView;
+
+#pragma mark Memory management
+- (id) init {
+	self = [super init];
+	if (self != nil) {
+		self.waitView = nil;
+	}
+	return self;
+}
+
+- (void) dealloc {
+	self.waitView = nil;
+	[super dealloc];
+}
+
+#pragma mark Public methods
 - (UIView *)findFirstResonder: (UIView *) aView{
     if (aView.isFirstResponder) {        
         return aView;     
@@ -76,29 +96,48 @@
 - (void) runAsync:(RunAsyncData*) data {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	
-	UIView *mainView = [[UIApplication sharedApplication] keyWindow];
-	
-	UIView *waitView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-	[waitView setBackgroundColor:[UIColor blackColor]];
-	[waitView setAlpha:0.5f];
-	
-	UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-	activityIndicator.center = waitView.center;
-	[activityIndicator startAnimating];
-	
-	[waitView addSubview:activityIndicator];
-	[activityIndicator release];
-	
-	[mainView performSelectorOnMainThread:@selector(addSubview:) withObject:waitView waitUntilDone:YES];
+	[self showActivityIndicator];
 	
 	id returnedObject = [data.targetObject performSelector:data.selector];
 	
-	[waitView performSelectorOnMainThread:@selector(removeFromSuperview) withObject:nil waitUntilDone:YES];
-	[waitView release];
+	[self hideActivityIndicator];
 	
 	[data.targetObject performSelectorOnMainThread:data.callback withObject:returnedObject waitUntilDone:YES];
 
 	[pool release];
+}
+
+- (void) showActivityIndicator {
+	[self hideActivityIndicator];
+	
+	UIView *mainView = [[UIApplication sharedApplication] keyWindow];
+	
+	UIView *aWaitView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+	self.waitView = aWaitView;
+	[aWaitView release];
+	
+	[self.waitView setBackgroundColor:[UIColor blackColor]];
+	[self.waitView setAlpha:0.5f];
+	
+	UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	activityIndicator.center = self.waitView.center;
+	[activityIndicator startAnimating];
+	
+	[self.waitView addSubview:activityIndicator];
+	[activityIndicator release];
+	
+	[mainView performSelectorOnMainThread:@selector(addSubview:)
+							   withObject:self.waitView
+							waitUntilDone:YES];
+}
+
+- (void) hideActivityIndicator {
+	if (self.waitView != nil) {
+		[self.waitView performSelectorOnMainThread:@selector(removeFromSuperview)
+										withObject:nil
+									 waitUntilDone:YES];
+		self.waitView = nil;
+	}
 }
 
 @end
