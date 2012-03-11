@@ -12,12 +12,16 @@
 @interface OxICPropertyDescriptor : NSObject {
 	NSString *name;
 	Class type;
+	Protocol *protocol;
 }
 
 
-- (id) initWithName:(NSString*)aName andType:(Class)aType;
+- (id) initWithName:(NSString*)aName
+			andType:(Class)aType
+		andProtocol:(Protocol*)aProtocol;
 
 - (NSString*) name;
 - (Class) type;
+- (Protocol*) protocol;
 
 @end

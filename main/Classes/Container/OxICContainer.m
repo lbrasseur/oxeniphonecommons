@@ -83,7 +83,16 @@
 	
 	for (NSString *propName in [definition.propertyReferences allKeys]) {
 		NSString *reference = [definition.propertyReferences objectForKey:propName];
-		id object = [self getObject:reference];
+		id object;
+		
+		if ([wrapper hasProperty:propName] &&
+			protocol_isEqual([[wrapper getPropertyDescriptor:propName] protocol], @protocol(OxICFactoryObject))) {
+			/* Inject the factory - just like Guice's Provider Injections! */
+			object = [self getFactoryForDefinition:[self.definitions objectForKey:reference]];
+		} else {
+			object = [self getObject:reference];
+		}
+
 		[wrapper setProperty:propName withValue:object];
 	}
 	for (NSString *propName in [definition.propertyValues allKeys]) {
