@@ -23,6 +23,8 @@
 		DA28E3DD143636A900F6BA83 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DA28E3DA143636A900F6BA83 /* JSONKit.m */; };
 		DA28E3E0143637DE00F6BA83 /* OxICJsonRpcProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */; };
 		DA28E3E1143637DE00F6BA83 /* OxICJsonRpcProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA28E3DF143637DE00F6BA83 /* OxICJsonRpcProxy.m */; };
+		DA35404B150C347A0085396C /* OxICLazyProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA354049150C347A0085396C /* OxICLazyProxyFactoryObject.h */; };
+		DA35404C150C347A0085396C /* OxICLazyProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35404A150C347A0085396C /* OxICLazyProxyFactoryObject.m */; };
 		DA35AE9E13E9E068004E17EC /* OxICFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35AE9C13E9E068004E17EC /* OxICFactoryObject.h */; };
 		DA35AEC013E9E6CB004E17EC /* OxICDefaultFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35AEBE13E9E6CB004E17EC /* OxICDefaultFactoryObject.h */; };
 		DA35AEC113E9E6CB004E17EC /* OxICDefaultFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35AEBF13E9E6CB004E17EC /* OxICDefaultFactoryObject.m */; };
@@ -116,6 +118,8 @@
 		DA28E3DB143636A900F6BA83 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = Classes/JSON/JSONKit/README.md; sourceTree = SOURCE_ROOT; };
 		DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJsonRpcProxy.h; sourceTree = "<group>"; };
 		DA28E3DF143637DE00F6BA83 /* OxICJsonRpcProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJsonRpcProxy.m; sourceTree = "<group>"; };
+		DA354049150C347A0085396C /* OxICLazyProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICLazyProxyFactoryObject.h; sourceTree = "<group>"; };
+		DA35404A150C347A0085396C /* OxICLazyProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICLazyProxyFactoryObject.m; sourceTree = "<group>"; };
 		DA35AE9C13E9E068004E17EC /* OxICFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICFactoryObject.h; sourceTree = "<group>"; };
 		DA35AEBE13E9E6CB004E17EC /* OxICDefaultFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDefaultFactoryObject.h; sourceTree = "<group>"; };
 		DA35AEBF13E9E6CB004E17EC /* OxICDefaultFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDefaultFactoryObject.m; sourceTree = "<group>"; };
@@ -438,6 +442,8 @@
 				DACB36E611F5370800FE67D4 /* OxICContainer.m */,
 				DACB36E811F5370800FE67D4 /* OxICLazyProxy.h */,
 				DACB36E911F5370800FE67D4 /* OxICLazyProxy.m */,
+				DA354049150C347A0085396C /* OxICLazyProxyFactoryObject.h */,
+				DA35404A150C347A0085396C /* OxICLazyProxyFactoryObject.m */,
 				DACB36EA11F5370800FE67D4 /* OxICObjectDefinition.h */,
 				DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */,
 				DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */,
@@ -537,6 +543,7 @@
 				DACF386E14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h in Headers */,
 				DA15A14D150B96C00004F7A7 /* OxICThreadLocalProxy.h in Headers */,
 				DA15A151150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h in Headers */,
+				DA35404B150C347A0085396C /* OxICLazyProxyFactoryObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +634,7 @@
 				DACF386F14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m in Sources */,
 				DA15A14E150B96C00004F7A7 /* OxICThreadLocalProxy.m in Sources */,
 				DA15A152150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.m in Sources */,
+				DA35404C150C347A0085396C /* OxICLazyProxyFactoryObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
