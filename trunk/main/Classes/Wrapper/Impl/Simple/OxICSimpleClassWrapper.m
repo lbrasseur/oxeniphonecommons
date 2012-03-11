@@ -84,19 +84,25 @@
 - (OxICPropertyDescriptor*) buildPropertyDescriptor: (objc_property_t) theProperty withName:(NSString*) propertyName {
 	NSString *typeInfo = [NSString stringWithCString:property_getAttributes(theProperty) encoding:NSUTF8StringEncoding];
 	
-	Class targetType;
+	Class targetType = [NSObject class];
+	Protocol *targetProtocol = nil;
 	
 	NSInteger firstPos = [typeInfo rangeOfString:@"\""].location + 1;
 	if (firstPos > 0) {
 		NSInteger charCount = [[typeInfo substringFromIndex:firstPos] rangeOfString:@"\""].location;
 		NSString *typeName = [typeInfo substringWithRange: NSMakeRange(firstPos, charCount)];
-		targetType = objc_getClass([typeName UTF8String]);
-	} else {
-		targetType = [NSObject class];
+		if ([typeName hasPrefix:@"<"] && [typeName hasSuffix:@">"] ){
+			typeName = [typeName substringWithRange:NSMakeRange(1, [typeName length] - 2)];
+			targetProtocol = objc_getProtocol([typeName UTF8String]);
+		} else {
+			targetType = objc_getClass([typeName UTF8String]);
+		}
 	}
 
 	
-	return [[[OxICPropertyDescriptor alloc] initWithName:propertyName andType:targetType] autorelease];
+	return [[[OxICPropertyDescriptor alloc] initWithName:propertyName
+												 andType:targetType
+											 andProtocol:targetProtocol] autorelease];
 }
 
 @end
