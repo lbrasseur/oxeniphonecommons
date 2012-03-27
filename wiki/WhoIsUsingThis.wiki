@@ -1,0 +1,10 @@
+#summary List of people/companies using Oxen iPhone Commons
+
+= People/companies using Oxen iPhone Commons =
+Congratulations on their courage!
+
+  * [http://crossmedia.com.mx/ CrossMedia] / [http://www.larousse.es/ Larousse]: Recetario (currently in testing). This project also uses [http://nibiru.googlecode.com Nibiru] and [http://oxenjavacommons.googlecode.com Oxen Java Commons].
+
+  * [http://www.cytron.com.mx/ Cytron]: Viajeros (currently in testing).
+
+  * [http://leapfactor.com/ Leapfactor] / [http://www.astrazeneca.com AstraZeneca]: AZPharmacy/AZAnswers (currently in development).
