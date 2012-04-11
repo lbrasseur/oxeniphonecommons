@@ -14,8 +14,8 @@
 @synthesize name;
 
 - (id) getObject {
-	OxICThreadLocalProxyFactoryObject *proxy = [[OxICThreadLocalProxy alloc] initWithFactoryObject:self.factoryObject
-																						   andName:self.name];
+	OxICThreadLocalProxy *proxy = [[OxICThreadLocalProxy alloc] initWithFactoryObject:self.factoryObject
+                                                                              andName:self.name];
 	return [proxy autorelease];
 }
 
