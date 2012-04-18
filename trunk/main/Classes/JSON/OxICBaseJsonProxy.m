@@ -109,7 +109,9 @@
 	NSError *error = nil;
 	NSData *requestData = [message JSONDataWithOptions:JKSerializeOptionNone error:&error];
 #ifdef DEBUG
-	NSLog(@"OxICBaseJsonProxy requestData: [%@]", [[NSString alloc] initWithData:requestData encoding:NSASCIIStringEncoding]);
+    NSString *requestText = [[NSString alloc] initWithData:requestData encoding:NSASCIIStringEncoding];
+	NSLog(@"OxICBaseJsonProxy requestData: [%@]", requestText);
+    [requestText release];
 #endif
 	
 	if (error != nil) {
@@ -134,7 +136,9 @@
 	error = nil;
 	NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
 #ifdef DEBUG
-	NSLog(@"OxICBaseJsonProxy responseData: [%@]", [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]);
+    NSString *responseText = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
+	NSLog(@"OxICBaseJsonProxy responseData: [%@]", responseText);
+    [responseText release];
 #endif
 	
 	if (error != nil) {

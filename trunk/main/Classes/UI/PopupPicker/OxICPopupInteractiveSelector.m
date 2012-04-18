@@ -109,8 +109,13 @@
 											 otherButtonTitles:nil];
 	
 	// Add the selector
-	self.availableSelector = [[OxICInteractiveSelector alloc] initWithFrame:CGRectMake(0,150,320,100)];
-	self.selectedSelector = [[OxICInteractiveSelector alloc] initWithFrame:CGRectMake(0,250,320,100)];
+    OxICInteractiveSelector *anAvailableSelector = [[OxICInteractiveSelector alloc] initWithFrame:CGRectMake(0,150,320,100)];
+	self.availableSelector = anAvailableSelector;
+    [anAvailableSelector release];
+    
+    OxICInteractiveSelector *aSelectedSelector = [[OxICInteractiveSelector alloc] initWithFrame:CGRectMake(0,250,320,100)];
+	self.selectedSelector = aSelectedSelector;
+    [aSelectedSelector release];
 	
 	self.availableSelector.backgroundColor = [UIColor clearColor];
 	self.selectedSelector.backgroundColor = [UIColor clearColor];
@@ -137,8 +142,6 @@
 	[menu showInView:[[UIApplication sharedApplication] keyWindow]];
 	[menu setBounds:CGRectMake(0,0,320, 575)];
 	
-	[availableSelector release];
-	[selectedSelector release];
 	[menu release];	
 }
 

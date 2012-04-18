@@ -95,17 +95,18 @@
 											 otherButtonTitles:nil];
 	
 	// Add the picker
-	self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,150,0,216)];
+    UIDatePicker *aPicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0,150,0,216)];
+	self.datePicker = aPicker;
+    [aPicker release];
 	
 	if (self.date != nil) {
-		datePicker.date = self.date;
+		self.datePicker.date = self.date;
 	}
-	datePicker.datePickerMode = self.datePickerMode;
-	[menu addSubview:datePicker];
+	self.datePicker.datePickerMode = self.datePickerMode;
+	[menu addSubview:self.datePicker];
 	[menu showInView:[[UIApplication sharedApplication] keyWindow]];
 	[menu setBounds:CGRectMake(0,0,320, 575)];
 	
-	[datePicker release];
 	[menu release];	
 }
 

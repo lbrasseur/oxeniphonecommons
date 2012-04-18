@@ -43,8 +43,10 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 	  andWrapperFactory:(id<OxICWrapperFactory>)wrapperFactory {
 
 	self.delegate = aDelegate;
-	
-	self.container = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+    
+	OxICContainer *aContainer = [[OxICContainer alloc] initWithWrapperFactory:wrapperFactory];
+	self.container = aContainer;
+    [aContainer release];
 	
 	NSURLRequest *theRequest=[NSURLRequest requestWithURL:xmlUrl
 											  cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -85,7 +87,7 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 	xmlCleanupParser();
 	
 	[self.delegate containerBuildingFinished:self.container];
-	[self.container release];
+	self.container = nil;
 }
 
 - (void)connection:(NSURLConnection *)aConnection didFailWithError:(NSError *)error {
@@ -129,7 +131,9 @@ static void startElementSAX(void *ctx, const xmlChar *localname, const xmlChar *
 	if (compareTag(localname, CONTAINER_TAG)) {
 		// nothing to do
 	} else if (compareTag(localname, OBJECT_TAG)) {
-		builder.objectDefinition = [[OxICObjectDefinition alloc] init];
+        OxICObjectDefinition *aDefinition = [[OxICObjectDefinition alloc] init];
+		builder.objectDefinition = aDefinition;
+        [aDefinition release];
 		
 		CFStringRef name = createAttributeValue(OBJECT_NAME_PROPERTY, nb_attributes, attributes);
 		if (name) {
@@ -174,7 +178,7 @@ static void	endElementSAX(void *ctx, const xmlChar *localname, const xmlChar *pr
     OxICXmlContainerBuilder *builder = (OxICXmlContainerBuilder *)ctx;
 	if (compareTag(localname, OBJECT_TAG)) {
 		[builder.container addDefinition:builder.objectDefinition];
-		[builder.objectDefinition release];
+		builder.objectDefinition = nil;
 	}
 	
 }
