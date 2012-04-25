@@ -15,6 +15,22 @@
 @synthesize wrapperFactory;
 @synthesize capitalizeFields;
 
+#pragma mark Init and dealloc
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.wrapperFactory = nil;
+        self.capitalizeFields = NO;
+    }
+    return self;
+}
+
+- (void)dealloc {
+    self.wrapperFactory = nil;
+    [super dealloc];
+}
+
+#pragma mark Interface methods
 - (id) fromJson: (NSString*) jsonData {
 	NSError *error = nil;
 	id parsedObject = [[JSONDecoder decoder] objectWithData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] error:&error];
