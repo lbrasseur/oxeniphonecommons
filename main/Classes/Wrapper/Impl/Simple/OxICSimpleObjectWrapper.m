@@ -8,6 +8,7 @@
 
 #import "OxICSimpleObjectWrapper.h"
 #import <objc/runtime.h>
+#import <CoreData/CoreData.h>
 
 @interface OxICSimpleClassWrapper()
 @property (retain, nonatomic) id object;
@@ -37,6 +38,24 @@
 	self.object = nil;
 	[super dealloc];
 }
+
+#pragma mark Overiden methods
+- (NSArray*) getPropertyDescriptors {
+    if ([self.object isKindOfClass:[NSManagedObject class]]) {
+        NSMutableArray *propArray = [[NSMutableArray alloc] init];
+        for (NSAttributeDescription *attributeDescr in [[self.object entity] properties]) {
+            OxICPropertyDescriptor *descriptor = [[OxICPropertyDescriptor alloc] initWithName:[attributeDescr name]
+                                                                                      andType:[NSManagedObject class]
+                                                                                  andProtocol:nil];
+            [propArray addObject:descriptor];
+            [descriptor release];
+        }
+        return [propArray autorelease];            
+    } else {
+        return [super getPropertyDescriptors];
+    }
+}
+
 
 #pragma mark OxICObjectWrapper methods
 - (id) getProperty: (NSString*) name {
