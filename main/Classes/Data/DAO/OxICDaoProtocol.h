@@ -28,6 +28,11 @@
 - (void) flush;
 
 /*!
+ Resets pending changes.
+ */
+- (void) reset;
+
+/*!
  Reads all the object from the database.
  */
 - (NSArray*) findAll;

@@ -46,6 +46,10 @@
 	}	
 }
 
+- (void) reset {
+	[self.managedObjectContext reset];
+}
+
 - (NSArray*) findAll {
 	NSArray *sortFields = nil;
 	
