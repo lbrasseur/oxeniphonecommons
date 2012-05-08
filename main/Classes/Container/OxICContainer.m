@@ -22,6 +22,7 @@
 - (id) getObjectForDefinition: (OxICObjectDefinition*) definition;
 - (id) buildObject: (OxICObjectDefinition*) definition;
 - (OxICObjectDefinition*) getObjectDefinitionFromClassName:(NSString*) className;
+- (OxICObjectDefinition*) getObjectDefinitionFromClass:(Class) class;
 - (void) addPropertyReferencesInDefinition:(OxICObjectDefinition *) definition;
 - (id<OxICFactoryObject>) getFactoryForDefinition:(OxICObjectDefinition *) definition;
 @end
@@ -101,6 +102,11 @@
 	}
 }
 
+- (void) injectObject: (id) object {
+    [self injectObject:object
+        withDefinition:[self getObjectDefinitionFromClass:[object class]]];
+}
+
 
 #pragma mark private methods
 - (id) getObjectForDefinition: (OxICObjectDefinition*) definition {
@@ -158,8 +164,12 @@
 	free(mlist);
 }
 - (OxICObjectDefinition*) getObjectDefinitionFromClassName:(NSString*) className {
+    return [self getObjectDefinitionFromClass:objc_getClass([className UTF8String])];
+}
+
+- (OxICObjectDefinition*) getObjectDefinitionFromClass:(Class) class {
 	unsigned int mc = 0;
-	Method * mlist = class_copyMethodList(objc_getClass([className UTF8String]), &mc);
+	Method * mlist = class_copyMethodList(class, &mc);
 	NSString *methodName;
 	NSString *defName = nil;
 	BOOL defLazy = NO;
@@ -179,6 +189,8 @@
 	free(mlist);
 	
 	OxICObjectDefinition *objectDefinition = [[OxICObjectDefinition alloc] init];
+    NSString *className = [NSString stringWithCString:class_getName(class)
+                                             encoding:NSUTF8StringEncoding];
 	if (!defName) {
 		defName = className;
 	}
