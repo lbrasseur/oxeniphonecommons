@@ -137,8 +137,7 @@
 	UIView *mainView = [[UIApplication sharedApplication] keyWindow];
 	
 	UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-	activityIndicator.center = mainView.center;
-	self.waitView.center = mainView.center;
+	activityIndicator.center = self.waitView.center;
 	[activityIndicator startAnimating];
 	
 	[self.waitView addSubview:activityIndicator];
