@@ -28,7 +28,14 @@
 	   withTarget:(id) target
 	  andCallback:(SEL) callback;
 
+- (void) runAsync:(SEL) selector
+	   withTarget:(id) target
+	  andCallback:(SEL) callback
+      andWaitView:(UIView*) waitView;
+
 - (void) showActivityIndicator;
+
+- (void) showActivityIndicatorWithView:(UIView*) waitView;
 
 - (void) hideActivityIndicator;
 
