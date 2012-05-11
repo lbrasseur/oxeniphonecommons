@@ -13,6 +13,9 @@
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		DA00AF6A14DB515A00F6B570 /* OxICDaoProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DA00AF6814DB515A00F6B570 /* OxICDaoProxy.h */; };
 		DA00AF6B14DB515A00F6B570 /* OxICDaoProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA00AF6914DB515A00F6B570 /* OxICDaoProxy.m */; };
+		DA119EC9155DBD7300D609EB /* OxICJsonSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = DA119EC6155DBD7300D609EB /* OxICJsonSerializer.h */; };
+		DA119ECA155DBD7300D609EB /* OxICJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA119EC7155DBD7300D609EB /* OxICJsonSerializer.m */; };
+		DA119ECB155DBD7300D609EB /* OxICSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = DA119EC8155DBD7300D609EB /* OxICSerializer.h */; };
 		DA15A14D150B96C00004F7A7 /* OxICThreadLocalProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DA15A14B150B96C00004F7A7 /* OxICThreadLocalProxy.h */; };
 		DA15A14E150B96C00004F7A7 /* OxICThreadLocalProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15A14C150B96C00004F7A7 /* OxICThreadLocalProxy.m */; };
 		DA15A151150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA15A14F150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h */; };
@@ -108,6 +111,9 @@
 		D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOxeniPhoneCommons.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA00AF6814DB515A00F6B570 /* OxICDaoProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDaoProxy.h; sourceTree = "<group>"; };
 		DA00AF6914DB515A00F6B570 /* OxICDaoProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDaoProxy.m; sourceTree = "<group>"; };
+		DA119EC6155DBD7300D609EB /* OxICJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJsonSerializer.h; sourceTree = "<group>"; };
+		DA119EC7155DBD7300D609EB /* OxICJsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJsonSerializer.m; sourceTree = "<group>"; };
+		DA119EC8155DBD7300D609EB /* OxICSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICSerializer.h; sourceTree = "<group>"; };
 		DA15A14B150B96C00004F7A7 /* OxICThreadLocalProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICThreadLocalProxy.h; sourceTree = "<group>"; };
 		DA15A14C150B96C00004F7A7 /* OxICThreadLocalProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICThreadLocalProxy.m; sourceTree = "<group>"; };
 		DA15A14F150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICThreadLocalProxyFactoryObject.h; sourceTree = "<group>"; };
@@ -249,6 +255,7 @@
 				DAABCDBC143529E700CF2ABA /* Data */,
 				DAA57DB214377B4F000E2319 /* Dictionary */,
 				DA28E3D6143636A900F6BA83 /* JSON */,
+				DA119EC5155DBD7300D609EB /* Serializer */,
 				DAB352D813FD48C300D6163A /* UI */,
 				DA99863011F3F67100A75DF1 /* Wrapper */,
 			);
@@ -270,6 +277,17 @@
 				43FADAB0143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m */,
 			);
 			path = ExpandableSectionTableView;
+			sourceTree = "<group>";
+		};
+		DA119EC5155DBD7300D609EB /* Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				DA119EC6155DBD7300D609EB /* OxICJsonSerializer.h */,
+				DA119EC7155DBD7300D609EB /* OxICJsonSerializer.m */,
+				DA119EC8155DBD7300D609EB /* OxICSerializer.h */,
+			);
+			name = Serializer;
+			path = Classes/Serializer;
 			sourceTree = "<group>";
 		};
 		DA28E3D6143636A900F6BA83 /* JSON */ = {
@@ -551,6 +569,8 @@
 				DA15A151150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h in Headers */,
 				DA35404B150C347A0085396C /* OxICLazyProxyFactoryObject.h in Headers */,
 				F4E49AB3154B5742004CF2D7 /* OxICJsonConverter.h in Headers */,
+				DA119EC9155DBD7300D609EB /* OxICJsonSerializer.h in Headers */,
+				DA119ECB155DBD7300D609EB /* OxICSerializer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +667,7 @@
 				DA15A152150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.m in Sources */,
 				DA35404C150C347A0085396C /* OxICLazyProxyFactoryObject.m in Sources */,
 				F4E49AB4154B5742004CF2D7 /* OxICJsonConverter.m in Sources */,
+				DA119ECA155DBD7300D609EB /* OxICJsonSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
