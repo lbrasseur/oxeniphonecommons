@@ -35,7 +35,7 @@
 }
 
 - (void) dealloc {
-	self.object = nil;
+    self.object = nil;
 	[super dealloc];
 }
 
