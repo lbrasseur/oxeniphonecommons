@@ -1,14 +1,13 @@
-#summary One-sentence summary of this page.
+#summary Helper components for serializating objects to NSString and vice-versa
 
 = Introduction =
 
-Add your content here.
+This section contains [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Serializer utility components] for NSString to object and vice-versa serialization.
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
-  * XML to Object and vice-versa conversion (some day :P )
+Components in this section include:
+  * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Serializer/OxICSerializer.m OxICSerializer], which is a common protocol to be implemented by serializers.
+  * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Serializer/OxICJsonSerializer.m OxICJsonSerializer], a JSON serializer implementation.
+  * XML serializer: Some day!!! :P
