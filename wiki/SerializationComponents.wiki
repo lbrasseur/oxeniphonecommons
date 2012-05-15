@@ -8,6 +8,6 @@ This section contains [http://code.google.com/p/oxeniphonecommons/source/browse/
 = Details =
 
 Components in this section include:
-  * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Serializer/OxICSerializer.m OxICSerializer], which is a common protocol to be implemented by serializers.
+  * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Serializer/OxICSerializer.h OxICSerializer], which is a common protocol to be implemented by serializers.
   * [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Serializer/OxICJsonSerializer.m OxICJsonSerializer], a JSON serializer implementation.
   * XML serializer: Some day!!! :P
