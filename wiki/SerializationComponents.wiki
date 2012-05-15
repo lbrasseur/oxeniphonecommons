@@ -2,7 +2,7 @@
 
 = Introduction =
 
-This section contains [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Serializer utility components] for NSString to object and vice-versa serialization.
+This section contains [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Serializer utility components] for [https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html NSString] to object and vice-versa serialization.
 
 
 = Details =
