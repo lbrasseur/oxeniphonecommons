@@ -7,4 +7,6 @@ Congratulations on their courage!
 
   * [http://www.cytron.com.mx/ Cytron]: Adventure Trip (aka Viajeros) (currently in testing).
 
-  * [http://leapfactor.com/ Leapfactor] / [http://www.astrazeneca.com AstraZeneca]: AZPharmacy/AZAnswers (currently in development).
+  * [http://leapfactor.com/ Leapfactor] / [http://www.astrazeneca.com AstraZeneca]: AZPharmacy/AZAnswers (currently in testing).
+
+  * [http://www.provider-it.com.br/ Provider-IT] / [http://www.brasilcap.com/ BrasilCap]: BrasilCap Auto (currently in development).
