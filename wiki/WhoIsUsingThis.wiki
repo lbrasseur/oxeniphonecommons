@@ -9,4 +9,4 @@ Congratulations on their courage!
 
   * [http://leapfactor.com/ Leapfactor] / [http://www.astrazeneca.com AstraZeneca]: AZPharmacy/AZAnswers (currently in testing).
 
-  * [http://www.provider-it.com.br/ Provider-IT] / [http://www.brasilcap.com/ BrasilCap]: BrasilCap Auto (currently in development).
+  * [http://www.provider-it.com.br/ Provider-IT] / [http://www.brasilcap.com/ Brasilcap]: Brasilcap Auto (currently in development).
