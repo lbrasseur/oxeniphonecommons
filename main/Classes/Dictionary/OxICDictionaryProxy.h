@@ -21,4 +21,6 @@
 
 - (id) initWithDictionary: (NSDictionary*) aDictionary;
 
+- (id) objectForKey:(id) aKey;
+
 @end
