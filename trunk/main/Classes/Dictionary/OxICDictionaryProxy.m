@@ -24,6 +24,10 @@
 	return self;
 }
 
+- (id) objectForKey:(id) aKey {
+    return [self.dictionary objectForKey:aKey];
+}
+
 - (void) dealloc {
 	self.dictionary = nil;
 	[super dealloc];
