@@ -1,0 +1,760 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		43FADAB1143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FADAAF143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h */; };
+		43FADAB2143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FADAB0143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m */; };
+		AA747D9F0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DA00AF6A14DB515A00F6B570 /* OxICDaoProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DA00AF6814DB515A00F6B570 /* OxICDaoProxy.h */; };
+		DA00AF6B14DB515A00F6B570 /* OxICDaoProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA00AF6914DB515A00F6B570 /* OxICDaoProxy.m */; };
+		DA119EC9155DBD7300D609EB /* OxICJsonSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = DA119EC6155DBD7300D609EB /* OxICJsonSerializer.h */; };
+		DA119ECA155DBD7300D609EB /* OxICJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA119EC7155DBD7300D609EB /* OxICJsonSerializer.m */; };
+		DA119ECB155DBD7300D609EB /* OxICSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = DA119EC8155DBD7300D609EB /* OxICSerializer.h */; };
+		DA15A14D150B96C00004F7A7 /* OxICThreadLocalProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DA15A14B150B96C00004F7A7 /* OxICThreadLocalProxy.h */; };
+		DA15A14E150B96C00004F7A7 /* OxICThreadLocalProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15A14C150B96C00004F7A7 /* OxICThreadLocalProxy.m */; };
+		DA15A151150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA15A14F150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h */; };
+		DA15A152150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15A150150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.m */; };
+		DA17C53A1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA17C5381456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h */; };
+		DA17C53B1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA17C5391456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m */; };
+		DA28E3DC143636A900F6BA83 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DA28E3D9143636A900F6BA83 /* JSONKit.h */; };
+		DA28E3DD143636A900F6BA83 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = DA28E3DA143636A900F6BA83 /* JSONKit.m */; };
+		DA28E3E0143637DE00F6BA83 /* OxICJsonRpcProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */; };
+		DA28E3E1143637DE00F6BA83 /* OxICJsonRpcProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA28E3DF143637DE00F6BA83 /* OxICJsonRpcProxy.m */; };
+		DA35404B150C347A0085396C /* OxICLazyProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA354049150C347A0085396C /* OxICLazyProxyFactoryObject.h */; };
+		DA35404C150C347A0085396C /* OxICLazyProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35404A150C347A0085396C /* OxICLazyProxyFactoryObject.m */; };
+		DA35AE9E13E9E068004E17EC /* OxICFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35AE9C13E9E068004E17EC /* OxICFactoryObject.h */; };
+		DA35AEC013E9E6CB004E17EC /* OxICDefaultFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35AEBE13E9E6CB004E17EC /* OxICDefaultFactoryObject.h */; };
+		DA35AEC113E9E6CB004E17EC /* OxICDefaultFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35AEBF13E9E6CB004E17EC /* OxICDefaultFactoryObject.m */; };
+		DA35B00813E9FF75004E17EC /* OxICNibFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA35B00613E9FF75004E17EC /* OxICNibFactoryObject.h */; };
+		DA35B00913E9FF75004E17EC /* OxICNibFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA35B00713E9FF75004E17EC /* OxICNibFactoryObject.m */; };
+		DA35B00F13EA0266004E17EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA35B00E13EA0266004E17EC /* UIKit.framework */; };
+		DA6856ED13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DA6856EB13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h */; };
+		DA6856EE13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6856EC13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m */; };
+		DA68570113EB4C5B00465EDB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA68570013EB4C5B00465EDB /* CoreData.framework */; };
+		DA9985A611F3F08A00A75DF1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9985A511F3F08A00A75DF1 /* libxml2.dylib */; };
+		DA99863811F3F67100A75DF1 /* OxICSimpleClassWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99863411F3F67100A75DF1 /* OxICSimpleClassWrapper.h */; };
+		DA99863911F3F67100A75DF1 /* OxICSimpleClassWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99863511F3F67100A75DF1 /* OxICSimpleClassWrapper.m */; };
+		DA99863A11F3F67100A75DF1 /* OxICSimpleObjectWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99863611F3F67100A75DF1 /* OxICSimpleObjectWrapper.h */; };
+		DA99863B11F3F67100A75DF1 /* OxICSimpleObjectWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99863711F3F67100A75DF1 /* OxICSimpleObjectWrapper.m */; };
+		DA99863F11F3F6D500A75DF1 /* OxICClassWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99863E11F3F6D500A75DF1 /* OxICClassWrapper.h */; };
+		DA99864111F3F6E600A75DF1 /* OxICObjectWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864011F3F6E600A75DF1 /* OxICObjectWrapper.h */; };
+		DA99864311F3F6F600A75DF1 /* OxICWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */; };
+		DA99864611F3F7FC00A75DF1 /* OxICPropertyDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */; };
+		DA99864711F3F7FC00A75DF1 /* OxICPropertyDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */; };
+		DAA57DB514377C1C000E2319 /* OxICDictionaryProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA57DB314377C1C000E2319 /* OxICDictionaryProxy.h */; };
+		DAA57DB614377C1C000E2319 /* OxICDictionaryProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA57DB414377C1C000E2319 /* OxICDictionaryProxy.m */; };
+		DAA57E0E14379DC7000E2319 /* OxICDictionaryConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA57E0C14379DC7000E2319 /* OxICDictionaryConverter.h */; };
+		DAA57E0F14379DC7000E2319 /* OxICDictionaryConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA57E0D14379DC7000E2319 /* OxICDictionaryConverter.m */; };
+		DAA57F9F1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA57F9D1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h */; };
+		DAA57FA01437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA57F9E1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m */; };
+		DAA8F28D13F478C200BE690D /* OxICViewControllerFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */; };
+		DAA8F28E13F478C200BE690D /* OxICViewControllerFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA8F28C13F478C200BE690D /* OxICViewControllerFactoryObject.m */; };
+		DAABCDC1143529E700CF2ABA /* OxICBaseDao.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */; };
+		DAABCDC2143529E700CF2ABA /* OxICBaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */; };
+		DAABCDC3143529E700CF2ABA /* OxICDaoProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */; };
+		DAAD3742144A157E00DAF2C3 /* OxICJsonRestProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAD373E144A157E00DAF2C3 /* OxICJsonRestProxy.h */; };
+		DAAD3743144A157E00DAF2C3 /* OxICJsonRestProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD373F144A157E00DAF2C3 /* OxICJsonRestProxy.m */; };
+		DAAD3744144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAD3740144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h */; };
+		DAAD3745144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD3741144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m */; };
+		DAAD374C144A16D500DAF2C3 /* OxICBaseJsonProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAD374A144A16D500DAF2C3 /* OxICBaseJsonProxy.h */; };
+		DAAD374D144A16D500DAF2C3 /* OxICBaseJsonProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD374B144A16D500DAF2C3 /* OxICBaseJsonProxy.m */; };
+		DAB2871414422A1600F41B20 /* OxICViewUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB2871214422A1600F41B20 /* OxICViewUtils.h */; };
+		DAB2871514422A1600F41B20 /* OxICViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB2871314422A1600F41B20 /* OxICViewUtils.m */; };
+		DAB2875E14422EDA00F41B20 /* OxICPopupDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB2875A14422EDA00F41B20 /* OxICPopupDatePicker.h */; };
+		DAB2875F14422EDA00F41B20 /* OxICPopupDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB2875B14422EDA00F41B20 /* OxICPopupDatePicker.m */; };
+		DAB2876014422EDA00F41B20 /* OxICPopupListPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB2875C14422EDA00F41B20 /* OxICPopupListPicker.h */; };
+		DAB2876114422EDA00F41B20 /* OxICPopupListPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB2875D14422EDA00F41B20 /* OxICPopupListPicker.m */; };
+		DAB288541442603600F41B20 /* OxICPopupInteractiveSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB288521442603600F41B20 /* OxICPopupInteractiveSelector.h */; };
+		DAB288551442603600F41B20 /* OxICPopupInteractiveSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB288531442603600F41B20 /* OxICPopupInteractiveSelector.m */; };
+		DAB352DE13FD48C300D6163A /* OxICAccordion.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB352DA13FD48C300D6163A /* OxICAccordion.h */; };
+		DAB352DF13FD48C300D6163A /* OxICAccordion.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB352DB13FD48C300D6163A /* OxICAccordion.m */; };
+		DAB352E013FD48C300D6163A /* OxICAccordionSection.h in Headers */ = {isa = PBXBuildFile; fileRef = DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */; };
+		DAB352E113FD48C300D6163A /* OxICAccordionSection.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB352DD13FD48C300D6163A /* OxICAccordionSection.m */; };
+		DACB367211F516E900FE67D4 /* OxICSimpleWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */; };
+		DACB367311F516E900FE67D4 /* OxICSimpleWrapperFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */; };
+		DACB36EE11F5370800FE67D4 /* OxICContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36E511F5370800FE67D4 /* OxICContainer.h */; };
+		DACB36EF11F5370800FE67D4 /* OxICContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36E611F5370800FE67D4 /* OxICContainer.m */; };
+		DACB36F011F5370800FE67D4 /* OxICContainerBuilderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36E711F5370800FE67D4 /* OxICContainerBuilderDelegate.h */; };
+		DACB36F111F5370800FE67D4 /* OxICLazyProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36E811F5370800FE67D4 /* OxICLazyProxy.h */; };
+		DACB36F211F5370800FE67D4 /* OxICLazyProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36E911F5370800FE67D4 /* OxICLazyProxy.m */; };
+		DACB36F311F5370800FE67D4 /* OxICObjectDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36EA11F5370800FE67D4 /* OxICObjectDefinition.h */; };
+		DACB36F411F5370800FE67D4 /* OxICObjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */; };
+		DACB36F511F5370800FE67D4 /* OxICXmlContainerBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */; };
+		DACB36F611F5370800FE67D4 /* OxICXmlContainerBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */; };
+		DACF386E14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DACF386C14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h */; };
+		DACF386F14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DACF386D14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m */; };
+		DAD24F5F1480249D00FD9083 /* OxICScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = DAD24F5D1480249D00FD9083 /* OxICScrollView.h */; };
+		DAD24F601480249D00FD9083 /* OxICScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD24F5E1480249D00FD9083 /* OxICScrollView.m */; };
+		DADBB6CF14DC0E7B00066FB0 /* OxICQuerySpec.h in Headers */ = {isa = PBXBuildFile; fileRef = DADBB6CD14DC0E7B00066FB0 /* OxICQuerySpec.h */; };
+		DADBB6D014DC0E7B00066FB0 /* OxICQuerySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = DADBB6CE14DC0E7B00066FB0 /* OxICQuerySpec.m */; };
+		DADCC1F21406CC58006E902F /* OxICInteractiveSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */; };
+		DADCC1F31406CC58006E902F /* OxICInteractiveSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */; };
+		DADCC1F61406D898006E902F /* OxICInteractiveSelectorOption.h in Headers */ = {isa = PBXBuildFile; fileRef = DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */; };
+		DADCC1F71406D898006E902F /* OxICInteractiveSelectorOption.m in Sources */ = {isa = PBXBuildFile; fileRef = DADCC1F51406D898006E902F /* OxICInteractiveSelectorOption.m */; };
+		DADDC86B13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DADDC86913EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h */; };
+		DADDC86C13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DADDC86A13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m */; };
+		F4E49AB3154B5742004CF2D7 /* OxICJsonConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E49AB1154B5742004CF2D7 /* OxICJsonConverter.h */; };
+		F4E49AB4154B5742004CF2D7 /* OxICJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E49AB2154B5742004CF2D7 /* OxICJsonConverter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		43FADAAF143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICExpandableTableViewUtil.h; sourceTree = "<group>"; };
+		43FADAB0143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICExpandableTableViewUtil.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxeniPhoneCommons_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOxeniPhoneCommons.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA00AF6814DB515A00F6B570 /* OxICDaoProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDaoProxy.h; sourceTree = "<group>"; };
+		DA00AF6914DB515A00F6B570 /* OxICDaoProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDaoProxy.m; sourceTree = "<group>"; };
+		DA119EC6155DBD7300D609EB /* OxICJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJsonSerializer.h; sourceTree = "<group>"; };
+		DA119EC7155DBD7300D609EB /* OxICJsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJsonSerializer.m; sourceTree = "<group>"; };
+		DA119EC8155DBD7300D609EB /* OxICSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICSerializer.h; sourceTree = "<group>"; };
+		DA15A14B150B96C00004F7A7 /* OxICThreadLocalProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICThreadLocalProxy.h; sourceTree = "<group>"; };
+		DA15A14C150B96C00004F7A7 /* OxICThreadLocalProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICThreadLocalProxy.m; sourceTree = "<group>"; };
+		DA15A14F150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICThreadLocalProxyFactoryObject.h; sourceTree = "<group>"; };
+		DA15A150150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICThreadLocalProxyFactoryObject.m; sourceTree = "<group>"; };
+		DA17C5381456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICBaseJsonProxyFactoryObject.h; sourceTree = "<group>"; };
+		DA17C5391456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICBaseJsonProxyFactoryObject.m; sourceTree = "<group>"; };
+		DA28E3D8143636A900F6BA83 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CHANGELOG.md; path = Classes/JSON/JSONKit/CHANGELOG.md; sourceTree = SOURCE_ROOT; };
+		DA28E3D9143636A900F6BA83 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Classes/JSON/JSONKit/JSONKit.h; sourceTree = SOURCE_ROOT; };
+		DA28E3DA143636A900F6BA83 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = Classes/JSON/JSONKit/JSONKit.m; sourceTree = SOURCE_ROOT; };
+		DA28E3DB143636A900F6BA83 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = Classes/JSON/JSONKit/README.md; sourceTree = SOURCE_ROOT; };
+		DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJsonRpcProxy.h; sourceTree = "<group>"; };
+		DA28E3DF143637DE00F6BA83 /* OxICJsonRpcProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJsonRpcProxy.m; sourceTree = "<group>"; };
+		DA354049150C347A0085396C /* OxICLazyProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICLazyProxyFactoryObject.h; sourceTree = "<group>"; };
+		DA35404A150C347A0085396C /* OxICLazyProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICLazyProxyFactoryObject.m; sourceTree = "<group>"; };
+		DA35AE9C13E9E068004E17EC /* OxICFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICFactoryObject.h; sourceTree = "<group>"; };
+		DA35AEBE13E9E6CB004E17EC /* OxICDefaultFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDefaultFactoryObject.h; sourceTree = "<group>"; };
+		DA35AEBF13E9E6CB004E17EC /* OxICDefaultFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDefaultFactoryObject.m; sourceTree = "<group>"; };
+		DA35B00613E9FF75004E17EC /* OxICNibFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICNibFactoryObject.h; sourceTree = "<group>"; };
+		DA35B00713E9FF75004E17EC /* OxICNibFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICNibFactoryObject.m; sourceTree = "<group>"; };
+		DA35B00E13EA0266004E17EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DA6856EB13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICManagedObjectModelFactoryObject.h; sourceTree = "<group>"; };
+		DA6856EC13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICManagedObjectModelFactoryObject.m; sourceTree = "<group>"; };
+		DA68570013EB4C5B00465EDB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DA9985A511F3F08A00A75DF1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		DA99863411F3F67100A75DF1 /* OxICSimpleClassWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICSimpleClassWrapper.h; path = Classes/Wrapper/Impl/Simple/OxICSimpleClassWrapper.h; sourceTree = SOURCE_ROOT; };
+		DA99863511F3F67100A75DF1 /* OxICSimpleClassWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICSimpleClassWrapper.m; path = Classes/Wrapper/Impl/Simple/OxICSimpleClassWrapper.m; sourceTree = SOURCE_ROOT; };
+		DA99863611F3F67100A75DF1 /* OxICSimpleObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICSimpleObjectWrapper.h; path = Classes/Wrapper/Impl/Simple/OxICSimpleObjectWrapper.h; sourceTree = SOURCE_ROOT; };
+		DA99863711F3F67100A75DF1 /* OxICSimpleObjectWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICSimpleObjectWrapper.m; path = Classes/Wrapper/Impl/Simple/OxICSimpleObjectWrapper.m; sourceTree = SOURCE_ROOT; };
+		DA99863E11F3F6D500A75DF1 /* OxICClassWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICClassWrapper.h; sourceTree = "<group>"; };
+		DA99864011F3F6E600A75DF1 /* OxICObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICObjectWrapper.h; sourceTree = "<group>"; };
+		DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICWrapperFactory.h; sourceTree = "<group>"; };
+		DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICPropertyDescriptor.h; sourceTree = "<group>"; };
+		DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICPropertyDescriptor.m; sourceTree = "<group>"; };
+		DAA57DB314377C1C000E2319 /* OxICDictionaryProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDictionaryProxy.h; sourceTree = "<group>"; };
+		DAA57DB414377C1C000E2319 /* OxICDictionaryProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDictionaryProxy.m; sourceTree = "<group>"; };
+		DAA57E0C14379DC7000E2319 /* OxICDictionaryConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDictionaryConverter.h; sourceTree = "<group>"; };
+		DAA57E0D14379DC7000E2319 /* OxICDictionaryConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDictionaryConverter.m; sourceTree = "<group>"; };
+		DAA57F9D1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJsonRpcProxyFactoryObject.h; sourceTree = "<group>"; };
+		DAA57F9E1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJsonRpcProxyFactoryObject.m; sourceTree = "<group>"; };
+		DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICViewControllerFactoryObject.h; sourceTree = "<group>"; };
+		DAA8F28C13F478C200BE690D /* OxICViewControllerFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICViewControllerFactoryObject.m; sourceTree = "<group>"; };
+		DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICBaseDao.h; path = Classes/Data/DAO/OxICBaseDao.h; sourceTree = SOURCE_ROOT; };
+		DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICBaseDao.m; path = Classes/Data/DAO/OxICBaseDao.m; sourceTree = SOURCE_ROOT; };
+		DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICDaoProtocol.h; path = Classes/Data/DAO/OxICDaoProtocol.h; sourceTree = SOURCE_ROOT; };
+		DAAD373E144A157E00DAF2C3 /* OxICJsonRestProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICJsonRestProxy.h; path = Classes/JSON/OxICJsonRestProxy.h; sourceTree = SOURCE_ROOT; };
+		DAAD373F144A157E00DAF2C3 /* OxICJsonRestProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICJsonRestProxy.m; path = Classes/JSON/OxICJsonRestProxy.m; sourceTree = SOURCE_ROOT; };
+		DAAD3740144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICJsonRestProxyFactoryObject.h; path = Classes/JSON/OxICJsonRestProxyFactoryObject.h; sourceTree = SOURCE_ROOT; };
+		DAAD3741144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICJsonRestProxyFactoryObject.m; path = Classes/JSON/OxICJsonRestProxyFactoryObject.m; sourceTree = SOURCE_ROOT; };
+		DAAD374A144A16D500DAF2C3 /* OxICBaseJsonProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICBaseJsonProxy.h; path = Classes/JSON/OxICBaseJsonProxy.h; sourceTree = SOURCE_ROOT; };
+		DAAD374B144A16D500DAF2C3 /* OxICBaseJsonProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICBaseJsonProxy.m; path = Classes/JSON/OxICBaseJsonProxy.m; sourceTree = SOURCE_ROOT; };
+		DAB2871214422A1600F41B20 /* OxICViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICViewUtils.h; path = Classes/UI/ViewUtils/OxICViewUtils.h; sourceTree = SOURCE_ROOT; };
+		DAB2871314422A1600F41B20 /* OxICViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICViewUtils.m; path = Classes/UI/ViewUtils/OxICViewUtils.m; sourceTree = SOURCE_ROOT; };
+		DAB2875A14422EDA00F41B20 /* OxICPopupDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPopupDatePicker.h; path = Classes/UI/PopupPicker/OxICPopupDatePicker.h; sourceTree = SOURCE_ROOT; };
+		DAB2875B14422EDA00F41B20 /* OxICPopupDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPopupDatePicker.m; path = Classes/UI/PopupPicker/OxICPopupDatePicker.m; sourceTree = SOURCE_ROOT; };
+		DAB2875C14422EDA00F41B20 /* OxICPopupListPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPopupListPicker.h; path = Classes/UI/PopupPicker/OxICPopupListPicker.h; sourceTree = SOURCE_ROOT; };
+		DAB2875D14422EDA00F41B20 /* OxICPopupListPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPopupListPicker.m; path = Classes/UI/PopupPicker/OxICPopupListPicker.m; sourceTree = SOURCE_ROOT; };
+		DAB288521442603600F41B20 /* OxICPopupInteractiveSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPopupInteractiveSelector.h; path = Classes/UI/PopupPicker/OxICPopupInteractiveSelector.h; sourceTree = SOURCE_ROOT; };
+		DAB288531442603600F41B20 /* OxICPopupInteractiveSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPopupInteractiveSelector.m; path = Classes/UI/PopupPicker/OxICPopupInteractiveSelector.m; sourceTree = SOURCE_ROOT; };
+		DAB352DA13FD48C300D6163A /* OxICAccordion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICAccordion.h; path = Classes/UI/Accordion/OxICAccordion.h; sourceTree = SOURCE_ROOT; };
+		DAB352DB13FD48C300D6163A /* OxICAccordion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICAccordion.m; path = Classes/UI/Accordion/OxICAccordion.m; sourceTree = SOURCE_ROOT; };
+		DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICAccordionSection.h; path = Classes/UI/Accordion/OxICAccordionSection.h; sourceTree = SOURCE_ROOT; };
+		DAB352DD13FD48C300D6163A /* OxICAccordionSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICAccordionSection.m; path = Classes/UI/Accordion/OxICAccordionSection.m; sourceTree = SOURCE_ROOT; };
+		DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICSimpleWrapperFactory.h; sourceTree = "<group>"; };
+		DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICSimpleWrapperFactory.m; sourceTree = "<group>"; };
+		DACB36E511F5370800FE67D4 /* OxICContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICContainer.h; path = Classes/Container/OxICContainer.h; sourceTree = SOURCE_ROOT; };
+		DACB36E611F5370800FE67D4 /* OxICContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICContainer.m; path = Classes/Container/OxICContainer.m; sourceTree = SOURCE_ROOT; };
+		DACB36E711F5370800FE67D4 /* OxICContainerBuilderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICContainerBuilderDelegate.h; path = Classes/Container/OxICContainerBuilderDelegate.h; sourceTree = SOURCE_ROOT; };
+		DACB36E811F5370800FE67D4 /* OxICLazyProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICLazyProxy.h; path = Classes/Container/OxICLazyProxy.h; sourceTree = SOURCE_ROOT; };
+		DACB36E911F5370800FE67D4 /* OxICLazyProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICLazyProxy.m; path = Classes/Container/OxICLazyProxy.m; sourceTree = SOURCE_ROOT; };
+		DACB36EA11F5370800FE67D4 /* OxICObjectDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICObjectDefinition.h; path = Classes/Container/OxICObjectDefinition.h; sourceTree = SOURCE_ROOT; };
+		DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICObjectDefinition.m; path = Classes/Container/OxICObjectDefinition.m; sourceTree = SOURCE_ROOT; };
+		DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICXmlContainerBuilder.h; path = Classes/Container/OxICXmlContainerBuilder.h; sourceTree = SOURCE_ROOT; };
+		DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICXmlContainerBuilder.m; path = Classes/Container/OxICXmlContainerBuilder.m; sourceTree = SOURCE_ROOT; };
+		DACF386C14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICDaoProxyFactoryObject.h; sourceTree = "<group>"; };
+		DACF386D14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICDaoProxyFactoryObject.m; sourceTree = "<group>"; };
+		DAD24F5D1480249D00FD9083 /* OxICScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICScrollView.h; sourceTree = "<group>"; };
+		DAD24F5E1480249D00FD9083 /* OxICScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICScrollView.m; sourceTree = "<group>"; };
+		DADBB6CD14DC0E7B00066FB0 /* OxICQuerySpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICQuerySpec.h; sourceTree = "<group>"; };
+		DADBB6CE14DC0E7B00066FB0 /* OxICQuerySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICQuerySpec.m; sourceTree = "<group>"; };
+		DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICInteractiveSelector.h; sourceTree = "<group>"; };
+		DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICInteractiveSelector.m; sourceTree = "<group>"; };
+		DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICInteractiveSelectorOption.h; sourceTree = "<group>"; };
+		DADCC1F51406D898006E902F /* OxICInteractiveSelectorOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICInteractiveSelectorOption.m; sourceTree = "<group>"; };
+		DADDC86913EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPersistentStoreCoordinatorFactoryObject.h; path = Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.h; sourceTree = SOURCE_ROOT; };
+		DADDC86A13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPersistentStoreCoordinatorFactoryObject.m; path = Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.m; sourceTree = SOURCE_ROOT; };
+		F4E49AB1154B5742004CF2D7 /* OxICJsonConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJsonConverter.h; sourceTree = "<group>"; };
+		F4E49AB2154B5742004CF2D7 /* OxICJsonConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJsonConverter.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				DA9985A611F3F08A00A75DF1 /* libxml2.dylib in Frameworks */,
+				DA35B00F13EA0266004E17EC /* UIKit.framework in Frameworks */,
+				DA68570113EB4C5B00465EDB /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* OxeniPhoneCommons */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = OxeniPhoneCommons;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				DA9985A511F3F08A00A75DF1 /* libxml2.dylib */,
+				DA35B00E13EA0266004E17EC /* UIKit.framework */,
+				DA68570013EB4C5B00465EDB /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DACB36E411F5370800FE67D4 /* Container */,
+				DAABCDBC143529E700CF2ABA /* Data */,
+				DAA57DB214377B4F000E2319 /* Dictionary */,
+				DA28E3D6143636A900F6BA83 /* JSON */,
+				DA119EC5155DBD7300D609EB /* Serializer */,
+				DAB352D813FD48C300D6163A /* UI */,
+				DA99863011F3F67100A75DF1 /* Wrapper */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		43FADAA9143C9E1F00AE26E6 /* ExpandableSectionTableView */ = {
+			isa = PBXGroup;
+			children = (
+				43FADAAF143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h */,
+				43FADAB0143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m */,
+			);
+			path = ExpandableSectionTableView;
+			sourceTree = "<group>";
+		};
+		DA119EC5155DBD7300D609EB /* Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				DA119EC6155DBD7300D609EB /* OxICJsonSerializer.h */,
+				DA119EC7155DBD7300D609EB /* OxICJsonSerializer.m */,
+				DA119EC8155DBD7300D609EB /* OxICSerializer.h */,
+			);
+			name = Serializer;
+			path = Classes/Serializer;
+			sourceTree = "<group>";
+		};
+		DA28E3D6143636A900F6BA83 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				F4E49AB1154B5742004CF2D7 /* OxICJsonConverter.h */,
+				F4E49AB2154B5742004CF2D7 /* OxICJsonConverter.m */,
+				DAAD374A144A16D500DAF2C3 /* OxICBaseJsonProxy.h */,
+				DAAD374B144A16D500DAF2C3 /* OxICBaseJsonProxy.m */,
+				DA17C5381456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h */,
+				DA17C5391456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m */,
+				DAAD373E144A157E00DAF2C3 /* OxICJsonRestProxy.h */,
+				DAAD373F144A157E00DAF2C3 /* OxICJsonRestProxy.m */,
+				DAAD3740144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h */,
+				DAAD3741144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m */,
+				DA28E3DE143637DE00F6BA83 /* OxICJsonRpcProxy.h */,
+				DA28E3DF143637DE00F6BA83 /* OxICJsonRpcProxy.m */,
+				DAA57F9D1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h */,
+				DAA57F9E1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m */,
+				DA28E3D7143636A900F6BA83 /* JSONKit */,
+			);
+			name = JSON;
+			path = Classes/JSON;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA28E3D7143636A900F6BA83 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				DA28E3D8143636A900F6BA83 /* CHANGELOG.md */,
+				DA28E3D9143636A900F6BA83 /* JSONKit.h */,
+				DA28E3DA143636A900F6BA83 /* JSONKit.m */,
+				DA28E3DB143636A900F6BA83 /* README.md */,
+			);
+			name = JSONKit;
+			path = Classes/JSON/JSONKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA99863011F3F67100A75DF1 /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				DA99863111F3F67100A75DF1 /* API */,
+				DA99863211F3F67100A75DF1 /* Impl */,
+			);
+			name = Wrapper;
+			path = Classes/Wrapper;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA99863111F3F67100A75DF1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DA99863E11F3F6D500A75DF1 /* OxICClassWrapper.h */,
+				DA99864011F3F6E600A75DF1 /* OxICObjectWrapper.h */,
+				DA99864211F3F6F600A75DF1 /* OxICWrapperFactory.h */,
+				DA99864411F3F7FC00A75DF1 /* OxICPropertyDescriptor.h */,
+				DA99864511F3F7FC00A75DF1 /* OxICPropertyDescriptor.m */,
+			);
+			name = API;
+			path = Classes/Wrapper/API;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA99863211F3F67100A75DF1 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				DA99863311F3F67100A75DF1 /* Simple */,
+			);
+			name = Impl;
+			path = Classes/Wrapper/Impl;
+			sourceTree = SOURCE_ROOT;
+		};
+		DA99863311F3F67100A75DF1 /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				DA99863411F3F67100A75DF1 /* OxICSimpleClassWrapper.h */,
+				DA99863511F3F67100A75DF1 /* OxICSimpleClassWrapper.m */,
+				DA99863611F3F67100A75DF1 /* OxICSimpleObjectWrapper.h */,
+				DA99863711F3F67100A75DF1 /* OxICSimpleObjectWrapper.m */,
+				DACB367011F516E900FE67D4 /* OxICSimpleWrapperFactory.h */,
+				DACB367111F516E900FE67D4 /* OxICSimpleWrapperFactory.m */,
+			);
+			name = Simple;
+			path = Classes/Wrapper/Impl/Simple;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAA57DB214377B4F000E2319 /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				DAA57DB314377C1C000E2319 /* OxICDictionaryProxy.h */,
+				DAA57DB414377C1C000E2319 /* OxICDictionaryProxy.m */,
+				DAA57E0C14379DC7000E2319 /* OxICDictionaryConverter.h */,
+				DAA57E0D14379DC7000E2319 /* OxICDictionaryConverter.m */,
+			);
+			name = Dictionary;
+			path = Classes/Dictionary;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAABCDBC143529E700CF2ABA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DAABCDBD143529E700CF2ABA /* DAO */,
+			);
+			name = Data;
+			path = Classes/Data;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAABCDBD143529E700CF2ABA /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				DAABCDBE143529E700CF2ABA /* OxICBaseDao.h */,
+				DAABCDBF143529E700CF2ABA /* OxICBaseDao.m */,
+				DAABCDC0143529E700CF2ABA /* OxICDaoProtocol.h */,
+				DADBB6CD14DC0E7B00066FB0 /* OxICQuerySpec.h */,
+				DADBB6CE14DC0E7B00066FB0 /* OxICQuerySpec.m */,
+				DA00AF6814DB515A00F6B570 /* OxICDaoProxy.h */,
+				DA00AF6914DB515A00F6B570 /* OxICDaoProxy.m */,
+				DACF386C14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h */,
+				DACF386D14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m */,
+			);
+			name = DAO;
+			path = Classes/Data/DAO;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAB2871114422A1600F41B20 /* ViewUtils */ = {
+			isa = PBXGroup;
+			children = (
+				DAB2871214422A1600F41B20 /* OxICViewUtils.h */,
+				DAB2871314422A1600F41B20 /* OxICViewUtils.m */,
+			);
+			name = ViewUtils;
+			path = Classes/UI/ViewUtils;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAB2875914422EDA00F41B20 /* PopupPicker */ = {
+			isa = PBXGroup;
+			children = (
+				DAB288521442603600F41B20 /* OxICPopupInteractiveSelector.h */,
+				DAB288531442603600F41B20 /* OxICPopupInteractiveSelector.m */,
+				DAB2875A14422EDA00F41B20 /* OxICPopupDatePicker.h */,
+				DAB2875B14422EDA00F41B20 /* OxICPopupDatePicker.m */,
+				DAB2875C14422EDA00F41B20 /* OxICPopupListPicker.h */,
+				DAB2875D14422EDA00F41B20 /* OxICPopupListPicker.m */,
+			);
+			name = PopupPicker;
+			path = Classes/UI/PopupPicker;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAB352D813FD48C300D6163A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DAB352D913FD48C300D6163A /* Accordion */,
+				43FADAA9143C9E1F00AE26E6 /* ExpandableSectionTableView */,
+				DADCC1EF1406CC1C006E902F /* InteractiveSelector */,
+				DAB2875914422EDA00F41B20 /* PopupPicker */,
+				DAD24F5C1480246F00FD9083 /* Scroll */,
+				DAB2871114422A1600F41B20 /* ViewUtils */,
+			);
+			name = UI;
+			path = Classes/UI;
+			sourceTree = SOURCE_ROOT;
+		};
+		DAB352D913FD48C300D6163A /* Accordion */ = {
+			isa = PBXGroup;
+			children = (
+				DAB352DA13FD48C300D6163A /* OxICAccordion.h */,
+				DAB352DB13FD48C300D6163A /* OxICAccordion.m */,
+				DAB352DC13FD48C300D6163A /* OxICAccordionSection.h */,
+				DAB352DD13FD48C300D6163A /* OxICAccordionSection.m */,
+			);
+			name = Accordion;
+			path = Classes/UI/Accordion;
+			sourceTree = SOURCE_ROOT;
+		};
+		DACB36E411F5370800FE67D4 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				DACB36E511F5370800FE67D4 /* OxICContainer.h */,
+				DACB36E611F5370800FE67D4 /* OxICContainer.m */,
+				DACB36E811F5370800FE67D4 /* OxICLazyProxy.h */,
+				DACB36E911F5370800FE67D4 /* OxICLazyProxy.m */,
+				DA354049150C347A0085396C /* OxICLazyProxyFactoryObject.h */,
+				DA35404A150C347A0085396C /* OxICLazyProxyFactoryObject.m */,
+				DACB36EA11F5370800FE67D4 /* OxICObjectDefinition.h */,
+				DACB36EB11F5370800FE67D4 /* OxICObjectDefinition.m */,
+				DACB36EC11F5370800FE67D4 /* OxICXmlContainerBuilder.h */,
+				DACB36ED11F5370800FE67D4 /* OxICXmlContainerBuilder.m */,
+				DACB36E711F5370800FE67D4 /* OxICContainerBuilderDelegate.h */,
+				DA35AE9C13E9E068004E17EC /* OxICFactoryObject.h */,
+				DA35AEBE13E9E6CB004E17EC /* OxICDefaultFactoryObject.h */,
+				DA35AEBF13E9E6CB004E17EC /* OxICDefaultFactoryObject.m */,
+				DA35B00613E9FF75004E17EC /* OxICNibFactoryObject.h */,
+				DA35B00713E9FF75004E17EC /* OxICNibFactoryObject.m */,
+				DA6856EB13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h */,
+				DA6856EC13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m */,
+				DADDC86913EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h */,
+				DADDC86A13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m */,
+				DAA8F28B13F478C200BE690D /* OxICViewControllerFactoryObject.h */,
+				DAA8F28C13F478C200BE690D /* OxICViewControllerFactoryObject.m */,
+				DA15A14B150B96C00004F7A7 /* OxICThreadLocalProxy.h */,
+				DA15A14C150B96C00004F7A7 /* OxICThreadLocalProxy.m */,
+				DA15A14F150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h */,
+				DA15A150150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.m */,
+			);
+			name = Container;
+			path = Classes/Container;
+			sourceTree = "<group>";
+		};
+		DAD24F5C1480246F00FD9083 /* Scroll */ = {
+			isa = PBXGroup;
+			children = (
+				DAD24F5D1480249D00FD9083 /* OxICScrollView.h */,
+				DAD24F5E1480249D00FD9083 /* OxICScrollView.m */,
+			);
+			name = Scroll;
+			path = Classes/UI/Scroll;
+			sourceTree = SOURCE_ROOT;
+		};
+		DADCC1EF1406CC1C006E902F /* InteractiveSelector */ = {
+			isa = PBXGroup;
+			children = (
+				DADCC1F01406CC58006E902F /* OxICInteractiveSelector.h */,
+				DADCC1F11406CC58006E902F /* OxICInteractiveSelector.m */,
+				DADCC1F41406D898006E902F /* OxICInteractiveSelectorOption.h */,
+				DADCC1F51406D898006E902F /* OxICInteractiveSelectorOption.m */,
+			);
+			name = InteractiveSelector;
+			path = Classes/UI/InteractiveSelector;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* OxeniPhoneCommons_Prefix.pch in Headers */,
+				DA99863811F3F67100A75DF1 /* OxICSimpleClassWrapper.h in Headers */,
+				DA99863A11F3F67100A75DF1 /* OxICSimpleObjectWrapper.h in Headers */,
+				DA99863F11F3F6D500A75DF1 /* OxICClassWrapper.h in Headers */,
+				DA99864111F3F6E600A75DF1 /* OxICObjectWrapper.h in Headers */,
+				DA99864311F3F6F600A75DF1 /* OxICWrapperFactory.h in Headers */,
+				DA99864611F3F7FC00A75DF1 /* OxICPropertyDescriptor.h in Headers */,
+				DACB367211F516E900FE67D4 /* OxICSimpleWrapperFactory.h in Headers */,
+				DACB36EE11F5370800FE67D4 /* OxICContainer.h in Headers */,
+				DACB36F011F5370800FE67D4 /* OxICContainerBuilderDelegate.h in Headers */,
+				DACB36F111F5370800FE67D4 /* OxICLazyProxy.h in Headers */,
+				DACB36F311F5370800FE67D4 /* OxICObjectDefinition.h in Headers */,
+				DACB36F511F5370800FE67D4 /* OxICXmlContainerBuilder.h in Headers */,
+				DA35AE9E13E9E068004E17EC /* OxICFactoryObject.h in Headers */,
+				DA35AEC013E9E6CB004E17EC /* OxICDefaultFactoryObject.h in Headers */,
+				DA35B00813E9FF75004E17EC /* OxICNibFactoryObject.h in Headers */,
+				DA6856ED13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.h in Headers */,
+				DADDC86B13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h in Headers */,
+				DAA8F28D13F478C200BE690D /* OxICViewControllerFactoryObject.h in Headers */,
+				DAB352DE13FD48C300D6163A /* OxICAccordion.h in Headers */,
+				DAB352E013FD48C300D6163A /* OxICAccordionSection.h in Headers */,
+				DADCC1F21406CC58006E902F /* OxICInteractiveSelector.h in Headers */,
+				DADCC1F61406D898006E902F /* OxICInteractiveSelectorOption.h in Headers */,
+				DAABCDC1143529E700CF2ABA /* OxICBaseDao.h in Headers */,
+				DAABCDC3143529E700CF2ABA /* OxICDaoProtocol.h in Headers */,
+				DA28E3DC143636A900F6BA83 /* JSONKit.h in Headers */,
+				DA28E3E0143637DE00F6BA83 /* OxICJsonRpcProxy.h in Headers */,
+				DAA57DB514377C1C000E2319 /* OxICDictionaryProxy.h in Headers */,
+				DAA57E0E14379DC7000E2319 /* OxICDictionaryConverter.h in Headers */,
+				DAA57F9F1437E282000E2319 /* OxICJsonRpcProxyFactoryObject.h in Headers */,
+				43FADAB1143CA2F500AE26E6 /* OxICExpandableTableViewUtil.h in Headers */,
+				DAB2871414422A1600F41B20 /* OxICViewUtils.h in Headers */,
+				DAB2875E14422EDA00F41B20 /* OxICPopupDatePicker.h in Headers */,
+				DAB2876014422EDA00F41B20 /* OxICPopupListPicker.h in Headers */,
+				DAB288541442603600F41B20 /* OxICPopupInteractiveSelector.h in Headers */,
+				DAAD3742144A157E00DAF2C3 /* OxICJsonRestProxy.h in Headers */,
+				DAAD3744144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.h in Headers */,
+				DAAD374C144A16D500DAF2C3 /* OxICBaseJsonProxy.h in Headers */,
+				DA17C53A1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.h in Headers */,
+				DAD24F5F1480249D00FD9083 /* OxICScrollView.h in Headers */,
+				DA00AF6A14DB515A00F6B570 /* OxICDaoProxy.h in Headers */,
+				DADBB6CF14DC0E7B00066FB0 /* OxICQuerySpec.h in Headers */,
+				DACF386E14DC9B020001BF7B /* OxICDaoProxyFactoryObject.h in Headers */,
+				DA15A14D150B96C00004F7A7 /* OxICThreadLocalProxy.h in Headers */,
+				DA15A151150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.h in Headers */,
+				DA35404B150C347A0085396C /* OxICLazyProxyFactoryObject.h in Headers */,
+				F4E49AB3154B5742004CF2D7 /* OxICJsonConverter.h in Headers */,
+				DA119EC9155DBD7300D609EB /* OxICJsonSerializer.h in Headers */,
+				DA119ECB155DBD7300D609EB /* OxICSerializer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* OxeniPhoneCommons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "OxeniPhoneCommons" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OxeniPhoneCommons;
+			productName = OxeniPhoneCommons;
+			productReference = D2AAC07E0554694100DB518D /* libOxeniPhoneCommons.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OxeniPhoneCommons" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* OxeniPhoneCommons */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* OxeniPhoneCommons */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA99863911F3F67100A75DF1 /* OxICSimpleClassWrapper.m in Sources */,
+				DA99863B11F3F67100A75DF1 /* OxICSimpleObjectWrapper.m in Sources */,
+				DA99864711F3F7FC00A75DF1 /* OxICPropertyDescriptor.m in Sources */,
+				DACB367311F516E900FE67D4 /* OxICSimpleWrapperFactory.m in Sources */,
+				DACB36EF11F5370800FE67D4 /* OxICContainer.m in Sources */,
+				DACB36F211F5370800FE67D4 /* OxICLazyProxy.m in Sources */,
+				DACB36F411F5370800FE67D4 /* OxICObjectDefinition.m in Sources */,
+				DACB36F611F5370800FE67D4 /* OxICXmlContainerBuilder.m in Sources */,
+				DA35AEC113E9E6CB004E17EC /* OxICDefaultFactoryObject.m in Sources */,
+				DA35B00913E9FF75004E17EC /* OxICNibFactoryObject.m in Sources */,
+				DA6856EE13EB4BA800465EDB /* OxICManagedObjectModelFactoryObject.m in Sources */,
+				DADDC86C13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m in Sources */,
+				DAA8F28E13F478C200BE690D /* OxICViewControllerFactoryObject.m in Sources */,
+				DAB352DF13FD48C300D6163A /* OxICAccordion.m in Sources */,
+				DAB352E113FD48C300D6163A /* OxICAccordionSection.m in Sources */,
+				DADCC1F31406CC58006E902F /* OxICInteractiveSelector.m in Sources */,
+				DADCC1F71406D898006E902F /* OxICInteractiveSelectorOption.m in Sources */,
+				DAABCDC2143529E700CF2ABA /* OxICBaseDao.m in Sources */,
+				DA28E3DD143636A900F6BA83 /* JSONKit.m in Sources */,
+				DA28E3E1143637DE00F6BA83 /* OxICJsonRpcProxy.m in Sources */,
+				DAA57DB614377C1C000E2319 /* OxICDictionaryProxy.m in Sources */,
+				DAA57E0F14379DC7000E2319 /* OxICDictionaryConverter.m in Sources */,
+				DAA57FA01437E282000E2319 /* OxICJsonRpcProxyFactoryObject.m in Sources */,
+				43FADAB2143CA2F500AE26E6 /* OxICExpandableTableViewUtil.m in Sources */,
+				DAB2871514422A1600F41B20 /* OxICViewUtils.m in Sources */,
+				DAB2875F14422EDA00F41B20 /* OxICPopupDatePicker.m in Sources */,
+				DAB2876114422EDA00F41B20 /* OxICPopupListPicker.m in Sources */,
+				DAB288551442603600F41B20 /* OxICPopupInteractiveSelector.m in Sources */,
+				DAAD3743144A157E00DAF2C3 /* OxICJsonRestProxy.m in Sources */,
+				DAAD3745144A157E00DAF2C3 /* OxICJsonRestProxyFactoryObject.m in Sources */,
+				DAAD374D144A16D500DAF2C3 /* OxICBaseJsonProxy.m in Sources */,
+				DA17C53B1456FE9600491D5E /* OxICBaseJsonProxyFactoryObject.m in Sources */,
+				DAD24F601480249D00FD9083 /* OxICScrollView.m in Sources */,
+				DA00AF6B14DB515A00F6B570 /* OxICDaoProxy.m in Sources */,
+				DADBB6D014DC0E7B00066FB0 /* OxICQuerySpec.m in Sources */,
+				DACF386F14DC9B020001BF7B /* OxICDaoProxyFactoryObject.m in Sources */,
+				DA15A14E150B96C00004F7A7 /* OxICThreadLocalProxy.m in Sources */,
+				DA15A152150B96D50004F7A7 /* OxICThreadLocalProxyFactoryObject.m in Sources */,
+				DA35404C150C347A0085396C /* OxICLazyProxyFactoryObject.m in Sources */,
+				F4E49AB4154B5742004CF2D7 /* OxICJsonConverter.m in Sources */,
+				DA119ECA155DBD7300D609EB /* OxICJsonSerializer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/OxeniPhoneCommons.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OxeniPhoneCommons_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = OxeniPhoneCommons;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/OxeniPhoneCommons.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = OxeniPhoneCommons_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = OxeniPhoneCommons;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "OxeniPhoneCommons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "OxeniPhoneCommons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
