@@ -116,7 +116,7 @@
 		pickerSelectedRow = 0;
 	}
 
-	[pickerView selectRow:selectedRow inComponent:0 animated:NO];
+	[pickerView selectRow:pickerSelectedRow inComponent:0 animated:NO];
 	
 	[menu addSubview:pickerView];
 	[menu showInView:[[UIApplication sharedApplication] keyWindow]];
