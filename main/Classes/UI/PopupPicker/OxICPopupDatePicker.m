@@ -38,6 +38,10 @@
 	[self addSubview:self.textField];
 }
 
+- (void) enabled:(BOOL)value {
+    self.textField.enabled = value;
+}
+
 - (void)awakeFromNib {
 	[self initialize];
 }
