@@ -27,4 +27,6 @@
 @property (nonatomic, retain) id<OxICPopupDatePickerDelegate> pickerDelegate;
 @property (nonatomic, retain, readonly) UITextField *textField;
 
+- (void) enabled:(BOOL)value;
+
 @end

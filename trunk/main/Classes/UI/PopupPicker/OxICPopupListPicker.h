@@ -27,6 +27,7 @@
 		 withLabel:(NSString*) label;
 
 - (void) clear;
+- (void) enabled:(BOOL)value;
 
 @property (nonatomic, assign) id selected;
 @property (nonatomic, retain) id<OxICPopupListPickerDelegate> pickerDelegate;
