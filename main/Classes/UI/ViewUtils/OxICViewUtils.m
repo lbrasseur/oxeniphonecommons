@@ -12,11 +12,13 @@
 	SEL selector;
 	id targetObject;
 	SEL callback;
+	SEL exceptionCallback;
 	UIView *waitView;
 }
 @property (assign, nonatomic) SEL selector;
 @property (retain, nonatomic) id targetObject;
 @property (assign, nonatomic) SEL callback;
+@property (assign, nonatomic) SEL exceptionCallback;
 @property (retain, nonatomic) UIView *waitView;
 @end
 
@@ -24,11 +26,13 @@
 @synthesize selector;
 @synthesize targetObject;
 @synthesize callback;
+@synthesize exceptionCallback;
 @synthesize waitView;
 - (void) dealloc {
 	self.selector = nil;
 	self.targetObject = nil;
 	self.callback = nil;
+	self.exceptionCallback = nil;
 	self.waitView = nil;
 	[super dealloc];
 }
@@ -103,6 +107,38 @@
 	data.selector = selector;
 	data.targetObject = target;
 	data.callback = callback;
+	data.exceptionCallback = nil;
+	data.waitView = aWaitView;
+	
+	[NSThread detachNewThreadSelector:@selector(runAsync:)
+                             toTarget:self
+                           withObject:data];
+	[data release];
+}
+
+- (void)    runAsync:(SEL) selector
+          withTarget:(id) target
+         andCallback:(SEL) callback 
+andExceptionCallback:(SEL) exceptionCallback {
+
+	[self   runAsync:selector
+          withTarget:target
+         andCallback:callback
+andExceptionCallback:exceptionCallback 
+         andWaitView:[self createDefaultWaitView]];
+}
+
+- (void)    runAsync:(SEL) selector
+          withTarget:(id) target
+         andCallback:(SEL) callback
+andExceptionCallback:(SEL) exceptionCallback
+         andWaitView:(UIView*) aWaitView {
+    
+	RunAsyncData *data = [[RunAsyncData alloc] init];
+	data.selector = selector;
+	data.targetObject = target;
+	data.callback = callback;
+	data.exceptionCallback = exceptionCallback;
 	data.waitView = aWaitView;
 	
 	[NSThread detachNewThreadSelector:@selector(runAsync:)
@@ -116,12 +152,24 @@
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	
 	[self showActivityIndicatorWithView:data.waitView];
-	
-	id returnedObject = [data.targetObject performSelector:data.selector];
-	
+
+    id returnedObject = nil;
+    NSException *exception = nil;
+    
+    @try {
+        returnedObject = [data.targetObject performSelector:data.selector];
+	}
+    @catch (NSException * e) {
+        exception = e;
+	}	        
+
 	[self hideActivityIndicator];
-	
-	[data.targetObject performSelectorOnMainThread:data.callback withObject:returnedObject waitUntilDone:YES];
+
+	if (data.exceptionCallback != nil) {
+        [data.targetObject performSelectorOnMainThread:data.exceptionCallback withObject:exception waitUntilDone:YES];
+    } else {
+        [data.targetObject performSelectorOnMainThread:data.callback withObject:returnedObject waitUntilDone:YES];
+    }
 
 	[pool release];
 }

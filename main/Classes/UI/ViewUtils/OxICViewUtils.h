@@ -33,6 +33,17 @@
 	  andCallback:(SEL) callback
       andWaitView:(UIView*) waitView;
 
+- (void)    runAsync:(SEL) selector
+          withTarget:(id) target
+         andCallback:(SEL) callback
+andExceptionCallback:(SEL) exceptionCallback;
+
+- (void)    runAsync:(SEL) selector
+          withTarget:(id) target
+         andCallback:(SEL) callback
+andExceptionCallback:(SEL) exceptionCallback
+         andWaitView:(UIView*) waitView;
+
 - (void) showActivityIndicator;
 
 - (void) showActivityIndicatorWithView:(UIView*) waitView;
