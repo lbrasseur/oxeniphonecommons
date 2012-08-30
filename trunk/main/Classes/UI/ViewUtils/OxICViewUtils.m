@@ -165,7 +165,7 @@ andExceptionCallback:(SEL) exceptionCallback
 
 	[self hideActivityIndicator];
 
-	if (data.exceptionCallback != nil) {
+	if (data.exceptionCallback != nil && exception != nil) {
         [data.targetObject performSelectorOnMainThread:data.exceptionCallback withObject:exception waitUntilDone:YES];
     } else {
         [data.targetObject performSelectorOnMainThread:data.callback withObject:returnedObject waitUntilDone:YES];
