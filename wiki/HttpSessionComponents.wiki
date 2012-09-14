@@ -3,18 +3,16 @@
 = Introduction =
 This section contains information about components for handling HTTP session.
 
-
 = HTTP Session =
 Sometime, applications need maintaining server-side state. When this scenario arises, typically, a server side session is created.
 
 For this purpose, the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/API/OxICHttpSessionManager.m OxICHttpSessionManager] protocol provides a pluggable HTTP session handler mechanism.
 
-
 = Implementations =
 == Servlet session ==
 The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/Servlet/OxICServletSessionManager.m.m OxICServletSessionManager]  provides an standard [http://es.wikipedia.org/wiki/Java_Servlet Java Servlet] HTTP session implementation. It reads ans sets the JSESSIONID cookie.
 
-However, since this class stores the session id into a property, it should be a singleton. Inside  a container, it could be declared like this:
+However, since this class stores the session id into a property, it should be a singleton. Inside  the  [Container container], it could be declared like this:
 
 {{{
 [self.container addDefinition: [OxICObjectDefinition withName: @"httpSessionManager"
@@ -23,5 +21,8 @@ However, since this class stores the session id into a property, it should be a 
                                                       andLazy: NO
                                                 andReferences: nil
                                                     andValues: nil]
-  ];
+];
 }}}
+
+= Clients =
+ * The [JsonComponents JSON components] (both RPC and REST) can receive a [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/API/OxICHttpSessionManager.m OxICHttpSessionManager]  in order to keep tracking of the session.
