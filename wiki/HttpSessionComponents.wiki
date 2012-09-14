@@ -1,0 +1,14 @@
+#summary Components for handling HTTP session.
+
+= Introduction =
+This section contains information about components for handling HTTP session.
+
+
+= HTTP Session =
+{{{
+- (id) initWithProtocol: (Protocol*) aProtocol
+                 andURL: (NSString*) aURL
+      andWrapperFactory:(id<OxICWrapperFactory>) aWrapperFactory;
+}}}
+
+= Implementations =
