@@ -6,7 +6,7 @@ This section contains information about components for handling HTTP session.
 = HTTP Session =
 Sometime, applications need maintaining server-side state. When this scenario arises, typically, a server side session is created.
 
-For this purpose, the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/API/OxICHttpSessionManager.m OxICHttpSessionManager] protocol provides a pluggable HTTP session handler mechanism.
+For this purpose, the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/API/OxICHttpSessionManager.h OxICHttpSessionManager] protocol provides a pluggable HTTP session handler mechanism.
 
 = Implementations =
 == Servlet session ==
