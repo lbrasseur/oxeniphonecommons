@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "OxICWrapperFactory.h"
+#import "OxICHttpSessionManager.h"
 
 @interface OxICBaseJsonProxy : NSProxy {
 	Protocol *protocol;
@@ -15,6 +16,7 @@
 	id<OxICWrapperFactory> wrapperFactory;
 	BOOL capitalizeMethods;
 	BOOL capitalizeFields;
+    id<OxICHttpSessionManager> httpSessionManager;
 }
 
 - (id) initWithProtocol: (Protocol*) aProtocol
@@ -25,5 +27,6 @@
 @property (retain, nonatomic) NSString* url;
 @property (assign, nonatomic) BOOL capitalizeMethods;
 @property (assign, nonatomic) BOOL capitalizeFields;
+@property (retain, nonatomic) id<OxICHttpSessionManager> httpSessionManager;
 
 @end
