@@ -99,3 +99,23 @@ You can instantiate a JSON REST proxy from the [Container IoC container] using t
 }}}
 
 Capitalization properties are available in the factory too.
+
+= Server-side session =
+All the remote service proxies support server-side session handling by injection a [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/Servlet/OxICServletSessionManager.m OxICServletSessionManager] instance. For example:
+
+{{{
+[self.container addDefinition: [OxICObjectDefinition withName: serviceName
+                                                     andClass: @"OxICJsonRpcProxyFactoryObject"
+                                                 andSingleton: NO
+                                                      andLazy: NO
+                                                andReferences: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                @"httpSessionManager", @"httpSessionManager",
+                                                                nil]
+                                                    andValues: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                url, @"url",
+                                                                protocol, @"protocol",
+                                                                wrapperFactory, @"wrapperFactory",
+                                                                nil]
+                                ]
+ ];
+}}}
