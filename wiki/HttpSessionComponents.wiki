@@ -26,4 +26,4 @@ However, since this class stores the session id into a property, it should be a 
 }}}
 
 = Clients =
- * The [JsonComponents JSON components] (both RPC and REST) can receive a [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/API/OxICHttpSessionManager.m OxICHttpSessionManager]  in order to keep tracking of the session.
+ * The [JsonComponents JSON components] (both RPC and REST) can receive a [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/API/OxICHttpSessionManager.h OxICHttpSessionManager]  in order to keep tracking of the session.
