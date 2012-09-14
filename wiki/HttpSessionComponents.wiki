@@ -10,7 +10,7 @@ Sometime, applications need maintaining server-side state. When this scenario ar
 For this purpose, the [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/API/OxICHttpSessionManager.h OxICHttpSessionManager] protocol provides a pluggable HTTP session handler mechanism.
 
 = Implementations =
-== Servlet session ==
+== Java Servlet Session ==
 The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/Servlet/OxICServletSessionManager.m OxICServletSessionManager]  provides an standard [http://es.wikipedia.org/wiki/Java_Servlet Java Servlet] HTTP session implementation. It reads ans sets the JSESSIONID cookie.
 
 However, since this class stores the session id into a property, *it must be instantiated as singleton*. Inside  the  [Container container], it could be declared as follows:
