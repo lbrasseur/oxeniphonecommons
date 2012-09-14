@@ -13,7 +13,7 @@ For this purpose, the [http://code.google.com/p/oxeniphonecommons/source/browse/
 == Servlet session ==
 The [http://code.google.com/p/oxeniphonecommons/source/browse/trunk/main/Classes/Session/Servlet/OxICServletSessionManager.m OxICServletSessionManager]  provides an standard [http://es.wikipedia.org/wiki/Java_Servlet Java Servlet] HTTP session implementation. It reads ans sets the JSESSIONID cookie.
 
-However, since this class stores the session id into a property, it should be a singleton. Inside  the  [Container container], it could be declared like this:
+However, since this class stores the session id into a property, *it must be instantiated a singleton*. Inside  the  [Container container], it could be declared like this:
 
 {{{
 [self.container addDefinition: [OxICObjectDefinition withName: @"httpSessionManager"
