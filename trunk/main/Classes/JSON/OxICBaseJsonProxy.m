@@ -35,7 +35,7 @@
 @synthesize wrapperFactory;
 @synthesize capitalizeMethods;
 @synthesize capitalizeFields;
-
+@synthesize httpSessionManager;
 
 #pragma mark init and dealloc
 - (id) initWithProtocol: (Protocol*) aProtocol
@@ -47,6 +47,7 @@
 	self.wrapperFactory = aWrapperFactory;
 	self.capitalizeMethods = NO;
 	self.capitalizeFields = NO;
+	self.httpSessionManager = nil;
 	
 	return self;
 }
@@ -55,6 +56,7 @@
 	self.protocol = nil;
 	self.url = nil;
 	self.wrapperFactory = nil;
+	self.httpSessionManager = nil;
 	[super dealloc];
 }
 
@@ -132,11 +134,23 @@
 	[request setHTTPMethod:@"POST"];
 	[request addValue:@"text/json" forHTTPHeaderField:@"content-type"];
     [request setHTTPBody:requestData];
+    
+    if (self.httpSessionManager != nil) {
+        [self.httpSessionManager processRequest:request];
+    }
 
 	error = nil;
-	NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    NSHTTPURLResponse  *response = nil;
+	NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    if (self.httpSessionManager != nil) {
+        [self.httpSessionManager processResponse:response];
+    }
+    
 #ifdef DEBUG
-    NSString *responseText = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
+    NSString *responseText = [[NSString alloc] initWithData:responseData
+                                                   encoding:NSASCIIStringEncoding];
 	NSLog(@"OxICBaseJsonProxy responseData: [%@]", responseText);
     [responseText release];
 #endif

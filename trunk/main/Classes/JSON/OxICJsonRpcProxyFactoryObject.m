@@ -18,6 +18,7 @@
 	
 	proxy.capitalizeMethods = self.capitalizeMethods;
 	proxy.capitalizeFields = self.capitalizeFields;
+	proxy.httpSessionManager = self.httpSessionManager;
 	
 	return [proxy autorelease];
 }

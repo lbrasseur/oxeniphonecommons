@@ -15,12 +15,14 @@
 @synthesize wrapperFactory;
 @synthesize capitalizeMethods;
 @synthesize capitalizeFields;
+@synthesize httpSessionManager;
 
 - (id) init {
 	self = [super init];
 	if (self != nil) {
 		self.capitalizeMethods = NO;
 		self.capitalizeFields = NO;
+        self.httpSessionManager = nil;
 	}
 	return self;
 }
@@ -29,6 +31,7 @@
 	self.protocol = nil;
 	self.url = nil;
 	self.wrapperFactory = nil;
+	self.httpSessionManager = nil;
 	[super dealloc];
 }
 

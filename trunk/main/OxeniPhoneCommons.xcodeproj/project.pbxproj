@@ -99,6 +99,9 @@
 		DADCC1F71406D898006E902F /* OxICInteractiveSelectorOption.m in Sources */ = {isa = PBXBuildFile; fileRef = DADCC1F51406D898006E902F /* OxICInteractiveSelectorOption.m */; };
 		DADDC86B13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DADDC86913EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h */; };
 		DADDC86C13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DADDC86A13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m */; };
+		DAE584011603F856004A768A /* OxICHttpSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE583FD1603F856004A768A /* OxICHttpSessionManager.h */; };
+		DAE584021603F856004A768A /* OxICServletSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DAE583FF1603F856004A768A /* OxICServletSessionManager.h */; };
+		DAE584031603F856004A768A /* OxICServletSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE584001603F856004A768A /* OxICServletSessionManager.m */; };
 		F4E49AB3154B5742004CF2D7 /* OxICJsonConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E49AB1154B5742004CF2D7 /* OxICJsonConverter.h */; };
 		F4E49AB4154B5742004CF2D7 /* OxICJsonConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E49AB2154B5742004CF2D7 /* OxICJsonConverter.m */; };
 /* End PBXBuildFile section */
@@ -199,6 +202,9 @@
 		DADCC1F51406D898006E902F /* OxICInteractiveSelectorOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICInteractiveSelectorOption.m; sourceTree = "<group>"; };
 		DADDC86913EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OxICPersistentStoreCoordinatorFactoryObject.h; path = Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.h; sourceTree = SOURCE_ROOT; };
 		DADDC86A13EC644300C27147 /* OxICPersistentStoreCoordinatorFactoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OxICPersistentStoreCoordinatorFactoryObject.m; path = Classes/Container/OxICPersistentStoreCoordinatorFactoryObject.m; sourceTree = SOURCE_ROOT; };
+		DAE583FD1603F856004A768A /* OxICHttpSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICHttpSessionManager.h; sourceTree = "<group>"; };
+		DAE583FF1603F856004A768A /* OxICServletSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICServletSessionManager.h; sourceTree = "<group>"; };
+		DAE584001603F856004A768A /* OxICServletSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICServletSessionManager.m; sourceTree = "<group>"; };
 		F4E49AB1154B5742004CF2D7 /* OxICJsonConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxICJsonConverter.h; sourceTree = "<group>"; };
 		F4E49AB2154B5742004CF2D7 /* OxICJsonConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxICJsonConverter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +262,7 @@
 				DAA57DB214377B4F000E2319 /* Dictionary */,
 				DA28E3D6143636A900F6BA83 /* JSON */,
 				DA119EC5155DBD7300D609EB /* Serializer */,
+				DAE583FB1603F856004A768A /* Session */,
 				DAB352D813FD48C300D6163A /* UI */,
 				DA99863011F3F67100A75DF1 /* Wrapper */,
 			);
@@ -515,6 +522,33 @@
 			path = Classes/UI/InteractiveSelector;
 			sourceTree = SOURCE_ROOT;
 		};
+		DAE583FB1603F856004A768A /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				DAE583FC1603F856004A768A /* API */,
+				DAE583FE1603F856004A768A /* Servlet */,
+			);
+			name = Session;
+			path = Classes/Session;
+			sourceTree = "<group>";
+		};
+		DAE583FC1603F856004A768A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DAE583FD1603F856004A768A /* OxICHttpSessionManager.h */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DAE583FE1603F856004A768A /* Servlet */ = {
+			isa = PBXGroup;
+			children = (
+				DAE583FF1603F856004A768A /* OxICServletSessionManager.h */,
+				DAE584001603F856004A768A /* OxICServletSessionManager.m */,
+			);
+			path = Servlet;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -571,6 +605,8 @@
 				F4E49AB3154B5742004CF2D7 /* OxICJsonConverter.h in Headers */,
 				DA119EC9155DBD7300D609EB /* OxICJsonSerializer.h in Headers */,
 				DA119ECB155DBD7300D609EB /* OxICSerializer.h in Headers */,
+				DAE584011603F856004A768A /* OxICHttpSessionManager.h in Headers */,
+				DAE584021603F856004A768A /* OxICServletSessionManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +704,7 @@
 				DA35404C150C347A0085396C /* OxICLazyProxyFactoryObject.m in Sources */,
 				F4E49AB4154B5742004CF2D7 /* OxICJsonConverter.m in Sources */,
 				DA119ECA155DBD7300D609EB /* OxICJsonSerializer.m in Sources */,
+				DAE584031603F856004A768A /* OxICServletSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
