@@ -41,7 +41,7 @@
 
 - (void) processResponse:(NSHTTPURLResponse*) response {
     NSDictionary *headers = [response allHeaderFields];
-    /*
+    
     for (NSString *key in [headers keyEnumerator]) {
         if ([key isEqualToString:@"Set-Cookie"]) {
             for (NSString *value in [[headers valueForKey:key] componentsSeparatedByString:@";"]) {
@@ -60,7 +60,6 @@
             }
         }
     }
-     */
 }
 
 @end
