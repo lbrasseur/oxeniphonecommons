@@ -19,6 +19,7 @@
 	proxy.capitalizeMethods = self.capitalizeMethods;
 	proxy.capitalizeFields = self.capitalizeFields;
 	proxy.httpSessionManager = self.httpSessionManager;
+	proxy.timeout = self.timeout;
 	
 	return [proxy autorelease];
 }
