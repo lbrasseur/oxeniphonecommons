@@ -98,9 +98,8 @@
 	} else {
 		scrollView.contentSize = CGSizeMake([self.options count] * self.optionWidth, self.optionHeight);
 	}
-	return 	[option autorelease];	
-
-	
+    
+	return [option autorelease];	
 }
 
 - (void) setOption:(id) identifier
