@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "OxICWrapperFactory.h"
 #import "OxICHttpSessionManager.h"
+#define DEFAULT_REQUEST_TIMEOUT 300
 
 @interface OxICBaseJsonProxy : NSProxy {
 	Protocol *protocol;
@@ -17,6 +18,7 @@
 	BOOL capitalizeMethods;
 	BOOL capitalizeFields;
     id<OxICHttpSessionManager> httpSessionManager;
+    NSTimeInterval timeout;
 }
 
 - (id) initWithProtocol: (Protocol*) aProtocol
@@ -28,5 +30,6 @@
 @property (assign, nonatomic) BOOL capitalizeMethods;
 @property (assign, nonatomic) BOOL capitalizeFields;
 @property (retain, nonatomic) id<OxICHttpSessionManager> httpSessionManager;
+@property (assign, nonatomic) NSTimeInterval timeout;
 
 @end

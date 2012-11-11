@@ -36,6 +36,7 @@
 @synthesize capitalizeMethods;
 @synthesize capitalizeFields;
 @synthesize httpSessionManager;
+@synthesize timeout;
 
 #pragma mark init and dealloc
 - (id) initWithProtocol: (Protocol*) aProtocol
@@ -48,6 +49,7 @@
 	self.capitalizeMethods = NO;
 	self.capitalizeFields = NO;
 	self.httpSessionManager = nil;
+	self.timeout = DEFAULT_REQUEST_TIMEOUT;
 	
 	return self;
 }
@@ -129,7 +131,9 @@
 #ifdef DEBUG
 	NSLog(@"OxICBaseJsonProxy URL: [%@]", urlStr);
 #endif
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:urlStr]];
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlStr]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:self.timeout];
 	
 	[request setHTTPMethod:@"POST"];
 	[request addValue:@"text/json" forHTTPHeaderField:@"content-type"];
