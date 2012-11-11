@@ -11,6 +11,7 @@
 
 @interface OxICPopupInteractiveSelector()
 - (void) showSelector;
+- (void) notifyOptionCreation:(OxICInteractiveSelectorOption*) option;
 @property (nonatomic, retain) NSMutableArray *identifiers;
 @property (nonatomic, retain) NSMutableArray *labels;
 @property (nonatomic, retain) NSArray *selectedIds;
@@ -27,6 +28,8 @@
 @synthesize availableSelector;
 @synthesize selectedSelector;
 @synthesize textField;
+@synthesize selectorDelegate;
+
 
 #pragma mark Initialization and dealloc
 - (void)initialize {
@@ -63,6 +66,7 @@
 	self.textField = nil;
 	self.availableSelector = nil;
 	self.selectedSelector = nil;
+    self.selectorDelegate = nil;
     [super dealloc];
 }
 
@@ -123,10 +127,10 @@
 	for (int n = 0; n < [self.identifiers count]; n++) {
 		id identifier = [self.identifiers objectAtIndex:n];
 		NSString *label = [self.labels objectAtIndex:n];
-		[self.availableSelector addOption:identifier
-								withLabel:label];
-		[self.selectedSelector addOption:identifier
-							   withLabel:label];
+		[self notifyOptionCreation:[self.availableSelector addOption:identifier
+                                                           withLabel:label]];
+        [self notifyOptionCreation:[self.selectedSelector addOption:identifier
+                                                          withLabel:label]];
 		[self.selectedSelector setOption:identifier withSelected:YES];
 	}
 
@@ -143,6 +147,13 @@
 	[menu setBounds:CGRectMake(0,0,320, 575)];
 	
 	[menu release];	
+}
+
+- (void) notifyOptionCreation:(OxICInteractiveSelectorOption*) option {
+    if (self.selectorDelegate != nil &&
+        [self.selectorDelegate respondsToSelector:@selector(optionCreated:)]) {
+        [self.selectorDelegate optionCreated:option];
+    }
 }
 
 

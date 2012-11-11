@@ -11,7 +11,7 @@
 
 @class OxICInteractiveSelector;
 
-@protocol OxICInteractiveSelectorDelegate
+@protocol OxICInteractiveSelectorDelegate<NSObject>
 - (void) selected:(id) identifier
 	   onSelector:(OxICInteractiveSelector*) selector;
 @optional
