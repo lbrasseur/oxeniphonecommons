@@ -7,7 +7,7 @@
 //
 
 #import "OxICBaseJsonProxyFactoryObject.h"
-
+#import "OxICBaseJsonProxy.h"
 
 @implementation OxICBaseJsonProxyFactoryObject
 @synthesize protocol;
@@ -16,6 +16,7 @@
 @synthesize capitalizeMethods;
 @synthesize capitalizeFields;
 @synthesize httpSessionManager;
+@synthesize timeout;
 
 - (id) init {
 	self = [super init];
@@ -23,6 +24,7 @@
 		self.capitalizeMethods = NO;
 		self.capitalizeFields = NO;
         self.httpSessionManager = nil;
+        self.timeout = DEFAULT_REQUEST_TIMEOUT;
 	}
 	return self;
 }
