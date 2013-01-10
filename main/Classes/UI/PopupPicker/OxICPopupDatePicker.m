@@ -86,6 +86,22 @@
     }
 }
 
+- (void) setMinimumDate:(NSDate *) minimumDate {
+    self.datePicker.minimumDate = minimumDate;
+}
+
+- (NSDate *) minimumDate {
+    return self.datePicker.minimumDate;
+}
+
+- (void) setMaximumDate:(NSDate *) maximumDate {
+    self.datePicker.maximumDate = maximumDate;
+}
+
+- (NSDate *) maximumDate {
+    return self.datePicker.maximumDate;
+}
+
 #pragma mark Private methods
 - (void) showPicker {
 	OxICViewUtils *viewUtils = [[OxICViewUtils alloc] init];

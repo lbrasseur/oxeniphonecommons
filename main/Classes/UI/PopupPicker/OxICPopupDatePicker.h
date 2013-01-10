@@ -26,6 +26,8 @@
 @property (nonatomic) UIDatePickerMode datePickerMode;
 @property (nonatomic, retain) id<OxICPopupDatePickerDelegate> pickerDelegate;
 @property (nonatomic, retain, readonly) UITextField *textField;
+@property (nonatomic, assign) NSDate *minimumDate;
+@property (nonatomic, assign) NSDate *maximumDate;
 
 - (void) enabled:(BOOL)value;
 
